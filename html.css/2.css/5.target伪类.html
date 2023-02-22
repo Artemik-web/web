@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :target{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <a href="#home">首页</a>
+    <a href="#about">关于</a>
+    <div>
+        <h2 id="home" style="background-color: #ddd; height: 500px;">首页</h2>
+
+    </div>
+    <div>
+        <h2 id="about" style="background-color: #ddd; height: 500px;">关于</h2>
+    </div>
+    <style>
+        .sad :only-child{
+            color: red;
+        }
+    </style>
+    <div class="sad">
+        000
+        <p>111</p>
+    </div>
+    <style>
+        .qwe :nth-child(2n+1){
+            color: red;
+        }
+        .qwe :nth-child(1){
+            color: red;
+        }
+        
+    </style>
+    <div class="qwe">
+        <li>文本1</li>
+        <li>文本2</li>
+        <li>文本3</li>
+        <li>文本4</li>
+        <li>文本5</li>
+        <li>文本6</li>
+    </div>
+    <style>
+        .qwer :nth-last-child(5){
+            color: red;
+        }
+        .qwer :nth-last-child(1){
+            color: red;
+        }
+        
+    </style>
+    <div class="qwer">
+        <li>文本1</li>
+        <li>文本2</li>
+        <li>文本3</li>
+        <li>文本4</li>
+        <li>文本5</li>
+        <li>文本6</li>
+    </div>
+</body>
+</html>

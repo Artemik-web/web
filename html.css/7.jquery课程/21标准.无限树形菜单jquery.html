@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  ul{
+    list-style: none;
+  }
+  .treemenu ul{
+    display: none;
+  }
+  .treemenu li{
+    cursor: pointer;
+  }
+  </style>
+  <script src="jQuery.min.js"></script>
+</head>
+<body>
+
+<ul class="treemenu">
+  <li><b>▶</b> 一级分类1
+    <ul>
+      <li><b>▶</b> 二级分类1
+        <ul>
+          <li><b>▶</b> 三级分类1
+            <ul>
+              <li><span>•</span> 四级分类1</li>
+              <li><span>•</span> 四级分类2</li>
+            </ul>
+          </li>
+          <li><span>•</span> 三级分类2</li>
+          <li><span>•</span> 三级分类3</li>
+        </ul>
+      </li>
+      <li><span>•</span> 二级分类2</li>
+      <li><span>•</span> 二级分类3</li>
+    </ul>
+  </li>
+  <li><b>▶</b> 一级分类2
+    <ul>
+      <li><span>•</span> 二级分类1</li>
+      <li><span>•</span> 二级分类2</li>
+    </ul>
+  </li>
+  <li><span>•</span> 一级分类3</li>
+</ul>
+
+<script>
+$('.treemenu').on('click', 'li', function(event){
+  event.stopPropagation();//要阻止冒泡，不然冒泡上去，上面的LI会隐藏
+  let $ul = $(this).children('ul');
+  $(this).children('b').text( $ul.is(':visible')?'▶':'▼' );
+  $ul.toggle();
+}) 
+
+</script>
+  
+</body>
+</html>

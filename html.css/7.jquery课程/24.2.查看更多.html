@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .box{
+    position: relative;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    overflow: hidden;
+  }
+  .box p{
+    margin: 0;
+  }
+  .box::after{
+    content: " ";
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    background-image: linear-gradient(to top,white 5%,transparent);
+    bottom: 0;
+    left: 0;
+  }
+  .box a{
+    position: absolute;
+    color: red;
+    padding: 10px;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+    z-index: 100;
+    cursor: pointer;
+  }
+  </style>
+  <script src="jQuery.min.js"></script>
+</head>
+<body>
+
+<div class="box">
+  <p>
+阿萨德记录卡决定是否考虑房价拉水
+电费就看见阿弗莱克士大夫家看来是
+打发时间登飞来峰骄傲的看法杰卡斯
+两地分居卡斯柯老大哥工行卡里发生
+打架阿斯利康的积分卡拉斯激发开始
+代理费阿贾克斯房贷辣椒水两地分居
+阿斯顿福建高考合格哈卡司法局大啊
+佳世客东方丽景阿斯蒂芬两个号拉丝
+粉按甲方的快速拉设计公开课辣椒粉
+单身快乐阿达撒说过发的说法噶经济
+的方式卡里的首付款离开垃圾发的空
+间里规划开发的规划爱上发达水电费
+噶地方爱的嘎啊哈哈公司的发生埃及
+高科技阿里山风景奥克兰市附近阿萨
+德六块腹肌赶紧啊加快发啦时代峰峻
+奥克兰市附近案件开发及爱看的宫颈
+癌禄口街道法拉第设计费拉三季度福
+利卡世纪东方卡死了都放假快乐复健
+科就爱看的更加疯狂地老师
+  </p>
+  <a>查看更多</a>
+</div>
+
+<script>
+let th = 150; //打开的时候显示的高度
+let fh = $('.box > p').outerHeight(); //总的高度
+let opened = false; //默认关闭状态
+
+$('.box > p').height( th ); //设置打开高度
+
+$('.box').on('click','a',function(){
+  opened = !opened; 
+
+  $('.box > p').animate({
+    height: opened?fh:th
+  },300);
+  
+  $(this).text(opened?'收缩内容':'查看更多');
+
+})
+
+</script>
+
+  
+</body>
+</html>

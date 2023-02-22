@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/axios.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>
+            <router-link to="/home">首页</router-link>
+            <router-link to="/mes">信息</router-link>
+        </p>
+        <router-view></router-view>
+    </div>
+   
+    <script>
+        axios.defaults.baseURL='http://cloud.scnew.com.cn/api/'
+        const Home = {
+            template: `
+            <h2>首页</h2>
+            `
+        }
+        const Mes = {
+            data(){
+                return {
+                    questions: []
+                }
+            },
+            created(){
+                 axios.get('learn/question?tid=67').then(res=>{
+                    this.questions = res.data.result;
+            })
+            },
+           
+            template: `
+             <div>
+                 <h2>首页</h2>
+                 <div>
+                    <ul>
+                        <li v-for="item in questions">
+                            <router-link :to="'/mes/'+item.id">{{item.title}}</router-link>
+                
+                        </li>
+                    </ul>
+                </div>
+             </div>
+            
+            
+            `
+        }
+        const MesList = {
+            data(){
+                return {
+                    detail: {}
+                }
+            },
+            template: `
+            <div>
+                 <h2>mes详情</h2> <button @click="$router.back()">返回</button>
+                 <br>
+                 <h1>{{detail.title}}</h1>
+                 <div>{{detail.answer}}</div>
+            </div>
+            `,
+            watch: {
+                $route: {
+                    handler(to){
+                        axios.get(`learn/question/${to.params.id}`).then(res=>{
+                            this.detail = res.data.result;
+                        })
+                    },
+                    immediate:true,
+                }
+            }
+        }
+        const router = new VueRouter({
+            routes: [
+                {path: '/', redirect: '/home'},
+                {path: '/home', component: Home},
+                {path: '/mes', component: Mes},
+                {path: '/mes/:id', component: MesList},
+            ]
+        })
+        const app = new Vue({
+            el: '#app',
+            router,
+        })
+
+
+        
+    </script>
+ 
+</body>
+</html>

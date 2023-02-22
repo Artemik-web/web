@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+</head>
+
+<body>
+    <!-- <input type="text" name="" id="box"> -->
+    <!-- <textarea name="" id="box" cols="30" rows="10"></textarea> -->
+
+    <select name="" id="box">
+        <option value="大专">大专</option>
+        <option value="本科">本科</option>
+    </select>
+    <button id="an">取值</button>
+
+
+    <input type="radio" name="gender" value="男">男
+    <input type="radio" name="gender" value="女">女
+
+
+
+
+
+    <input type="checkbox" value="篮球" name="hobby"> 篮球
+    <input type="checkbox" value="足球" name="hobby"> 足球
+    <input type="checkbox" value="排球" name="hobby"> 排球
+    <button id="btn">取值</button>
+
+
+
+    <script>
+        $(function () {
+            // $('#box').val('tony');//设置值
+            // console.log($(':input').val().trim());//取值
+
+            // $('button').click(function () {
+            //     alert($('#box').val().trim())
+            // })
+
+
+
+            $(':radio').get(1).checked = true;
+            //  $(':radio:first').prop({disabled = true,checked = true} )
+            $(':radio').click(function () {
+
+
+                alert($(':radio:checked').val())
+            })
+        })
+
+        //多选
+
+
+
+
+        $(function () {
+            $('[name = "hobby"]').each(function () {
+                if (this.value.includes('篮球'))
+                    console.log(this.value)
+            })
+        })
+
+        $('#btn').click(function () {
+            var v = []
+            $('[name = "hobby"]:checked').map(function () {
+                v.push(this.value)
+                console.log(v)
+            })
+
+
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+<br>
+
+    <input type="checkbox" id="state" >
+    <button id="btn6">判断状态</button>
+    <script>
+        $('#btn6').click(function(){
+            alert($('#state ').get(0).checked); 
+            // alert($('#state ').is(' :checked ')); 
+            // alert($('#state ').prop(' checked ')); 
+            // alert($('#state ').propg(' checked '));
+        })
+     </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body >
+</html >

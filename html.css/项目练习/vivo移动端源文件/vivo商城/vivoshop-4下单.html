@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../vivo商城/fonts/fonts/iconfont.css">
+    
+</head>
+
+<body>
+    <style>
+        * {
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        a{
+            color: black;
+        }
+        html {
+            font-size: calc(100vw/3.6);
+        }
+
+        body {
+            font-size: 16px;
+            background-color: royalblue;
+        }
+
+        @media screen and (min-width:360px) {
+            html {
+                font-size: 100px;
+            }
+        }
+
+        .container {
+            max-width: 3.6rem;
+            height: 100vh;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: darkolivegreen;
+        }
+
+        .header,
+        .footer {
+            padding: 0 20px;
+            position: fixed;
+            max-width: 3.6rem;
+            width: 100%;
+            z-index: 999;
+            background-color: #FFFFFF;
+        }
+
+        .header {
+            line-height: .6rem;
+            font-size: .24rem;
+            border-bottom: 1px solid #f5f1f1;
+        }
+
+        .footer {
+            bottom: 0;
+        }
+
+        .main {
+            padding-top: .6rem;
+            background-color: #F4F4F4;
+            overflow: hidden;
+            background-color: #F7F7F7;
+        }
+
+        .place {
+            padding: .1rem .2rem 0 .2rem;
+        }
+
+        .name {
+            display: inline-block;
+        }
+
+        .tel {
+            text-align: right;
+            flex-grow: 1;
+            display: inline-block;
+        }
+
+        .message {
+            display: flex;
+            padding-bottom: .1rem;
+        }
+        .place-message{
+            padding-bottom: .2rem;
+        }
+        .color-line{
+            display: flex;
+            padding-bottom: .1rem;
+            flex-wrap: nowrap;
+        }
+        .color-line li {
+            margin-right: .09rem;
+        }
+
+        
+
+        .color-line li:nth-child(odd) {
+            transform: skew(316deg);
+            width: .2rem;
+            display: inline-block;
+            border-bottom: 2px solid blue;
+        }
+
+        .color-line li:nth-child(even) {
+            transform: skew(316deg);
+            width: .2rem;
+            display: inline-block;
+            border-bottom: 2px solid red;
+        }
+        .color-line li:first-child,
+        .color-line li:last-child{
+            width: .3rem;
+        }
+        .manifest p:first-child{
+            background-color: white;
+            padding: .1rem .2rem;
+        }
+        .manifest .goods{
+            background: #FAFAFA;
+            display: flex;
+            margin-bottom: .1rem;
+            padding: .1rem .2rem;
+        }
+        .manifest .goods img{
+            display: inline-block;
+            height: 1rem;
+            object-fit: cover;
+
+        }
+        .manifest .goods div{
+            flex-grow: 1;
+            vertical-align: top;
+            display: inline-block;
+        }
+        .manifest .goods i{
+            font-weight: bold;
+            font-style: normal;
+        }
+        .manifest .goods div p{
+            display: flex;
+        }
+        .manifest .goods div p i{
+            color: red;
+        }
+        .manifest .goods div p span{
+            flex-grow: 1;
+            text-align: right;
+            margin-right: 0;
+        }
+    </style>
+    <div class="container">
+        <div class="header"><a href="vivoshop-3详情.html"><i class="iconfont icons">&#xe61a;</i>商品详情</a> </div>
+        <div class="main">
+            <div class="place">
+                <div class="message">
+                    <div class="name">收货人：张三</div>
+                    <div class="tel">15255460858</div>
+                </div>
+                <p class="place-message">
+                    收货地址：安徽省合肥市蜀山区金寨路立即大厦B座中科大对面
+                </p>
+                <ul class="color-line">
+                    <li class="blue"></li>
+                    <li class="red"></li>
+                    <li class="blue"></li>
+                    <li class="red"></li>
+                    <li class="blue"></li>
+                    <li class="red"></li>
+                    <li class="blue"></li>
+                    <li class="red"></li>
+                    <li class="blue"></li>
+                    <li class="red"></li>
+                    <li class="blue"></li>
+                    <li class="red"></li>
+                    <li class="blue"></li>
+                </ul>
+            </div>
+            <div class="manifest">
+                <p>商品清单</p>
+                <hr>
+                <div class="goods">
+                    <img src="../vivo商城/image/img/04.png" alt="">
+                    <div>
+                        <span><i>X9Plus</i> 全网通</span>
+                        <p><i>￥2789</i><span>×1</span></p>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .paylist,
+                .payin,
+                .laytalk{
+                    margin-bottom: .1rem;
+                    background: white;
+                }
+                .laytalk{
+                    background: #FAFAFA;
+
+                }
+                .laytalk>p:first-child{
+                    background: white;
+                    margin-bottom: .1rem;
+
+                }
+                .paylist p:first-child,
+                .payin p:first-child,
+                .laytalk > .ding-1 p{
+                    padding: .1rem .2rem;
+                    border-bottom:1px solid #CECECE;
+
+                }
+                .paylist p:nth-child(2){
+                    display: flex;
+                    padding: .1rem .2rem;
+
+                }
+                .paylist p:nth-child(2) i{
+                    color: red;
+                    padding-right: 5px;
+                }
+                .paylist p:nth-child(2) input{
+                    flex-grow: 1;
+                    border:1px solid #CBCBCB;
+                    margin-left: .2rem;
+                    line-height: 20px;
+                }
+                .laytalk {
+            background: #FAFAFA;
+
+                }
+                .laytalk > .ding-1{
+                    background: white;
+                    margin-bottom: .1rem;
+                }
+                .laytalk > .ding-1 p{
+                    margin-bottom: .1rem;
+                }
+                .laytalk > p:nth-child(2){
+                    padding: .1rem .2rem;
+                    background: white;
+                }
+                .talk .text{
+                    padding: .1rem 0;
+                    background: white;
+                }
+                .talk .text textarea{
+                    border:1px solid #CBCBCB;
+
+                    width: 90%;
+                    height: .6rem;
+                    display: block;
+                    margin: 0 auto;
+                }
+                .paymess{
+                    background: white;
+                    padding: .1rem .2rem;
+                }
+            </style>
+            <div class="paylist">
+                <p>发票信息</p>
+                <p><i>*</i>发票抬头<input type="text" placeholder="请输入发票信息"></p>
+            </div>
+            <div class="payin">
+                <p>支付方式</p>
+                <div class="select">
+                    <p><span>在线支付</span><span>花呗分期</span><span>货到付款</span></p>
+                <span>支持支付宝支付、微信支付、银行卡支付、财付通等</span>
+                </div>
+            </div>
+            <div class="laytalk">
+                <div class="ding-1"> <p>订单留言</p></div>
+               
+                <p>订单留言</p>
+                <div class="talk">
+                    <div class="text">
+                    <textarea name="" id="" placeholder="限300字（若有特殊需求,请联系商城在线客服）"></textarea>
+                     </div>
+                     <div class="paymess">
+                        <p>商品总金额：￥2798</p>
+                        <p>运费：0.00</p>
+                        <p>优惠：￥0.00</p>
+                        <p>赠送积分：2798</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span>订单总金额：</span><span><i>￥</i>2798.00</span><button>提交订单</button>
+        </div>
+    </div>
+</body>
+
+</html>

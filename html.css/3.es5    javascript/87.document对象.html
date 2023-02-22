@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="height:1000px"></div>
+    <form action="" name="user">
+        <input type="text" name="username">
+    </form>
+    <form action="">
+        <input type="text" name="username">
+    </form>
+    <script>
+        window.onscroll = function(){
+        // console.log(document.scrollTop);  //undefined
+        // console.log(document.documentElement.scrollTop); //有
+        // console.log(html.scrollTop);//有
+    }
+
+
+
+
+
+
+
+
+
+
+
+function get1(){
+    console.log(document.forms['user'].username.value)
+}
+
+
+    function get2(){
+        var forms = document.forms;
+        for (var i=0;i<forms.length;i++){
+            console.log(forms[i].username.value)
+        }
+    }
+    </script>
+</body>
+</html>

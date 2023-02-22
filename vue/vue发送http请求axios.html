@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/axios.js"></script>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  
+ <div id="app">
+
+  <h2>评论列表</h2>
+
+  <ul>
+    <li v-if="!list.length">暂无数据</li>
+    <li v-for="item in list">
+      {{item.content}}
+      <button @click="delItem(item.id)">删除</button>
+    </li>
+  </ul>
+
+  <hr>
+
+  <h2>填写评论</h2>
+  <p><input type="text" v-model="form.title"></p>
+  <p>
+    <textarea cols="30" rows="4" v-model="form.content"></textarea>
+  </p>
+  <p>
+    <button @click="submit">提交评论</button>
+  </p>
+
+ </div>
+
+ <script>
+  //全局配置
+  axios.defaults.baseURL = 'http://cloud.scnew.com.cn/api/';
+  axios.defaults.headers.common['Content-Type'] = 'application/json';
+  axios.defaults.headers.common['SC-Token'] = 'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIyOSIsImF1ZCI6InRlc3QiLCJpYXQiOjE2MzUyNDExMjksInJvbGVzIjoiNCIsImV4cCI6MTk5NTI0MTEyOX0.hk3GYgMBvisAyc1ROCl9gk_ORjg8bKpGvINwvyvDL6w';
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      list: [],
+      form: { tid:0 }
+    },
+    created(){
+      this.query();
+    },
+    methods: {
+      // 查询
+      query(){
+        // let xhr = new XMLHttpRequest();
+        // xhr.onreadystatechange = () => {
+        //   if(xhr.readyState===4 && xhr.status===200){
+        //     let res =JSON.parse(xhr.responseText);
+        //     if(res.err > 0){
+        //       console.error(res.desc);
+        //     }else{
+        //       this.list = res.result;
+        //     }
+        //   }
+        // }
+        // xhr.open('GET',baseURL+'feedback/user?tid=0');
+        // xhr.setRequestHeader('SC-Token', TOKEN);
+        // xhr.send();
+
+        axios.get('feedback/user?tid=0').then(res=>{
+          this.list = res.data.result;
+        })
+
+      },
+      submit(){
+        
+        // let xhr = new XMLHttpRequest();
+        // xhr.onreadystatechange = () => {
+        //   if(xhr.readyState===4 && xhr.status===200){
+        //     let res =JSON.parse(xhr.responseText);
+        //     if(res.err > 0){
+        //       console.error(res.desc);
+        //     }else{
+        //       //添加成功 刷新页面
+        //       this.query();
+        //     }
+        //   }
+        // }
+        // xhr.open('POST',baseURL+'feedback/add');
+        // xhr.setRequestHeader('Content-Type','application/json');
+        // xhr.setRequestHeader('SC-Token', TOKEN);
+        // xhr.send( JSON.stringify(this.form) );
+
+        axios.post('feedback/add', this.form).then(res => {
+          if(res.err > 0){
+            console.error(res.desc);
+          }else{
+            this.query();
+          }
+        })
+
+      },
+      delItem( id ){
+        if(confirm('您确定要删除吗？')){
+          // let xhr = new XMLHttpRequest();
+          // xhr.onreadystatechange = () => {
+          //   if(xhr.readyState===4 && xhr.status===200){
+          //     let res =JSON.parse(xhr.responseText);
+          //     if(res.err > 0){
+          //       console.error(res.desc);
+          //     }else{
+          //       //删除成功
+          //       this.query();
+          //     }
+          //   }
+          // }
+          // xhr.open('DELETE', baseURL+`feedback/user/${id}`);
+          // xhr.setRequestHeader('SC-Token', TOKEN);
+          // xhr.send();
+
+          axios.delete(`feedback/user/${id}`).then(res => {
+            if(res.err > 0){
+              console.error(res.desc);
+            }else{
+              this.query();
+            }
+          })
+        }
+      }
+    }
+  })
+
+ </script>
+
+</body>
+</html>

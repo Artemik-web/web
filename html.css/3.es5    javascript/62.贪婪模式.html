@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        console.log('aaa'.match(/a+/));//贪婪模式   默认状态
+        console.log('aaa'.match(/a+?/));//非贪婪模式   
+        console.log('<p>a</p><p>a</p>'.match(/a+?/));//贪婪模式  ' <p>a</p><p>a</p>'
+        console.log('<p>a</p><p>a</p>'.match(/a+?/));//非贪婪模式   '<p>a</p>'
+
+        var str = '<p>内容1</p><p>内容2</p>'
+        // 贪婪模式
+        console.log(str.match(/<p>(.*)<\/p>/))
+        //非贪婪模式
+        console.log(str.match(/<p>(.*?)<\/p>/))
+
+            //把标签清理掉
+            var str = '<p>内容1</p><p>内容2</p>';
+            var result = str.replace(/<\/?[^>]*>/g,'')
+            console.log(result)
+
+
+
+
+
+
+
+
+
+        //提取name 和 age 
+        var temp = '我叫{{name}}，今年{{age}}'
+
+
+
+
+console.log(/fred+/.test('fredd'));//匹配d 一个或者多个
+console.log(/(fred)+/.test('fredfred'));//匹配fred 匹配两次  true
+
+console.log('abc'.match(/(.)b(.)/))//["abc","b","c"]
+//   ?:x  意为非捕获组
+console.log('abc'.match(/(?:.)b(.)/))//["abc","b","c"]
+// x(?=y) 先行断言 
+console.log('ab'.match(/a(?=b)/))//["a"]  a在b前才匹配 输出"a"
+// x(?=y) 先行断言 
+var str = '759331301@qq.com';
+console.log(str.match(/.+(?=@)/))
+
+
+// x(?!y) 先行否定断言 
+console.log('ba'.match(/a(?!b)/))//["a"]  a不在b前才匹配 输出"a"
+// x(?!y) 先行否定a断言 
+
+
+
+
+// var filename = 'upload/23213.jpg';
+// console.log(filename.match(/\.([a-z]+)$/i))
+
+
+
+
+
+    </script>
+</body>
+
+</html>

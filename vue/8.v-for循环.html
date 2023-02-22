@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 数字 -->
+        <li v-for = "val in 5">{{val}}</li>
+        <!-- 数组 -->
+        <li v-for = "val in fruit">{{val}}</li>
+        <!-- 对象 -->
+        <li v-for = "val in newfruits">{{val}}</li>
+        <p v-for="(val,key,index) in news">
+            {{index}}  .  {{key}} = {{val}}
+
+        </p>
+        <!-- 循环深度数组 -->
+        <ul>
+            <li v-for = "item in news">{{item.id}}------------{{item.val}}</li>
+        </ul>
+        <!-- 嵌套循环 -->
+        <span v-for = "i in 9">
+            <span v-for = "j in i">{{i}} * {{j}} = {{i*j}}</span><br>
+        </span>
+        
+        <!-- v-if  v-for 优先级 -->
+        <p>
+            <template v-if= "false">
+                <button v-for = "n in 10">{{n}}</button>
+        </template>
+        </p>
+    </div>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                fruit:['🍎','🍉','🍇','🍊','🍌'],
+                newfruits:{a:'🍎',b:'🍉',c:'🍇',d:'🍊',e:'🍌'},
+                news:[{id:'a',val:'🍎'},{id:'b',val:'🍉'},{id:'c',val:'🍇'}]
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

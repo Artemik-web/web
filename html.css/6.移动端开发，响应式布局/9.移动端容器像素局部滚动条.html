@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;      
+        }
+        html{
+            background-color: dimgray;
+        }
+        .app{
+            max-width: 430px;
+            height: 100vh;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .header,
+        .tabbar{
+            position: fixed;
+            max-width: 430px;
+            width: 100%;
+            padding: 8px 20px;
+            background-color: white;
+        }
+        .tabbar{
+            bottom: 0;
+        }
+        .main{
+            padding: 57px 20px 20px;
+            background-color: wheat;
+        }
+    </style>
+    <div class="app">
+        <div class="header">
+            头部
+        </div>
+        <div class="main">
+            <div style="height: 1500px;">主体</div>
+        </div>
+        <div class="tabbar">脚部  </div>
+    </div>
+</body>
+</html>

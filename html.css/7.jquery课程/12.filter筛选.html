@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>首页</li>
+        <li>关于</li>
+        <li>产品</li>
+        <li class="home">联系</li>
+
+    </ul>
+    <script>
+        $('li ').filter('.home').css('cofor ', ' red ');
+        $('li').filter(' :even ').css('color','red');
+        $( 'ul > * ').filter( 'li ' ).css( 'color ' , 'red ' ) ;
+        $(function () {
+            $('ul li').filter(function (i) {
+                var index = Math.floor(Math.random() * 4);
+                return i == index
+            }).css("background", 'yellow')
+        })
+    </script>
+</body>
+
+</html>

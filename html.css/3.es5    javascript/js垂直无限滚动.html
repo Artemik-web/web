@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #box{
+            box-sizing: border-box;
+            width: 80px;
+            height: 750px;
+            overflow: hidden;
+            font-size: 0;
+            border: 1px solid black;
+        }
+        ul{
+            margin: 0 auto;
+
+        }
+        li{
+            line-height: 100px;
+            font-size: 20px;
+            margin-bottom: 5px;
+            text-align: center;
+            list-style: none;
+            height: 145px;
+            background-color: red;
+        }
+    </style>
+    <div id="box">
+        <ul class="one">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <ul class="two">
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+            <li>9</li>
+            <li>10</li>
+        </ul>
+    </div>
+    <script>
+       
+
+
+        var box = document.getElementById('box');
+        console.log(box.scrollHeight)
+
+ play();
+ 
+
+        function play(){
+
+            setInterval(function(){
+                if(box.scrollTop>= box.clientHeight){
+                    var firstEl = box.firstElementChild;
+                    box.appendChild(firstEl)
+                    box.scrollTop = 0;
+                }else{
+                    box.scrollTop += 1
+                    console.log(box.scrollTop)
+                }
+
+            },10)
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

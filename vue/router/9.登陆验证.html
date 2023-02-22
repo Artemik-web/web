@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>
+            <router-link to='/home'>首页</router-link>
+            <router-link to='/about/company'>关于</router-link>
+            <router-link to='/contact'>联系</router-link>
+            <router-link to='/login'>登录</router-link>
+        </p>
+        <router-view></router-view>
+    </div>
+
+   
+    <script>
+        const Home = {
+            template: `
+            <h2>首页页面</h2>
+            `
+        }
+        const About = {
+            template: `
+            <div>
+            <h2>关于页面</h2>
+              <div>
+                <div>
+                     <router-link to='/about/company'>公司简介</router-link>
+                     <router-link to='/about/news'>公司新闻</router-link>
+                </div>
+                <div><router-view></router-view></div>
+              </div>
+            </div>
+            `
+        }
+        const Contact = {
+            template: `
+            <h2>联系页面</h2>
+            `
+        }
+        const Login = {
+            template: `
+            <h2>登录页面</h2>
+            `
+        }
+        const Company = {
+            template: `
+<div> 11111</div>
+            `
+        }
+        const News = {
+            template: `
+            
+            `
+        }
+        const router = new VueRouter({
+            routes: [
+                { path: '/', redirect: '/home' },
+                { path: '/home', component: Home },
+                { path: '/about', component: About,
+                children: [
+                    {path: '', redirect: '/about/company'},
+                    {path: 'company', component: Company},
+                    {path: 'news', component: News},
+                ]
+                 },
+                { path: '/contact', component: Contact },
+                { path: '/login', component: Login },
+
+            ]
+        })
+
+
+
+
+
+
+
+
+
+        const app = new Vue({
+            el: '#app',
+            router
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .box1{
+            height: 100px;
+            width: 100px;
+        }
+.box1:empty{
+    background: red;
+}
+.box1:empty::after{
+    content: "无！";
+}
+    </style>
+    <div class="box1">1</div>
+    <div class="box1">2</div>
+    <div class="box1"></div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .box1{
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 10px solid blue;
+            background-color: #777;
+        }
+        .box2{
+            box-sizing: border-box;
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border: 10px solid blue;
+            background-color: #777;
+        }
+    </style>
+    <div class="box1">文本</div><br>
+    <div class="box2">文本</div><br>
+    <style>
+        .c{
+            width: 200px;
+            height: 30px;
+            font-size: 0;
+            background-color: salmon;
+        }
+        .d{
+            line-height: 30px;
+            box-sizing: border-box;
+            width: 20%;
+            font-size: 16px;
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+            color: black;
+            background-color: rgb(0, 0, 0,0.1);
+            border-right: 1px solid black;
+        }
+        .c .d:nth-child(5){
+            border-right: none;
+        }
+        .d:hover{
+            background-color: rgb(0, 0, 0,0.3);
+        }
+        .d:focus{
+            background-color: rgb(0, 0, 0,0.4);
+        }
+        
+    </style>
+    <div class="c">
+        <a href="#" class="d">1</a>
+        <a href="#" class="d">2</a>
+        <a href="#" class="d">3</a>
+        <a href="#" class="d">4</a>
+        <a href="#" class="d">5</a>
+    </div>
+</body>
+</html>

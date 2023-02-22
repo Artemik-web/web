@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            color: black;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        .box {
+            display: flex;
+            width: 262px;
+            margin: 0 auto;
+            margin-top: 50px;
+            border: 1px solid gray;
+        }
+
+        .nav {
+            border: 1px solid gray;
+            line-height: 50px;
+        }
+
+        .nav li {
+            width: 62px;
+            text-align: center;
+            border: 1px solid gray;
+        }
+
+        .pricture img{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <ul class="nav">
+            <li><a href="">猫猫1号</a></li>
+            <li><a href="">猫猫2号</a></li>
+            <li><a href="">猫猫3号</a></li>
+            <li><a href="">猫猫4号</a></li>
+        </ul>
+        <div class="pricture">
+            <img src="../7.jquery哔哩哔哩/img/1.gif" alt="" width="100%">
+            <img src="../7.jquery哔哩哔哩/img/2.gif" alt="" width="100%">
+            <img src="../7.jquery哔哩哔哩/img/3.gif" alt="" width="100%">
+            <img src="../7.jquery哔哩哔哩/img/4.gif" alt="" width="100%">
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('.nav>li').mouseover(function () {
+                var index = $(this).index();
+                console.log(index);
+                $('.pricture img').eq(index).show();
+                $('.pricture img').eq(index).siblings().hide();
+            })
+
+
+        })
+    </script>
+</body>
+
+</html>

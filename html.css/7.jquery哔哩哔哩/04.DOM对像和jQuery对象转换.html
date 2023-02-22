@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <div></div>
+    <script>
+        // dom转jQuery
+        // 直接获取到的就是jQuery对象，例如
+        $('div');//$('');
+        // 原生获取方式
+        var myDiv = document.querySelector('div');
+        // 当需要使用一个属性时，jQuery没有而原生有，就需要将jQuery方式获取的对象转为dom对象
+        $(myDiv);//dom转jQuery
+
+
+
+        // jQuery转dom  
+        $('')[index];
+        $('').get(index);//加一个索引值，因为jQuery对象是伪数组对象，可以用数组方法
+        $('div')[0];
+        $('div').get(0);
+
+    </script>
+</body>
+</html>

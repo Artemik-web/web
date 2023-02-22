@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        $(function(){
+            //只写属性名，返回属性值
+            console.log($('div').css("width"));
+            $('div').css("width",300);
+            $('div').css("width","300px");
+            //属性名一定要加引号
+            $('div').css({
+                //写多个参数以对向形式，方便设置多组样式，属性名和属性用冒号隔开，属性可以不用加引号，要属性名也不加引号需要驼峰法写
+                width:500,
+                height:150,
+                backgroundColor:"red"
+            })
+        })
+    </script>
+</body>
+</html>

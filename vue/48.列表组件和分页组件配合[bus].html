@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  
+  <div id="app">
+
+    <gx-list :data="fruit"></gx-list>
+
+    <gx-page 
+    v-model="page" 
+    :perpage="perpage"
+    :total="fruit.length" 
+    ></gx-page>
+
+   </div>
+
+  <script>
+  //建立通道
+  const bus = new Vue();
+  
+  Vue.component('GxList',{
+    props: {
+      data: {
+        required: true,
+        type: Array
+      }
+    },
+    data(){
+      return {
+        page: 1,
+        perpage: 10
+      }
+    },
+    computed: {
+      pageData(){
+        let start = (this.page-1) * this.perpage;
+        let end = start + this.perpage;
+        return this.data.slice(start, end);
+      }
+    },
+    created(){
+      bus.$on('pinfo',(page, perpage) => {
+        this.page = page;
+        this.perpage = perpage;
+      })
+    },
+    template: `<ul>
+      <li v-for="item in pageData">{{item}}</li>
+    </ul>`
+  })
+
+
+  Vue.component('GxPage',{
+    props: ['value','perpage','totalpage','total'],
+    data(){
+      return {
+        page: this.value
+      }
+    },
+    computed: {
+      pagecount(){
+        return this.totalpage || Math.ceil( this.total/this.perpage );
+      }
+    },
+    watch:{
+      page:{
+        handler(p){
+          bus.$emit('pinfo', p, this.perpage);
+        },
+        immediate: true
+      }
+    },
+    template: `
+    <p>
+      <button 
+      v-for="p in pagecount" 
+      @click="page=p"
+      :style="{color: page===p?'red':''}"
+      >{{p}}</button>
+    </p>
+    `
+  })
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      page: 1,
+      perpage: 3,
+      fruit: ['苹果','桔子','菠萝','香蕉','菠萝蜜','西瓜','葡萄']
+    }
+  })
+
+  </script>
+
+</body>
+</html>

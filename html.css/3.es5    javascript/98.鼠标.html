@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #box{
+          position: fixed;
+          width: 100px;
+          height: 100px;
+          background-color: red;
+          border-radius: 50%;
+          left: 200px;
+          top: 200px;
+        }
+      </style>
+    
+    <div id="box"></div>
+    <script>
+var scale = 1;
+window.onwheel = function(event){
+    scale += event.deltaY/1000;
+    box.style.transform = 'scale('+ scale +')';
+}
+
+    </script>
+</body>
+</html>

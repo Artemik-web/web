@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+// var version = 1;
+// if(version<2) throw new Error('你的版本太低了，请升级为2.0以上！！')
+
+// console.log('欢迎使用！');
+
+
+// try{
+//     if(version){
+//         throw new Error('你的版本太低了，请升级为2.0以上！！');
+//     }
+// }catch(err){
+//     console.warn(err);
+//     console.log('升级中');
+//    setTimeout( function(){
+//     console.log('升级完毕');
+//     console.log('欢迎使用');
+
+//    },5000)
+
+// }
+
+function idle(x){
+try{
+    console.log(x);//1
+    return 'result';//3
+}catch(err){
+    console.log(err)
+}finally{
+    console.log("FINALLY");//2
+}
+}
+console.log(idle('hello'));//hello FINALLY result
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

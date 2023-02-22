@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <div class="father">
+        <div class="son">儿子
+            <div class="sunzi">
+                孙子
+            </div>
+        </div>
+    </div>
+    <div class="nav">
+        <p>我是屁</p>
+        <div>
+            <p>我是p</p>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            $('.father').children().css("color",'red');//不写表示找所有后代
+            $('.nav').children('p').css("color",'blue');//写了东西表示只找找儿子p
+            $('.nav').parent().css("background",'pink');//找父亲
+            $('.nav').find('p').css("font-size",'18px');//找所有后代p
+        })
+    </script>
+</body>
+</html>

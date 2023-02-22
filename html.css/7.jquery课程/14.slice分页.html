@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <ul>
+        <li>首页</li>
+        <li>关于</li>
+        <li>产品</li>
+        <li>联系</li>
+        <li>首页1</li>
+        <li>首页2</li>
+        <li>首页3</li>
+        <li>首页4</li>
+        <li>首页5</li>
+
+    </ul>
+    <div class="pager">
+
+    </div>
+    <script>
+            
+            list(1);
+            function list(page = 1){
+                let total = $('ul li').length;
+                let pagenum = 2;
+                let pagecount = Math.ceil( total/pagenum);
+
+                let start = (page-1) * pagenum;
+                let end = start + pagenum;
+
+               $('ul li').hide().slice(start,end).show();
+            }
+
+            pager(5);
+            function pager(pages){
+                var temp = '';
+                for(let p = 1;p<=pages;p++){
+
+                        temp += `<button>${p}</button>`
+                }
+                
+                $('.pager').html(temp).on('click','button',function(){
+                    $(this).css("background",'red').siblings().css("background",'');
+                    list($(this).text())
+
+
+
+                })
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // // [Symbol.iterator]() 迭代器
+        // var fruit = ['苹果', '桔子', '香蕉'];
+        // var it = fruit[Symbol.iterator]();
+        // console.log(it.next());
+        // console.log(it.next());
+        // console.log(it.next());
+        // console.log(it.next());
+
+
+
+// 对象用数组迭代器
+//         var obj = {
+//             0: '苹果',
+//             1: '桔子',
+//             2: '香蕉',
+//             length: 3,
+//             [Symbol.iterator]: Array.prototype[Symbol.iterator]
+//         }
+
+//         var it = obj[Symbol.iterator]();
+
+//         console.log(it.next());
+//         console.log(it.next());
+//         console.log(it.next());
+//         console.log(it.next());
+
+
+// for(var val of obj){
+//     console.log(val)
+// }
+
+
+
+var obj = {
+            0: '苹果',
+            1: '桔子',
+            2: '香蕉',
+            [Symbol.iterator](){
+                let index = -1;
+                let entries = Object.entries(this);
+                // let self = this;
+                // let keys = Object.keys(self);
+                // let len = keys.length;
+                let len = entries.length;
+
+                return {
+                    next(){
+                        index += 1;
+                        // let key = keys[index];
+                        // let val = self[key];
+                        return Object.create(null,{
+                            value:{
+                                value:entries[index]
+                            },
+                                done: { value:!(index<len)}
+                        })
+                        // return {value:[key,val],done: !key}
+                    }
+                }
+            }
+        }
+
+        var it = obj[Symbol.iterator]();
+
+        // console.log(it.next());
+        // console.log(it.next());
+        // console.log(it.next());
+        // console.log(it.next());
+
+for(var val of obj){
+    console.log(val)
+}
+
+
+    </script>
+</body>
+
+</html>

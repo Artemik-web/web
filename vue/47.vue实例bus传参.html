@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <com-a></com-a>
+        <br>
+        <com-b></com-b>
+    </div>
+    <script>
+        const bus = new Vue;
+        Vue.component('ComA',{
+            data(){
+                return {
+                    msg:''
+                }
+            },
+            template: `
+            <div>
+                <input type="text" v-model="msg">
+                <button @click="send">发送</button>
+                </div>
+                `,
+                methods: {
+                    send(){
+                        bus.$emit('hello',this.msg)
+                    }
+                }
+        })
+        Vue.component('ComB',{
+            data(){
+                return {
+                    msg:''
+                }
+            },
+            created(){
+                bus.$on('hello',txt =>{
+                    this.msg = txt;
+                })
+            },
+            template: `
+            <div>
+                <h1>  来自A的消息：{{msg}} </h1>
+                </div>`
+        })
+        const app = new Vue({
+            el:'#app',
+            data:{
+
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+@font-face {
+  font-family: 'xian';
+  src:
+    url('../fonts/xian.ttf') format('truetype'),
+    url('../fonts/xian.woff') format('woff'),
+    url('../fonts/xian.svg#xian') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+/* 这样定义可以不使用icon基类 */
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'xian';
+  font-style: normal;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+.icon-star-o:before {
+  content: "\f006";
+}
+.icon-power-off:before {
+  content: "\f011";
+}
+.icon-cog:before {
+  content: "\f013";
+}
+.icon-gear:before {
+  content: "\f013";
+}
+.icon-home:before {
+  content: "\f015";
+  font-size: 38px;
+}
+.icon-list-alt:before {
+  content: "\f022";
+}
+.icon-chevron-left:before {
+  content: "\f053";
+}
+.icon-chevron-right:before {
+  content: "\f054";
+}
+.icon-sign-out:before {
+  content: "\f08b";
+}
+.icon-laptop:before {
+  content: "\f109";
+}
+.icon-ticket:before {
+  content: "\f145";
+}
+.icon-shopping-basket:before {
+  content: "\f291";
+}
+/* reset style */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+input button{
+    color: inherit;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+}
+body{
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+  font-size: 14px;
+  color: #3c3c3c;
+}   
+
+
+/* reset style   end */
+
+/* container */
+.container{
+    position: relative;
+    height: 100vh;
+}
+/* container  end */
+
+
+
+
+/* header */
+.container .header{
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    z-index: 99;
+    display: inline-block;
+    background-color: #59A5F1;
+}
+.header .logo{
+    color: white;
+    line-height: 60px;
+    font-size: 22px;
+    float: left;
+    padding-left: 20px;
+    vertical-align: -5px;
+}
+.header .logo span:nth-child(1){
+  font-size: 33px;
+    
+}
+
+.header .layout{
+    color: white;
+    line-height: 60px;
+    font-size: 14px;
+    float: right;
+height: 60px;    margin-right: 20px;
+}
+.header .layout:hover{
+  color: #CDE4FB;
+}
+.header a{
+    display: inline-block;
+}
+
+
+
+
+/* header   end */
+
+
+
+/* aside */
+.container .aside{
+    width: 200px;
+    height: 100%;
+    position: fixed;
+    padding-top: 60px;
+    background-color: #262626;
+}
+.container .photo{
+    display: block;
+    /* border:1px solid red; */
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+}
+.photo img{
+    display: block;
+    width: 80px;
+    height: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 44px auto 10px;
+    border: 2px solid #4176B4;
+    /* margin-top: 45px; */
+    /* padding-bottom: 5px; */
+    border-radius: 50%;
+}
+.photo h4{
+  margin-bottom: 3px;
+    font-weight: normal;
+    font-size: 18px;
+    color: rgba(255, 255, 255, .9);
+}
+.photo span{
+  font-size: 12px;
+  color: rgba(255, 255, 255, .5);
+}
+.leftnav{
+  height: 100%;
+  /* background-color: lightcoral; */
+    margin-top: 50px;
+}
+.leftnav a{
+  /* border:1px solid red; */
+    display: block;
+    font-size: 16px;
+    /* text-align: center; */
+  padding-left: 20PX;
+    
+    line-height: 42px;
+    color: rgba(255, 255, 255, 0.5);
+}
+.leftnav span{
+  padding-right: 20px;
+}
+.aside .leftnav a:hover{
+  background-color: rgba(255, 255, 255, .1);
+}
+.aside .leftnav a.active{
+  background-color: #4176B4;
+  color: white;
+}
+
+/* main */
+.container [class*="icon-"]{
+  font-size: 24px;
+}
+.container .main{
+  padding-top: 60px;
+  padding-left: 200px;
+  height: 100%;
+}
+.container .main iframe{
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* product.html */
+.product{
+  padding: 40px 20px;
+}
+.tab{
+  overflow: hidden;
+  border-bottom: 1px solid #0981FC;
+}
+
+.tab a{
+  margin-right: 40px;
+  padding: 10px 0 ;
+  font-size: 16px;
+  float: left;
+  border-bottom: 3px solid transparent;
+}
+
+.tab .active{
+  border-bottom: 3px solid #0981FC;
+}
+.serach{
+  display: inline-block;
+  padding: 20px 0;
+  width: 100%;
+}
+.serach select,
+.serach button,
+.serach input{
+  width: 120px;
+  border: none;
+  margin-left: 8px;
+  padding: 5px 10px;
+  font-size: 12px;
+  outline: 1px solid #ccc;
+}
+.serach label{
+  margin-right: 9px;
+  padding: 5px;
+}
+.serach button{
+  width: 72px;
+  height: 30px;
+  outline: none;
+  color: white;
+  border-radius: 3px;
+  margin-right: 15px;
+  background-color:#0981FC;
+}
+
+table {
+  width: 100%;
+  border: 1px solid #D6D6D6;
+  border-collapse: collapse;
+}
+
+tr:nth-child(1) {
+  background-color: #F1F8FF;
+}
+tr:nth-child(1) span{
+ color: #0981FC;
+}
+tr:nth-child(2) {
+  background-color: #CADFFE;
+}
+
+tr:not(tr:nth-child(2)):nth-child(2n+2) {
+  background-color: #F1F8FF;
+}
+
+tr:nth-child(7) p {
+  display: inline-block;
+}
+
+tr:nth-child(7) p:nth-child(1) {
+  padding-left: 10px;
+}
+
+tr:nth-child(7) p:nth-child(2) {
+  padding-right: 600px;
+
+}
+tr:nth-last-child(1) button{
+  border: none;background-color: inherit;
+color:#ccc ;}
+tr:nth-last-child(1) div:nth-child(1)
+tr:nth-last-child(1) div:nth-child(2){
+overflow: hidden;
+width: 100%;
+}
+tr:nth-last-child(1) div:nth-child(1) > button{
+  margin-left: 5px;
+  font-size: 20px;
+    color: #9E9E9E;
+    outline: 1px solid #ccc;
+    padding: 0 12px;
+    height: 28px;
+    line-height: 28px;
+    background-color: transparent;
+    font-size: 14px;
+    margin-right: 2px;
+  float: left;
+}
+tr:nth-last-child(1) div:nth-child(1) > button:nth-child(1){
+  cursor: not-allowed;
+}
+tr:nth-last-child(1) div:nth-child(2) > button{
+  width: 70px;
+  float: right;
+  margin-left: 5px;
+    height: 28px;
+font-size: 12px;
+  
+color: white;
+border-radius: 3px;
+background-color: #0981FC;
+/* border: 1px solid red; */
+}
+tr:nth-last-child(1) div:nth-child(1) .active{
+  color: #0981FC;
+}
+tr:not(tr:nth-child(2)) td:nth-child(13),
+tr:not(tr:nth-child(2)) td:nth-child(14){
+  color: #A6C8EE;
+}
+
+td {
+  padding: 10px 20px;
+  display: table-cell;
+  vertical-align: inherit;
+  border: 1px solid #D6D6D6;
+}
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>
+            输入框<input type="text" v-model="form.text">{{form.text}}
+        </p>
+        <p>
+            <input type="radio" v-model="form.gender" value="男">男
+            <input type="radio" v-model="form.gender" value="女">女
+        </p>
+        <p>
+            <input type="checkbox" v-model="form.habby" value="篮球">篮球
+            <input type="checkbox" v-model="form.habby" value="足球">足球
+            <input type="checkbox" v-model="form.habby" value="乒乓球">乒乓球
+        </p>
+        <p>
+            <select v-model="form.edaction">
+                <option value="">请选择</option>
+                <option value="大专">大专</option>
+                <option value="本科">本科</option>
+            </select>
+        </p>
+        <p>
+            <textarea v-model="form.content" cols="30" rows="10"></textarea>
+        </p>
+        {{form}}
+    </div>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                form: {
+                    text:'',
+                    gender: '男',
+                    habby: [],
+                    edaction: [],
+                    content: ''
+                }
+            }
+        })
+    </script>
+</body>
+</html>

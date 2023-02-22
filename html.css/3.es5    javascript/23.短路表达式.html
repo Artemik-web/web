@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+
+//且运算遇到真值时，才会找右值
+
+
+//左为假，直接返回左值
+console.log(false&&1);
+
+// 且运算短路规则
+console.log(' '&&true&&NaN&&'end')
+
+//代替if语句
+var age = 20;
+if(age>18) console.log('成年')
+console.log(age>18&&'成年')
+
+
+
+//或运算遇到假值时，才会找右值
+
+
+
+
+//后备机制
+
+
+console.log( 1&& 0||'abc'&&false ||''&&'end');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

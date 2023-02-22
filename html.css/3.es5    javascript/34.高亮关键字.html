@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="关键字" oninput="serach(this)">
+    <div id="box">
+        <p>
+            据日本媒体24日报道，日本政府和东京电力公司已经决定“通过海底隧道将福岛第一核电站的核污染水排放至近海”，理由是这样做更容易让核污染水在海里扩散。
+            如果消息属实，这是日本政府罔顾国内外强烈反对、单方面迈出威胁全球环境安全与民众健康的危险一步。亚太邻国乃至全球沿海国家均有权采取行动，向日方进行索赔！
+        </p>
+    </div>
+    <script>
+    var temp  =  box.innerHTML;
+function serach(input){
+    var keyword = input.value;
+    var hlTemp = '';
+    var tempArr = temp.split(keyword);
+    for(var i=0;i<tempArr.length;i++){
+        hlTemp += tempArr[i];
+        if(i<tempArr.length-1) hlTemp += `<mark>${keyword}</mark>`;
+    }
+    box.innerHTML = hlTemp
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

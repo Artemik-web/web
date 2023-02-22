@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+           table{
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        th,td{
+            border: 1px solid #ccc;
+            padding: 6px;
+            text-align: center;
+        }
+        tbody tr:nth-child(odd){
+            background-color: #eee;
+        }
+        
+    </style>
+</head>
+<body>
+    <p>
+        <input type="search" placeholder="请输入水果名" oninput="search(this)">
+    </p>
+    <table width="500">
+   <thead>
+       <tr>
+           <th>序号</th>
+           <th>名称</th>
+           <th>单价</th>
+           <th>日期</th>
+       </tr>
+   </thead>
+   <tbody id="list">
+
+   </tbody>
+    </table>
+    <p id="pager"></p>
+    <script>
+  var fruit = [
+  {id:1, name:'苹果', price: 5, addtime:'2021-08-30'},
+  {id:2, name:'桔子', price: 2, addtime:'2021-08-27'},
+  {id:3, name:'香蕉', price: 3, addtime:'2021-08-26'},
+  {id:4, name:'菠萝', price: 6, addtime:'2021-08-29'},
+  {id:5, name:'葡萄', price: 12, addtime:'2021-08-24'},
+  {id:6, name:'葡萄', price: 12, addtime:'2021-08-24'},
+  {id:7, name:'葡萄', price: 12, addtime:'2021-08-24'},
+  {id:8, name:'葡萄', price: 12, addtime:'2021-08-24'},
+  {id:9, name:'葡萄', price: 12, addtime:'2021-08-24'},
+  {id:10, name:'葡萄', price: 12, addtime:'2021-08-24'},
+  {id:11, name:'葡萄', price: 12, addtime:'2021-08-24'},
+  {id:12, name:'葡萄', price: 12, addtime:'2021-08-24'},
+];
+view();
+
+
+function search(input){
+    var keyword = input.value.trim();
+    view(1,keyword);
+}
+function view(page=1,keyword = ''){
+var temp = '';
+var searchData = fruit.filter(function(item){
+    return item.name.includes(keyword) || !keyword;
+})
+
+if(!searchData.length){
+    temp += `<tr align="center"><td colspan="4">抱歉，暂无数据！</td></tr>`
+}
+
+var perpage = 3;
+        var total = searchData.length;
+        var pagecount = Math.ceil(total/perpage);
+
+
+        //分页算法
+        var start = (page-1) * perpage;
+        var end =  start + perpage;
+        
+
+
+        //slice产生新数组，不用担心破坏了数组
+        var  pageData = searchData.slice(start,end)
+        
+        
+        //循环分页后的数组
+        pageData.forEach(function(item,index){
+            temp  += `<tr>
+                <td>${item.id}</td>
+                <td>${item.name}</td>
+                <td>${'￥' + item.price.toFixed(2)}</td>
+                <td>${item.addtime}</td>
+                
+                </tr>`;
+        })
+        list.innerHTML = temp
+
+
+
+
+  //页码累加
+  var pageTemp = '';
+        if(pagecount>1){
+        pageTemp += `<button
+         onclick = view(${page-1},'${keyword}')
+          ${page === 1&& 'disabled'}>上页</button>`;
+    for(var p = 1;p<=pagecount;p++){
+        pageTemp += `<button 
+        style = "color:${p === page ? 'red': ''} " 
+        onclick =" view(${page},'${keyword}')">${p}</button>`;
+    
+    }
+    pageTemp += `<button
+         onclick = view(${page+1},'${keyword}')
+          ${page === pagecount&& 'disabled'}>下页</button>`;
+          pager.innerHTML = pageTemp;
+    }
+
+
+
+}
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

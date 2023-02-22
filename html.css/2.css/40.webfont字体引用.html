@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+        @font-face {
+  font-family: 'ming';
+  /* 后备机制 */
+  src:
+  /* 1.ttf */
+    url('fonts/ming.ttf') format('truetype'),
+    /* 2.woff */
+    url('fonts/ming.woff') format('woff'),
+    /* 3.svg */
+    url('fonts/ming.svg#ming') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+    .icon{
+        display: inline-block;
+        font-family: "ming";
+        font-size: 18px;
+        font-style: normal;
+        vertical-align: middle;
+    }
+    .icon-star::before{
+        content: "\2b50";
+    }
+    .icon-ming::before{
+        content: "明";
+    }
+    </style>
+    <i class="icon icon-star"></i>
+    <i class="icon icon-ming"></i>
+    <a href="">&#x660e;</a>
+</body>
+</html>

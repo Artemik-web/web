@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  a{
+    color: inherit;
+    text-decoration: none;
+  }
+  a.active{
+    color: red;
+  }
+  </style>
+  <script src="js/axios.js"></script>
+  <script src="js/vue.js"></script>
+  <script src="js/vue-router.js"></script>
+</head>
+<body>
+  
+<div id="app">
+
+  <p>
+    <router-link to="/home">首页</router-link> | 
+    <router-link to="/article">文章</router-link>
+  </p>
+
+  <router-view></router-view>
+
+</div>
+
+<script>
+Vue.component('GxList',{
+    props: {
+      page: {
+        type: Number,
+        default: 1
+      },
+      perpage: {
+        type: Number,
+        default: 10
+      },
+      data: {
+        required: true,
+        type: Array
+      }
+    },
+    computed: {
+      pageData(){
+        let start = (this.page-1) * this.perpage;
+        let end = start + this.perpage;
+        return this.data.slice(start, end);
+      }
+    },
+    template: `<ul>
+      <li v-for="item in pageData">
+        <slot v-bind="item"></slot>
+      </li>
+    </ul>`
+  })
+
+Vue.component('GxPage',{
+  props: {
+    value: Number,
+    page: {
+      type: Number,
+      default: 1
+    },
+    perpage: {
+      type: Number,
+      default: 10
+    },
+    total: Number,
+    totalpage: Number
+  },
+  data(){
+    return {
+      page: this.value
+    }
+  },
+  computed: {
+    pagecount(){
+      return this.totalpage || Math.ceil( this.total/this.perpage );
+    }
+  },
+  template: `
+  <p>
+    <button :disabled="page==1" @click="page--">上页</button>
+    <button 
+    v-for="p in pagecount" 
+    @click="page=p,$emit('input', p)"
+    :style="{color: page===p?'red':''}"
+    >{{p}}</button>
+    <button :disabled="page==pagecount" @click="page++">下页</button>
+  </p>
+  `
+})
+
+axios.defaults.baseURL='http://cloud.scnew.com.cn/api/'
+
+const Home = {
+  template: `<h2>首页</h2>`
+}
+
+const Article = {
+  data(){
+    return {
+      page: 1,
+      questions: []
+    }
+  },
+  created(){
+    axios.get('learn/question?tid=61').then(res=>{
+      this.questions = res.data.result;
+    })
+  },
+  template: `
+  <div>
+    <h2>文章</h2>
+    <gx-list :page="page" :data="questions">
+      <template v-slot="row">
+        <router-link :to="'/article/'+row.id">{{row.title}}</router-link>
+      </template>
+    </gx-list>
+    <gx-page v-model="page" :page="page" :total="questions.length"></gx-page>
+  </div>
+  `
+}
+
+const ArticleDetail = {
+  template: `
+  <div>
+    <h2>文章详情 <button @click="$router.back()">返回</button></h2>
+    <h1>{{detail.title}}</h1>
+    <div>{{detail.answer}}</div>
+  </div>
+  `,
+  data(){
+    return {
+      detail: {}
+    }
+  },
+  watch: {
+    $route: {
+      handler(to){
+        axios.get(`learn/question/${to.params.id}`).then(res=>{
+          this.detail = res.data.result;
+        })
+      },
+      immediate: true
+    }
+  }
+}
+
+const router = new VueRouter({
+  linkActiveClass: 'active',
+  routes: [
+    {path:'/', redirect: '/home'},
+    {path:'/home', component: Home},
+    {path:'/article', component: Article},
+    {path:'/article/:id', component: ArticleDetail},
+  ]
+})
+
+const app = new Vue({
+  el:'#app',
+  router
+})
+
+
+
+</script>
+
+
+</body>
+</html>

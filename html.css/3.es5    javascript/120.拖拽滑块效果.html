@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 100px;
+    }
+    .range{
+      position: relative;
+      width: 500px;
+      height: 60px;
+      background-color: #ccc;
+    }
+    .range i{
+      position: absolute;
+      width: 30px;
+      height: 100%;
+      background-color: black;
+      left: 0;
+    }
+    .range b{
+      display: block;
+      width: 0;
+      height: 100%;
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="range">
+    <i></i>
+    <b></b>
+  </div>
+
+  <br>
+
+  <div class="range">
+    <i></i>
+    <b></b>
+  </div>
+
+  <script>
+  document.querySelectorAll('.range').forEach(function(div){
+
+    div.querySelector('i').onmousedown = function(event){
+
+      var i = this;
+      var b = i.nextElementSibling;
+      var startX = event.clientX;
+      var startLeft = i.offsetLeft;
+      var maxLeft = div.offsetWidth - i.offsetWidth;
+
+      document.onmousemove = function(event){
+
+        //防止拖拽过快 导致松开鼠标 仍然可以移动
+        event.preventDefault();
+
+        var left = event.clientX - startX + startLeft;
+        
+
+        if(left<=0) left = 0;
+        if(left >= maxLeft) left = maxLeft;
+
+        i.style.left = left +'px';
+        b.style.width = left +'px';
+
+      }
+
+      document.onmouseup = function(event){
+        document.onmousemove = null;
+        document.onmouseup = null;
+      }
+
+    }
+  })
+
+
+  </script>
+
+</body>
+</html>

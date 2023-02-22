@@ -1,0 +1,12 @@
+-- SELECT * FROM my_db_01.users;
+-- 对users表中的数据按照status字段进行升序排序
+-- select * from users order by status
+-- 降序查询
+-- select * from users order by id desc
+-- 对users表中的数据，先按照status进行降序排序，再按照username字母的顺序进行升序排序
+-- select * from users order by status desc, username asc
+-- 使用count*来统计users状态为0用户总数
+-- select count(*) from users  where status=0
+-- 使用as关键字给列起别名
+-- select count(*) as total from users where status=0
+select username as name, password as ps from users

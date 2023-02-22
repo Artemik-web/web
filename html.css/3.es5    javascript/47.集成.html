@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          table{
+         border-collapse: collapse;
+         margin-bottom: 15px;
+     }
+     th,td{
+         border: 1px solid #ccc;
+         padding: 6px;
+         text-align: center;
+     }
+     tbody tr:nth-child(odd){
+         background-color: #eee;
+     }
+        .sort{
+            position: relative;
+            padding-right: 15px;
+        }
+        .sort::before{
+            content: "▲";
+            top: -1px;;
+        }
+        .sort::after{
+            content: "▼";
+            bottom:-1px;
+        }
+        .sort::before,.sort::after{
+            position: absolute;
+            right: 0;
+            font-size: 12px;
+            transform: scale(.7);
+        }
+        .sort.asc::before,.sort.desc::after{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">水果列表</h1>
+    <table width="500" align="center">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th class="sort" onclick="sortBy(this,'name')">名称</th>
+                <th class="sort" onclick="sortBy(this,'price','number')">单价</th>
+                <th class="sort" onclick="sortBy(this,'addtime','date')">日期</th>
+            </tr>
+        </thead>
+        <tbody id="list"></tbody>
+    </table>
+    <script>
+        var fruit = [
+{id:1, name:'苹果', price: 5, addtime:'2021-08-30'},
+{id:2, name:'桔子', price: 2, addtime:'2021-08-27'},
+{id:3, name:'香蕉', price: 3, addtime:'2021-08-26'},
+{id:4, name:'菠萝', price: 6, addtime:'2021-08-29'},
+{id:5, name:'葡萄', price: 12, addtime:'2021-08-24'},
+{id:6, name:'葡萄', price: 12, addtime:'2021-08-24'},
+{id:7, name:'葡萄', price: 12, addtime:'2021-08-24'},
+{id:8, name:'葡萄', price: 12, addtime:'2021-08-24'},
+{id:9, name:'葡萄', price: 12, addtime:'2021-08-24'},
+];
+view(fruit);
+function view(data){
+   var temp = '';
+     for(var i=0;i<data.length;i++){
+         temp += '<tr>\
+            <td>'+data[i].id+'</td>\
+            <td>'+data[i].name+'</td>\
+            <td>'+'￥'+data[i].price.toFixed(2)+'</td>\
+            <td>'+data[i].addtime+'</td>\
+            </tr>';
+     }
+    
+    list.innerHTML = temp
+}
+function sortBy(th,field,type='string'){
+    th.state = !th.state?1:(th.state===1?-1:0);
+    var className = {
+        0:'sort',
+        1:'sort asc',
+        '-1':'sort desc'
+    };
+    document.querySelectorAll('.sort').forEach(function(th){
+        th.className = 'sort'
+    })
+    th.className = className[th.state];
+    var sortData = [].concat(fruit);
+    sortData.sort(function(a,b){
+        if(type==='number'){
+            return (a[field]-b[field])*th.state;
+
+        }else if(type==='date'){
+            return (Date.parse(a[field])-Date.parse(b[field]))*th.state;
+        }else{
+            return a[field].localeCompare(b[field])*th.state;
+        }
+    });
+    view(sortData)
+
+
+
+
+
+
+
+
+
+
+
+
+}
+    </script>
+</body>
+</html>

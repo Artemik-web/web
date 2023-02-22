@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+  a.active{
+    color: red;
+  }
+
+  .about{
+    display: flex;
+  }
+
+  .about .nav{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 300px;
+    background-color: #ccc;
+    line-height: 40px;
+  }
+  .about .main{
+    flex-grow: 1;
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+  }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+  
+  <div id="app">
+
+    <p>
+      <router-link to="/home">首页</router-link>
+      <router-link to="/about">关于</router-link>
+      <router-link to="/contact">联系</router-link>
+    </p>
+
+    <hr>
+
+    <router-view></router-view>
+
+  </div>
+
+  <script>
+  const Home = {
+    template: `
+    <div>
+      <h2>首页页面</h2>
+    </div>
+    `
+  }
+
+  const About = {
+    template: `
+    <div>
+      <h2>关于页面</h2>
+      <div class="about">
+        <div class="nav">
+          <router-link to="/about/company">公司简介</router-link>
+          <router-link to="/about/news">公司新闻</router-link>
+        </div>
+        <div class="main">
+          <router-view></router-view>
+        </div>
+      </div>
+
+    </div>
+    `
+  }
+
+  const Company = {
+    template: `
+    <h2>公司简介内容</h2>
+    `
+  }
+
+  const News = {
+    data(){
+      return {
+        news: [
+          {id:1, title:'新闻标题1'},
+          {id:2, title:'新闻标题2'},
+          {id:3, title:'新闻标题3'},
+        ]
+      }
+    },  
+    template: `
+    <div>
+      <h2>公司新闻内容</h2>
+      <ul>
+        <li v-for="item in news">
+          <router-link :to="'/about/news/'+item.title">{{item.title}}</router-link>
+        </li>
+      </ul>
+    </div>
+    `
+  }
+
+  const NewsDetail = {
+    template: `
+    <div>
+      <h1>
+        {{$route.params.title}}
+        <button @click="$router.back()">返回</button>
+      </h1>
+      <p>新闻内容....</p>
+    </div>
+    `
+  }
+
+  const Contact = {
+    template: `
+    <div>
+      <h2>联系页面</h2>
+    </div>
+    `
+  }
+
+  const router = new VueRouter({
+    linkActiveClass: 'active',
+    routes: [
+      {path: '/', redirect: '/home'},
+      {path: '/home', component: Home},
+      {path: '/about', component: About, 
+        children: [
+          {path: '', redirect: '/about/company'},
+          {path: 'company', component: Company},
+          {path: 'news', component: News},
+          //显示在2级router-view中
+          {path: 'news/:title', component: NewsDetail},
+        ]
+      },
+      {path: '/contact', component: Contact},
+    ]
+  })
+
+  const app = new Vue({
+    el: '#app',
+    router
+  })
+  </script>
+
+</body>
+</html>

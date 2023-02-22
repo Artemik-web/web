@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var Event = {
+            task : {},
+
+
+            on:function(type, callback){
+                if(!this.task[type]){
+                    this.task[type] = [];
+                }
+                if(typeof callback === 'function'){
+                    this.task[type].push(callback);
+                }
+            },
+
+
+            emit: function(){
+
+                var type = [].shift.call(arguments);
+
+                var callbacks = this.task[type];
+
+                if(!callbacks || !callbacks.length) return;
+
+                for(var i = 0;i<callbacks.length;i++){
+                    var fn = callbacks[i];
+                    if(typeof fn === 'function'){
+                        fn.apply(this, arguments);
+                    }
+                }
+            },
+
+
+            off: function(type, callback ){
+                var callbacks = this.task[type];
+                if( !callbacks || !callbacks.length ) return;
+
+                for(var i = 0;i<callbacks.length;i++){
+                    if(callbacks[i] === callback){
+                        callbacks.splice(i,1)
+                    }
+                }
+            }
+        };
+
+
+
+
+        Event.on('milk',function(a,b){
+            console.log(a,b)
+        })
+
+        Event.on('newsparpe',function(a,b){
+            console.log(a)
+        })
+
+
+
+        setTimeout(function(){
+            Event.emit('milk','牛奶','酸奶');
+            Event.emit('newsparpe','江西日报','人民日报');
+        },1000)
+    </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            margin: 0;
+        }
+
+        ul {
+            padding: 0 20px;
+        }
+
+        .redbag {
+            overflow: hidden;
+            width: 300px;
+            height: 400px;
+            background-color: #ECEDEE;
+            border-radius: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .redbag .top {
+            padding-left: 20px;
+            text-align: left;
+            background-color: #D13D4B;
+            height: 50px;
+            line-height: 50px;
+            margin-bottom: 60px;
+        }
+
+        .redbag .top a {
+            width: 25px;
+            height: 25px;
+            display: inline-block;
+        }
+
+        .redbag li {
+            
+            background-color: white;
+            margin-bottom: 30px;
+            list-style: none;
+            text-align: left;
+        }
+
+        .redbag li input {
+
+            writing-mode: vertical-rl;
+            height: 40px;
+            width: 150px;
+            border: none;
+            outline: none;
+            padding: 0;
+
+        }
+
+        .center img {
+            vertical-align: -2px;
+        }
+
+        .put {
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 90px;
+            display: inline-block;
+
+
+        }
+
+        .put a {
+            background-color: #D13D4B;
+            border-radius: 5px;
+            width: 100px;
+            height: 30px;
+            display: inline-block;
+            color: black;
+            line-height: 25px;
+            text-decoration: none;
+        }
+        span{
+            display: inline-block;
+            width: 80px;
+            padding-left: 5px;
+        }
+        #result{
+            width: 300px;
+            height: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #result li{
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="redbag">
+        <div id="seting">
+        <div class="top"><a href="z练习.html"><img src="img/7.png" alt="" width="15"></a></div>
+        <ul class="center">
+            <li><span> 红包个数</span><input class="c1" type="text" dir="rtl">个</li>
+            <li> <span>总金额 <img src="img/6.png" alt=""></span><input type="text" dir="rtl">元</li>
+        </ul>
+        <div class="put">
+            <a href="javvascript:;" onclick="view()">确认发送</a>
+        </div>
+    </div>
+    </div>
+    <ul id="result"></ul>
+    <script>
+        var value = [1,2,3]
+        view();
+        function view(){
+            result.innerHTML = value.reduce(function(temp,item,index){
+                return temp + `<li>第${(index)+1}个用户抢到了${item}</li>`
+            },'')
+        }
+    //     // 3.正则下划线转驼峰法get_element_by_id
+    //     var str = 'get_element_by_id';
+    //     var a = /_[a-z]/g;
+    //     var result = str.replace(a,function(item){
+    //         return item[1].toUpperCase();
+    //     })
+    //     console.log(result)
+    //     // 4.使用正则实现千分位符（试着理解）
+    //     var num = '794628626';
+    //     var result = num.replace(/(\d)(?=(\d{3})+(?!\d))/g,'$1,')
+    //     console.log(result)
+    //     // 5.字符串模板替换（重要，考过几次）
+    //     function parseTemp(temp,data){
+    //         temp = temp.replace(/\{\{(\w+)\}\}/g,function(match,$1){
+    //             return data[$1]
+    //         })
+    //         return temp;
+    //     }
+    //     var str = '我是{{name}},今年{{age}}岁,性别{{gender}}';
+    //   console.log( parseTemp(str,{name:"张三",age:24,gender:"男"}))
+    //   //
+    //   console.log('1,2,3,4'.split())
+
+
+
+    //   //
+
+    //   console.log(1,Number(1))
+    </script>
+</body>
+
+</html>

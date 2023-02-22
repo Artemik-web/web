@@ -1,0 +1,84 @@
+0 info it worked if it ends with ok
+1 verbose cli [
+1 verbose cli   'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\86176\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'login'
+1 verbose cli ]
+2 info using npm@3.8.6
+3 info using node@v16.10.0
+4 verbose adduser before first PUT {
+4 verbose adduser   _id: 'org.couchdb.user:artemik',
+4 verbose adduser   name: 'artemik',
+4 verbose adduser   password: 'XXXXX',
+4 verbose adduser   email: 'artemik@163.com',
+4 verbose adduser   type: 'user',
+4 verbose adduser   roles: [],
+4 verbose adduser   date: '2022-09-05T06:27:58.524Z'
+4 verbose adduser }
+5 verbose request uri https://registry.npmjs.org/-/user/org.couchdb.user:artemik
+6 verbose request new user, so can't send auth
+7 info attempt registry request try #1 at 下午2:27:58
+8 verbose request id d70c8cd27d155d2e
+9 http request PUT https://registry.npmjs.org/-/user/org.couchdb.user:artemik
+10 http 401 https://registry.npmjs.org/-/user/org.couchdb.user:artemik
+11 verbose headers {
+11 verbose headers   date: 'Mon, 05 Sep 2022 06:27:59 GMT',
+11 verbose headers   'content-type': 'application/json',
+11 verbose headers   'content-length': '94',
+11 verbose headers   connection: 'keep-alive',
+11 verbose headers   'cf-ray': '745ce6f1883e8ffe-FRA',
+11 verbose headers   'www-authenticate': 'OTP',
+11 verbose headers   'cf-cache-status': 'DYNAMIC',
+11 verbose headers   'npm-notice': 'Please check your email for a one-time password (OTP)',
+11 verbose headers   vary: 'Accept-Encoding',
+11 verbose headers   server: 'cloudflare'
+11 verbose headers }
+12 warn notice Please check your email for a one-time password (OTP)
+13 verbose request invalidating C:\Users\86176\AppData\Roaming\npm-cache\registry.npmjs.org\-\user\org.couchdb.user_3Aartemik on PUT
+14 verbose adduser back [
+14 verbose adduser   Error: failed to authenticate: A One Time Password (OTP) by email is required. : -/user/org.couchdb.user:artemik
+14 verbose adduser       at makeError (C:\Users\86176\AppData\Roaming\npm\node_modules\npm\node_modules\npm-registry-client\lib\request.js:264:12)
+14 verbose adduser       at CachingRegistryClient.<anonymous> (C:\Users\86176\AppData\Roaming\npm\node_modules\npm\node_modules\npm-registry-client\lib\request.js:252:14)
+14 verbose adduser       at Request._callback (C:\Users\86176\AppData\Roaming\npm\node_modules\npm\node_modules\npm-registry-client\lib\request.js:172:14)
+14 verbose adduser       at Request.self.callback (C:\Users\86176\AppData\Roaming\npm\node_modules\npm\node_modules\request\request.js:199:22)
+14 verbose adduser       at Request.emit (node:events:390:28)
+14 verbose adduser       at Request.<anonymous> (C:\Users\86176\AppData\Roaming\npm\node_modules\npm\node_modules\request\request.js:1036:10)
+14 verbose adduser       at Request.emit (node:events:402:35)
+14 verbose adduser       at IncomingMessage.<anonymous> (C:\Users\86176\AppData\Roaming\npm\node_modules\npm\node_modules\request\request.js:963:12)
+14 verbose adduser       at IncomingMessage.emit (node:events:402:35)
+14 verbose adduser       at endReadableNT (node:internal/streams/readable:1343:12) {
+14 verbose adduser     statusCode: 401,
+14 verbose adduser     code: 'E401'
+14 verbose adduser   },
+14 verbose adduser   {
+14 verbose adduser     ok: false,
+14 verbose adduser     error: 'failed to authenticate: A One Time Password (OTP) by email is required.'
+14 verbose adduser   },
+14 verbose adduser   '{"ok":false,"error":"failed to authenticate: A One Time Password (OTP) by email is required."}'
+14 verbose adduser ]
+15 warn adduser Incorrect username or password
+15 warn adduser You can reset your account by visiting:
+15 warn adduser
+15 warn adduser     https://npmjs.org/forgot
+16 verbose stack Error: failed to authenticate: A One Time Password (OTP) by email is required. : -/user/org.couchdb.user:artemik
+16 verbose stack     at makeError (C:\Users\86176\AppData\Roaming\npm\node_modules\npm\node_modules\npm-registry-client\lib\request.js:264:12)
+16 verbose stack     at CachingRegistryClient.<anonymous> (C:\Users\86176\AppData\Roaming\npm\node_modules\npm\node_modules\npm-registry-client\lib\request.js:252:14)
+16 verbose stack     at Request._callback (C:\Users\86176\AppData\Roaming\npm\node_modules\npm\node_modules\npm-registry-client\lib\request.js:172:14)
+16 verbose stack     at Request.self.callback (C:\Users\86176\AppData\Roaming\npm\node_modules\npm\node_modules\request\request.js:199:22)
+16 verbose stack     at Request.emit (node:events:390:28)
+16 verbose stack     at Request.<anonymous> (C:\Users\86176\AppData\Roaming\npm\node_modules\npm\node_modules\request\request.js:1036:10)
+16 verbose stack     at Request.emit (node:events:402:35)
+16 verbose stack     at IncomingMessage.<anonymous> (C:\Users\86176\AppData\Roaming\npm\node_modules\npm\node_modules\request\request.js:963:12)
+16 verbose stack     at IncomingMessage.emit (node:events:402:35)
+16 verbose stack     at endReadableNT (node:internal/streams/readable:1343:12)
+17 verbose statusCode 401
+18 verbose cwd E:\1.个人文件夹\node学习\开发自己的包\1
+19 error Windows_NT 10.0.22000
+20 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\86176\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "login"
+21 error node v16.10.0
+22 error npm  v3.8.6
+23 error code E401
+24 error failed to authenticate: A One Time Password (OTP) by email is required. : -/user/org.couchdb.user:artemik
+25 error If you need help, you may report this error at:
+25 error     <https://github.com/npm/npm/issues>
+26 verbose exit [ 1, true ]

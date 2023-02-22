@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //promise 构造函数 参数是个回调函数，回调函数上有两个参数
+        // var p1 = new Promise(function(reslove,reject){
+        //     setTimeout(() => {
+        //         if(Math.random()>0.5){
+        //             reslove('成功');
+        //         }else{
+        //             reject('失败')
+        //         }
+        //     }, 3000);
+        // });
+        // p1.then(function(success){
+        //     console.log(success)
+        // }).catch(function(fail){
+        //     console.log(fail)
+        // }).finally(function(){
+        //     console.log('完成')
+        // })
+
+
+
+
+
+
+
+
+         // 
+
+
+
+//         var p1 = new Promise(function(reslove){
+//             console.log('start');
+//             reslove('end');
+//         })
+
+//         p1.then(function(msg){
+//             console.log(msg)
+//         })
+
+// console.log('open')
+
+
+
+
+// promise 版本买菜
+const doIt = (task, time=1000) =>{
+    return new Promise(function(reslove){
+        setTimeout(() => {
+            reslove(task)
+        }, time);
+    })
+}
+
+
+doIt('买菜',2000).then(function(msg){
+    console.log(msg);
+    return doIt('洗菜');
+}).then(function(msg){
+    console.log(msg);
+    return doIt('做菜',2000)
+}).then(function(msg){
+    console.log(msg);
+    return doIt('吃饭')
+}).then(function(msg){
+    console.log(msg);
+    return doIt('洗碗')
+}).then(function(msg){
+    console.log(msg)
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

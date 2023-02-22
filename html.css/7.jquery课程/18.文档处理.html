@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <div id="box">文本
+        </div>
+        <i id="xt">斜体</i>
+        <script>
+         $( ' #box ' ).append( '@' ); //纯文本
+        $( '#box ' ).append( '<b>文本</b> ' ); l/html文本
+        $('#box' ).append( document.getElementById( 'xt ') ); l/ dom对象23//$( '#box ' ).append($( '#xt ') ); l/jq对象
+        $( ' #box ' ).append( function(){return '$$$'});//函数25//$( ' #box ' ).append('<b>文本</b> ' ).css( 'color ' , ' red ' ) ;26
+        $('@' ).appendTo( ' #box ');//不支持纯文本28
+        $( '<b>文本</b> ' ).appendTo( '#box ' ); //html文本
+        $( document.getElementById('xt') ).appendTo( '#box '); // dom对象31//$('#xt ' ).appendTo( '#box'); //jq对象
+        $('<b>文本</b> ' ).appendTo( ' #box ' ).click(function(){
+             alert(this );
+             })
+        </script>
+       
+</body>
+</html>

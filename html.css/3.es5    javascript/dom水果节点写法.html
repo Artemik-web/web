@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #table{
+            width: 500px;
+        }
+        #table,th,td{
+            text-align: center;
+            
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+        }
+
+    </style>
+</head>
+<body>
+    <button onclick="add()">添加</button>
+    <table id="table">
+        <thead>
+            <tr>
+                <th width="100">序号</th>
+                <th width="100">名字</th>
+                <th width="300">操作</th>
+            </tr>
+        </thead>
+        <tbody id="box">
+            <tr>
+                <td>01</td>
+                <td>苹果</td>
+                <td id="do">
+                    <button>复制</button>
+                    <button>上移</button>
+                    <button>下移</button>
+                    <button>删除</button>
+                    <button>修改</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        function add(){
+            var children = box.childNodes
+
+
+            var tr = document.createElement('tr')
+                
+                var tdnum = document.createElement('td')
+                tdnum.textContent = `${i}`
+                var tdname = document.createElement('td')
+                var tddo = document.createElement('td')
+
+
+
+            for(var i=0;i<children.length;i++){
+            if(children[i].nodeType === 1 && children[i].nodeName ==='TR'){
+                
+
+                // var index = ((i+1)+'').padStart(2,0)
+                
+                // tr = tr.appendChild(tdnum).appendChild(tdname).appendChild(tddo)
+                console.log(tr)
+                
+                
+        }
+    }box.appendChild(tr).appendChild(tdnum)
+        }
+            
+    </script>
+</body>
+</html>

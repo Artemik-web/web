@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <ul id="list">
+        <li>首页</li>
+        <li id="about">关于
+          <ol>
+            <li>子元素1</li>
+            <li id="child"><span id="span">子元素2</span></li>
+          </ol>
+        </li>
+        <li>产品</li>
+        <li>新闻</li>
+        <li class="case">案例</li>
+        <li>联系</li>
+      </ul>
+      <script>
+          console.log( $('#list').filter('li'))
+          console.log( $('#list').children('li'))
+          console.log( $('#list').find('li'))
+
+          console.log( $('#child').closest('ul'))
+
+          console.log( $('#about').next())
+          console.log( $('#about').nextAll())
+          console.log( $('#about').nextUntil('.case'))
+          console.log( $('#about').parent().parent().parent())
+          console.log( $('#span').parents('li'))
+      </script>
+</body>
+</html>

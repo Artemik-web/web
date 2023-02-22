@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//1.给所有的对象扩展属性和方法
+Object.prototype.age=24;
+var a = {};
+var b = {};
+console.log(a.age)
+console.log(b.age)
+
+
+//2.给具体的对象扩展原型属性和方法
+var person1 = {};
+person._proto_ = {name:'tony'};
+
+//推荐下面的方法
+Object.setPrototypeOf(person1,{name:'tony'});
+
+console.log(person1.name);//tony
+
+var person2 = {};
+console.log(person2.name);//undefined
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+{
+  "id": "2861995",
+  "name": "vivo",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "4583613",
+      "name": "空心对勾",
+      "font_class": "kongxinduigou1",
+      "unicode": "ebe5",
+      "unicode_decimal": 60389
+    },
+    {
+      "icon_id": "15726845",
+      "name": "空心对勾",
+      "font_class": "kongxinduigou",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "716229",
+      "name": "右",
+      "font_class": "zuo",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "9319021",
+      "name": "收货地址",
+      "font_class": "shouhuodizhi",
+      "unicode": "eb26",
+      "unicode_decimal": 60198
+    },
+    {
+      "icon_id": "6317865",
+      "name": "评价",
+      "font_class": "pingjia",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "630079",
+      "name": "我的优惠券",
+      "font_class": "wodeyouhuiquan",
+      "unicode": "e65a",
+      "unicode_decimal": 58970
+    },
+    {
+      "icon_id": "5662433",
+      "name": "我的收藏",
+      "font_class": "wodeshoucang",
+      "unicode": "e660",
+      "unicode_decimal": 58976
+    },
+    {
+      "icon_id": "6303555",
+      "name": "待收货",
+      "font_class": "daishouhuo",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "7833095",
+      "name": "待付款",
+      "font_class": "daifukuan",
+      "unicode": "e657",
+      "unicode_decimal": 58967
+    },
+    {
+      "icon_id": "11239053",
+      "name": "退款",
+      "font_class": "tuikuan",
+      "unicode": "e647",
+      "unicode_decimal": 58951
+    },
+    {
+      "icon_id": "13603395",
+      "name": "爱心售后",
+      "font_class": "aixin",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "703763",
+      "name": "定制",
+      "font_class": "dingzhi",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "797300",
+      "name": "分类",
+      "font_class": "fenlei",
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "1244550",
+      "name": "分类",
+      "font_class": "fenlei1",
+      "unicode": "e638",
+      "unicode_decimal": 58936
+    },
+    {
+      "icon_id": "3090258",
+      "name": "快递",
+      "font_class": "kuaidi",
+      "unicode": "e629",
+      "unicode_decimal": 58921
+    },
+    {
+      "icon_id": "3267058",
+      "name": "我的",
+      "font_class": "wode",
+      "unicode": "e828",
+      "unicode_decimal": 59432
+    },
+    {
+      "icon_id": "5301932",
+      "name": "右",
+      "font_class": "you",
+      "unicode": "e62f",
+      "unicode_decimal": 58927
+    },
+    {
+      "icon_id": "7454283",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e6f1",
+      "unicode_decimal": 59121
+    },
+    {
+      "icon_id": "7900287",
+      "name": "正品",
+      "font_class": "zhengpin",
+      "unicode": "e726",
+      "unicode_decimal": 59174
+    },
+    {
+      "icon_id": "12660048",
+      "name": "分类",
+      "font_class": "fenlei2",
+      "unicode": "e662",
+      "unicode_decimal": 58978
+    },
+    {
+      "icon_id": "12990668",
+      "name": "爱心-2-线",
+      "font_class": "aixin--xian",
+      "unicode": "e895",
+      "unicode_decimal": 59541
+    }
+  ]
+}

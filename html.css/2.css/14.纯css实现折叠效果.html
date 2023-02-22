@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <style>
+  [name="state"]{
+    display: none;
+  }
+  [name="state"]~p{
+    display: none;
+  }
+  [name="state"]:checked~p{
+    display: block;
+  }
+  </style>
+
+  <label>
+    <input type="radio" name="state" checked>
+    <h4>文章管理</h4>
+    <p>
+      子栏目1 <br>
+      子栏目2 <br>
+      子栏目3 <br>
+    </p>
+  </label>
+
+  <label>
+    <input type="radio" name="state">
+    <h4>图片管理</h4>
+    <p>
+      子栏目1 <br>
+      子栏目2 <br>
+      子栏目3 <br>
+    </p>
+  </label>
+
+  
+
+
+
+</body>
+</html>

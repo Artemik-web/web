@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <button onclick="post()">添加</button>
+    <ul id="list"></ul>
+    <script>
+        let baseURL = 'http://cloud.scnew.com.cn/api/'
+
+        $.ajaxSetup({
+                headers: {
+                    'SC-Token': 'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIyOSIsImF1ZCI6InRlc3QiLCJpYXQiOjE2MzUxMjkxMzAsInJvbGVzIjoiNCIsImV4cCI6MTk5NTEyOTEzMH0.YBFv0Fs4oxhpCJ3jFoUOqLOUM_qW5t7hIe-E3M9nIqc',
+                    'Content-Type': 'application/json'
+                }
+        })
+        get();
+        function get(){
+            $.get(baseURL + 'feedback/user?tid=0',function(res){
+                let temp = res.result.reduce(function (str, item) {
+                    return str + `<li>${item.content}</li>`;
+
+                }, '');
+                $('#list').empty().append(temp)
+
+            })
+        }
+    
+    function post(){
+        let content = prompt('请输入评论内容');
+        $.post('http://cloud.scnew.com.cn/api/feedback/add',JSON.stringify({
+            tid: 0,
+            content
+        }),
+        function(res){
+            if(res.err > 0){
+                console.log(res.desc);
+            }else{
+                get();
+            }
+        })
+
+
+
+
+    }
+    
+    
+    
+    </script>
+</body>
+</html>

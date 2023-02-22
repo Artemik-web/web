@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .box2 :nth-child(odd)::after{
+            content:"🐕";
+        }
+    </style>
+    <ul class="box2">
+        <li>列表1</li>
+        <li>列表2</li>
+        <li>列表3</li>
+        <li>列表4</li>
+        <li>列表5</li>
+        <li>列表6</li>
+    </ul>
+    <style>
+        .box3 ::before{
+            content: "🌂";
+        }
+    </style>
+    <ul class="box3">
+        <p>🐕🐒🐂🐎🐟❀🐇🐋🐀🐊🦁</p>
+        <li>列表1🌂</li>
+        <li>列表2</li>
+        </ul>
+        <style>
+            .hello::first-letter{
+                font-size: 24px;
+                color: blue;
+                text-transform:capitalize
+                /* 首字母大写 */
+            }
+            .hello::first-line{
+                color: red;
+            }
+        </style>
+        <p class="hello">hello</p>
+        <p class="hello">game <br>time</p>
+        <style>
+            ::selection{
+                background: red;
+                color: white;
+            }
+        </style>
+    
+<style>
+    .username::placeholder{
+       color: antiquewhite; 
+    }
+    
+</style>
+<input type="text" placeholder="请输入用户名！">
+<style>
+    ::-webkit-scrollbar{
+        width: 10px;
+        height: 10px;
+    }
+    ::-webkit-scrollbar-thumb{
+        background: black;
+    }
+    ::-webkit-scrollbar-track{
+        background: red;
+    }
+</style>
+<div style="height: 50000px;width: 20000px;"></div>
+</body>
+</html>

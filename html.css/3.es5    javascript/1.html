@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ol id="treemenu"></ol>
+    <script>
+
+        // var str = '今天天气好晴朗!';
+        // //  var res = '';
+        //     for(var a=str.length-1;a>=0;a--){
+        // console.log(str[a])
+        // } 
+
+
+
+        // var fruit = ['🍎','🍊','🍌']
+        // var temp = '<ul>';
+        //     for(var i = 0;i<=fruit.length-1;i++){
+        //         temp = temp + '<li>' + (i + 1) +'、'+fruit[i]+'</li>';
+        //     }
+        //     temp = temp + '</ul>';
+        //     document.write(temp)
+
+
+        // var a = {z:5,y:9};
+        // var b = a;
+        // b.z = 6;
+        // delete b.y;
+        // b.x = 8;
+        // console.log(a === b);
+
+
+
+
+
+        // var str ='aabcddef'
+        // var obj = {};
+        // for(var a=0; a<str.length;a++){
+        //     let key = str[a];
+        //     if(key in obj){
+        //         obj[key] = obj[key] + 1;
+        //     }else{
+        //         obj[key] = 1;
+        //     }
+
+        // }
+        // console.log(obj)
+
+
+
+        // var obj = {name:'张三',age:24};
+        // for(var key in obj){
+        //     if(obj.hasOwnProperty(key)){
+        //         console.log(key)
+        //     }
+        // }
+
+
+        // var str = 'asdfasdfgfss';
+        // var list = {};
+        // for(var a = 0;a<str.length;a++){
+        //     var key = str[a];
+        //     if(key in list){
+        //         // list[key] = str[key];
+        //         // list[key] += 1;
+        //     }else{
+        //         list[key] = 1;
+        //     }
+        // }
+        // console.log(list)
+
+        // var arr = [1,2,3,4,5,6,7,8,9];
+        // for(var a = 0; a<arr.length;a++){
+        //     console.log(arr[a])
+        // }
+
+        // 6.
+
+
+
+        // var week = ['日','一','二','三','四','五','六',];
+        // var day = {};
+        // for(var a=0; a<week.length;a++){
+        //     day[a] = week[a];
+        //     day[a] = '星期' + day[a];
+        // }
+        // console.log(day);
+        // console.log(new Date().getDay());
+
+        // 14.
+        // var x = 10;
+        // var z = 1;
+        // for(var a=x; a>=1; a--){
+        //     z = z * a;
+        // }
+        // console.log(z)
+        // var x = 1;
+        // function  jc(num){
+        //     for(var a=1;a<=10;a++){
+
+        //     }
+        // }
+
+
+
+        // function max(a,b,c){
+        //     a>b ? (a>c ? a:c):(b>c ? b:c);
+        // }
+
+        // max(1,2,3);
+
+
+
+
+
+        // function max(a,b,c){
+        //     if(a>b){
+        //         if(a>c){
+        //             console.log(a);
+        //         }else{
+        //             console.log(c);
+
+        //         }
+        //     }else if(b>c){
+        //         console.log(b);
+        //     }
+        // }
+
+        // max(1,2,3)
+
+
+
+
+        // function sl(){
+
+        // }
+
+        // function fnMax(a, b, c) {
+        //     var t = 0;
+        //     if (b > a) {
+        //         t = b;
+        //         b = a;
+        //         a = t;
+        //     }
+        //     if (c > a) {
+        //         t = c;
+        //         c = a;
+        //         a = t;
+        //     }
+        //     document.write("a,b,c中最大值是" + a)
+        // }
+        // fnMax(9, 3, 10)
+
+        // function fibonacci(n) {
+
+        //     var a = [0, 1, 1];
+
+        //     if (n < 0) throw new Error('输入的数字不能小于0');
+
+        //     if (n >= 3) {
+
+        //         for (var i = 3; i <= n; i++) {
+
+        //             a[i] = a[i - 1] + a[i - 2];
+
+        //         }
+
+        //     }
+
+        //     return a[n];
+
+        // }
+
+// var obj = 10;
+// function foo(obj){
+//     var newobj = obj;
+//     newobj.age = 20;
+
+//     console.log(obj); 
+//     console.log(newobj);
+// }
+// var info = { age:24 };
+// foo(info);
+ 
+
+
+
+// function a(x){
+// var m = x;
+// function add(m){
+// for(var s = 0;s<m.length;s++){
+    
+// }
+
+
+
+//     }
+
+// return add;
+// }
+
+
+
+
+// console.log(x[n]);
+
+// var blog = a(x);
+// blog(data);
+
+
+// ........................................................
+// var a = [1,2,3];
+// var b = [];
+// for(var key in a){
+//     b[key] = a[key];
+// }
+// b[0] = 3;
+// console.log(b)
+// console.log(a)
+
+
+// var a = {name:'tony',age:20,gender:'男'};
+// var b = {};
+// for(var key in a){
+//     b[key] = a[key];
+// }
+// b.name = 2;
+// console.log(b)
+// console.log(a)
+
+
+// //eval
+// var str = '{"name":"tony","age":24}';
+// eval('str ='+'{"name":"tony","age":24}')
+// console.log(str)
+
+
+// //new function
+// var str = '{"name":"tony","age":24}';
+
+
+// var obj = new Function('str','str({"name":"tony","age":24})')
+
+// obj(function(json){
+//     console.log(json)
+// });
+
+
+
+
+
+
+// var arr = [2,3,1,5,6,7];
+
+// function foo(arr){
+//     for(var a=0;a<arr.length;a++){
+//        arr[a] = arr[a]*2;
+//     }
+//     return arr;
+// }
+// foo(arr);
+// console.log(arr)
+
+
+
+// var r  = 2;
+
+// function getlong(r){
+//      s = 2*Math.PI*r
+//      return s;
+// }
+// getlong(r)
+// console.log(s)
+
+
+
+
+// var arr=[1,2,3,4,5,6,];
+// function reversal(arr){
+//     var b = [];
+//     for(var a = arr.length-1;a>=0;a--){
+//         b.push(arr[a]);
+//     }
+//     // arr = b; 
+//     return b;
+// }
+// // reversal(arr);
+// console.log(arr)
+// console.log(reversal(arr))
+
+
+// var arr=[1,2,3,6,];
+
+// function sum(arr){
+//     var b = 0
+//     for(var a=0;a<arr.length;a++){
+//         b+=arr[a];
+//     }
+// return b/arr.length;
+// }
+
+// console.log(sum(arr))
+
+
+
+
+
+// var arr=[1,2,3,6,7];
+
+// function max(arr){
+//     var b = arr[0];
+//     for(var a=0;a<arr.length;a++){
+//         if(b>arr[a]){
+//             b = arr[a]
+//         }
+//     }
+//     return b;
+// }
+
+// console.log(max(arr))
+
+
+
+// var arr=[1,2,3,6,7];
+
+// function max(arr){
+//     var b = arr.length;
+//     return b;
+// }
+
+// console.log(max(arr))
+
+
+
+// var arr = [1,2,3,[4,5,[6]]];
+// function deepcopy(arr,newarr = []){
+//     for(var a = 0;a<arr.length;a++){
+//         if(Array.isArray(arr[a])){
+//             deepcopy(arr[a],newarr)
+//         }else{
+//             newarr.push(arr[a]);
+//         }
+//     }
+// return newarr;
+// }
+// console.log(deepcopy(arr))
+
+
+
+// var data = [1,2,3,[4,5,[6]]];
+//     function flat(arr){
+//         var newarry = [];
+//         function fn(arr){
+//             for(var a = 0;a<arr.length;a++){
+//                 if(Array.isArray(arr[a])){
+//                     fn(arr[a],newarry)
+//                 }else{
+//                     newarry.push(arr[a])
+//                 }
+//             }
+
+//         }
+// fn(arr)
+// return newarry;
+//     }
+// console.log(flat(data))
+
+
+// function year(){
+//     for(var a = 2000;a<=2100;a++){
+//         if( a%400 == 0||a %4 ==0) console.log(a)
+//     }
+//     return a;
+// }
+// year();
+
+
+
+
+
+
+// var str = '南京南';
+// function hw(str){
+//  var arr = str.split('')
+//  console.log(arr)
+//  for(var a = 0;a<arr.length;a++){
+//      if(arr[a] === arr[arr.length-1-a]){
+//           console.log('回文')
+//         }else{
+//             console.log('不是回文')
+//         }
+//  }
+// }
+// hw(str);
+
+
+
+// console.log('123'&& +0 || [] && null == undefined || 'end')
+
+
+
+// var data = [
+//   { 
+//     name: '一级菜单1',
+//     children: [
+//       {
+//         name: '二级菜单1',
+//         children: [
+//           { name: '三级菜单1' },
+//           { name: '三级菜单2' },
+//           { name: '三级菜单3' },
+//         ]
+//       },
+//       { name: '二级菜单2' },
+//       { name: '二级菜单3' },
+//     ]
+//   },
+//   { name: '一级菜单2' },
+//   { name: '一级菜单3' },
+// ]
+
+// function renderTree( arr, temp = ''){
+//     temp += '<ol>';
+//         for(var i=0; i<arr.length;i++){
+//             var item = arr[i];
+//             temp += '<li>' + item.name;
+//                 if(item.length && item.children.length){
+//                     temp = renderTree(item.children, temp)
+//                 }
+//                 temp += '</li>';
+//         }
+//         temp += '</ol>';
+//         return temp;
+
+
+//     }
+//     document.getElementById('treemenu').innerHTML = renderTree(data)
+
+
+
+
+
+
+//     var str = 'asdfasdfgfss';
+//         var list = {};
+//         for(var a = 0;a<str.length;a++){
+//             var key = str[a];
+//             if(key in list){
+//                 list[key] = str[key];
+//                 list[key] += 1;
+//             }else{
+//                 list[key] = 1;
+//             }
+//         }
+//         console.log(list)
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var str = 1234567891 ;
+str = str.toString();
+var restr= '';
+var k=0;
+for(var i=str.length-1;i>=0;i--){
+k++;
+restr += str[i];
+if( k !== str.length && k % 3===0 ) restr +=',';
+}
+var temp='';
+for(var j=restr .length-1;j>=0;j--){
+temp += restr[j] ;
+}
+console.log(temp);
+
+    </script>
+</body>
+
+</html>

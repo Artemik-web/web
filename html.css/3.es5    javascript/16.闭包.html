@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+
+
+<script>
+// 全局实现
+var a = 1;
+function jj(){
+    a++;
+    console.log(a)
+}
+jj();
+jj();
+jj();
+jj();
+
+
+// 闭包
+function foo(){
+    var n = 1;
+  function add(){
+      n++;
+      console.log( n )
+}
+    return add
+
+}
+// 原始调用样子
+foo()();//没有下面的定义要两个括号
+
+// 简便调用
+var fd = foo();
+fd();//本来是用完后清除
+fd();//这里应该n被清除回到1，因为有n引用关系，垃圾回收站没有回收
+fd();
+fd();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

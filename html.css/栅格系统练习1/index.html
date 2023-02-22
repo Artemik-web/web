@@ -1,0 +1,121 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/flex_grid.css">
+    <style>
+    span{
+        display: block;
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .logo span,
+    .nav span{
+        background-color: #ccc;
+        line-height: 60px;
+    }
+    .slide span{
+        background-color: #999;
+        line-height: 100px;
+    }
+
+    .service span{
+        background-color: #666;
+        line-height: 180px;
+    }
+
+    .product span{
+        background-color: #ddd;
+        line-height: 60px;
+    }
+
+    @media screen and (min-width:768px){
+        .slide span{
+            line-height: 200px;
+        }
+        .service span{
+            line-height: 80px;
+        }
+        .product span{
+            line-height: 80px;
+        }
+    }
+
+    @media screen and (min-width:992px){
+        .logo span,
+        .nav span{
+            line-height: 80px;
+        }
+        .slide span{
+            line-height: 260px;
+        }
+        .service span{
+            line-height: 180px;
+        }
+        .product span{
+            line-height: 100px;
+        }
+    }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="row">
+    
+        <div class="logo col-xs-12 col-md-6">
+            <span>标志</span>
+        </div>
+
+        <div class="nav col-xs-12 col-md-6">
+            <span>导航</span>
+        </div>
+
+        <div class="slide col-xs-12">
+            <span>幻灯</span>
+        </div>
+
+        <div class="service col-xs-12 col-md-4">
+            <span>服务1</span>
+        </div>
+
+        <div class="service col-xs-12 col-md-4">
+            <span>服务2</span>
+        </div>
+
+        <div class="service col-xs-12 col-md-4">
+            <span>服务3</span>
+        </div>
+
+        <div class="product col-xs-12 col-sm-6 col-md-3">
+            <span>产品1</span>
+        </div>
+
+        <div class="product col-xs-12 col-sm-6 col-md-3">
+            <span>产品2</span>
+        </div>
+
+        <div class="product col-xs-12 col-sm-6 col-md-3">
+            <span>产品3</span>
+        </div>
+
+        <div class="product col-xs-12 col-sm-6 col-md-3">
+            <span>产品4</span>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

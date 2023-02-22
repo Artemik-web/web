@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(Number.isInteger(10));//true
+        console.log(Number.isInteger(10.00));//true
+        console.log(Number.isInteger(10.1));//false
+
+
+
+
+
+
+
+
+
+        console.log(Number.trunc(10.123));//10
+
+
+
+
+        console.log(Number.sign(10));//1
+        console.log(Number.sign(-10));//-1
+        console.log(Number.sign(0));//0
+        console.log(Number.sign('a'));//NaN
+
+
+
+        // 求平方根
+        console.log( Math.sqrt(4));//2
+        //求立方根
+        console.log(Math.cbrt(8));2
+
+        //近似理解成相乘
+        console.log(Math.imul(3,4));//12
+
+        //返回所有参数的平方和的平方根
+        var p1 = {x:50,y:50};
+        var p2 = {x:80,y:80};
+
+        //es5
+        var c = (p2.x-p1.x)**2 + (p2.y-p1.y)**2;
+        console.log(Math.sqrt(c));//~=42
+
+        // es6
+        console.log(Math.hypot((p2.x-p1.x,(p2.y-p1.y))))
+    </script>
+</body>
+</html>

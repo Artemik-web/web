@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div id="A1">
+        <div id="1-1"></div>
+        <div id="1-2"></div>
+    </div>
+
+
+    <div id="B2">
+        <div id="2-1"></div>
+        <div id="2-2"></div>
+    </div><div id="C3">
+        <div id="3-1"></div>
+        <div id="3-2"></div>
+    </div> -->
+<style>
+ 
+    #box{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    div{
+        display: inline-block;
+        line-height: 150px;
+    }
+    select{
+        width: 80px;
+        height: 150px;
+        
+    }
+</style>
+<div id="box">
+<select id="leftlist" name="left" size="6" multiple="multiple">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+</select>
+<div>
+<button onclick="left(this)">←</button>
+<button onclick="right(this)">→</button>
+</div>
+<select id="rightlist" name="" size="6">
+ 
+</select>
+</div>
+    <script>
+        // next(B2)
+        // function next(id){
+        //     var arr = [];
+        //     var nextid = id;
+        //     while(id.nextSibling){
+        //         nextid = nextid.nextSibling;
+                
+        //     if( nextid.nextSibling.nodeType === 3){
+        //         console.log(nextid.nodeType)
+        //     }
+        //     else{
+        //         console.log('没有');}
+        //     }
+        //     return;
+          
+            
+        // }
+
+
+
+
+
+        function left(select){
+            
+            var obj = document.getElementById('leftlist')
+            var index = document.getElementById('leftlist').selectedIndex
+            if(index)
+            rightlist.innerText = `${obj[index]}`
+
+
+
+           console.log (leftlist,index,obj[index],obj[index].value)
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

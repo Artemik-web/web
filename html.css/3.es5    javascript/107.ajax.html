@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="list"></ul>
+    <script>
+function read(){
+    var xhr = new XMLHttpRequest();
+
+function get(){
+    fetch('http://cloud.scnew.com.cn/api/course/book').then(function(response){
+        return response.json();
+    }).then(function(json){
+        console.log(json);
+        if(xhr.readyState === 4 && xhr.status === 200){
+                    var res = JSON.parse(xhr.responseText);
+                    list.innerHTML = res.result.reduce(function(temp,item){
+                        return temp + `<li>${item.title}----------${item.author}</li>`
+                    },'')
+                }
+    })
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // function get() {
+        //     //1.创建xhr对象
+        //     var xhr = new XMLHttpRequest();
+
+        //     //2. 监听readstate状态的改变
+        //     xhr.onreadystatechange = function () {
+        //         // console.log(xhr.readyState) //相当于前端
+        //         // console.log(xhr.status) //相当于后端
+
+        //         if(xhr.readyState === 4 && xhr.status === 200){
+        //             var res = JSON.parse(xhr.responseText);
+        //             list.innerHTML = res.result.reduce(function(temp,item){
+        //                 return temp + `<li>${item.title}----------${item.author}</li>`
+        //             },'')
+        //         }
+        //     }
+        //     xhr.open('GET', 'http://cloud.scnew.com.cn/api/course/book', true)
+
+        //     xhr.send();
+        // }
+    </script>
+</body>
+
+</html>

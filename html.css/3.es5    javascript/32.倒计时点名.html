@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="place"></h1>
+    <button id="btn">开始</button>
+
+ <!-- ['🍎','🍌','🍍','🍊','🍇'] -->
+
+   
+<script>
+ btn.onclick = function(){
+var n = 5;
+var list = ['🍎','🍌','🍍','🍊','🍇'];
+ place.innerText = n;
+ btn.disabled = true;
+ var int = setInterval(function(){
+     n -= 1;
+     if(n<0){
+         clearInterval(int);
+         var i = Math.floor( Math.random()*list.length);
+         place.innerText = list[i];
+         btn.disabled = false;
+     } else{
+         place.innerText = n;
+     }
+ },1000)
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

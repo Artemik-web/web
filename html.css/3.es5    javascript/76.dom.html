@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    文本
+    <div id="box"></div>
+
+
+    <ul id="nav">
+        <span>222</span>
+        <li>首页</li>
+        <a href="#"></a>
+        <li id="about"> 关于</li>
+        <li id="aaa">联系</li>
+    </ul>
+
+
+    <div>
+        <p>
+            <span>
+                <b id="me">文本</b>
+            </span>
+        </p>
+    </div>
+    <button id="btn"></button>
+    1111111111
+
+    <p>2</p>
+    <script>
+        console.log(box.nodeType)//1
+        console.log(box.nodeName)//DIV
+        console.log(document.nodeName)//#document
+        console.log(document.body.firstChild.nodeName)//#text
+        console.log(document.body.firstChild.nodeType)//#text
+  
+
+
+
+        var style = document.createElement('style');
+
+        style.innerText = `html{
+            //innerText 变红
+            //contenttext 不变红
+
+            color:red;
+        }`;
+        document.head.appendChild(style)
+
+
+
+
+        var arr = [];
+        for(var i=0;i<nav.childNodes.length;i++){
+            if(
+                nav.childNodes[i].nodeType !==1 ||
+                nav.childNodes[i].nodeName !=='LI'
+            ) continue;
+            arr.push(nav.childNodes[i]);
+        }
+console.log(arr)
+
+
+// previousSibling   上一个同级
+var arr = [];
+var prev = aaa;
+while(prev.previousSibling){
+
+    prev = prev.previousSibling;
+    if(prev.nodeType === 1 && prev.nodeName === 'LI'){
+    arr.push(prev)
+}continue;
+
+}
+console.log(arr)
+
+
+
+// parentNode 
+var arr = [];
+var parent = about.parentNode;
+var nodes = parent.childNodes;
+
+for(var i=0;i<nodes.length;i++){
+    if(nodes[i].nodeType !==1 || nodes[i]===about)continue;
+    arr.push(nodes[i])
+}
+console.log(arr)
+
+
+
+var arr = [];
+parent = me.parentNode;
+
+while(parent.nodeName !== "BODY"){
+    arr.push(parent);
+    parent = parent.parentNode;
+    
+    console.log(parent.nodeName)
+}
+console.log(arr)
+
+
+
+
+
+
+
+
+
+function next(el){
+    var target = el;
+    while(target = target.nextSibling){
+        if(target.nodeType === 1) break;
+    }
+    return target;
+}
+console.log(next(btn))
+
+
+    </script>
+</body>
+</html>

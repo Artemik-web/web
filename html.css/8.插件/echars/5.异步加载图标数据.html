@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/echarts.min.js"></script>
+</head>
+<body>
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+    
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        
+        setTimeout(function(){
+            var goods = [
+      {id:1, name:'衬衫', sales:5},
+      {id:2, name:'羊毛衫', sales:20},
+      {id:3, name:'雪纺衫', sales:36},
+      {id:4, name:'裤子', sales:7},
+      {id:5, name:'高跟鞋', sales:10},
+      {id:6, name:'袜子', sales:25},
+    ];
+
+
+                    var option = {
+          title: {
+            text: 'ECharts 入门示例'
+          },
+          tooltip: {},
+          legend: {
+            data: ['销量']
+          },
+          xAxis: {
+            data: goods.map(item=>item.name)
+          },
+          yAxis: {},
+          series: [
+            {
+              name: '销量',
+              type: 'bar',
+              data: goods.map(item=>item.sales)
+              
+            }
+          ]
+        };
+  
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        },3000)
+        // 指定图表的配置项和数据
+
+      </script>
+</body>
+</html>

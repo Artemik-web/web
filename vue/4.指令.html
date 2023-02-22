@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <p>{{(1+1*2/3).tofixed()}}</p>
+        <p>{{age>=18?'成年':'未成年'}}</p>
+        <p>{{'未成年'.slice(0,2)}}</p>
+        <p>{{ ['a','b'].concat('c') }}</p>
+
+        <div v-text="html"></div>
+        <div v-html="html"></div>
+    </div>
+
+
+
+<!-- 静态属性 -->
+<div id="box"></div>
+
+<!-- 字符串10 -->
+<div id="10"></div>
+
+<!-- 数字10 -->
+<div v-bind:id="10"></div>
+
+<!-- 动态属性 变量id -->
+<div v-bind:id="id"></div>
+
+<!-- 字符串和变量id -->
+<div v-bind:id="'box_' + id"></div>
+
+
+<!-- 如果属性前不加v-bind 属性的值一律看成静态的字符串 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                msg:'hello',
+                age:12,
+                html:'<h1>标题1</h1>'
+            }
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

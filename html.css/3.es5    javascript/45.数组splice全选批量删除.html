@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+         border-collapse: collapse;
+         margin-bottom: 15px;
+     }
+     th,td{
+         border: 1px solid #ccc;
+         padding: 6px;
+         text-align: center;
+     }
+     tbody tr:nth-child(odd){
+         background-color: #eee;
+     }
+     
+ </style>
+</head>
+<body>
+<h1 align="center">水果管理</h1>
+ <table width="500" align="center">
+<thead>
+    <tr></tr>
+    <tr>
+        <th><input type="checkbox"  onchange="checkAll(this)"></th>
+        <th>序号</th>
+        <th>名称</th>
+        <th>单价</th>
+        <th>日期</th>
+        <th>操作</th>
+    </tr>
+</thead>
+<tbody id="list">
+</tbody>
+ </table>
+ <button onclick="batchDel()">删除</button>
+    <script>
+var fruit = [
+{id:1, name:'苹果', price: 5, addtime:'2021-08-30'},
+{id:2, name:'桔子', price: 2, addtime:'2021-08-27'},
+{id:3, name:'香蕉', price: 3, addtime:'2021-08-26'},
+{id:4, name:'菠萝', price: 6, addtime:'2021-08-29'},
+{id:5, name:'葡萄', price: 12, addtime:'2021-08-24'},
+];
+// 、、crud
+// 1.splice删除
+// read();
+// function read(){
+//     var temp = '';
+//     if(!fruit.length) temp += `<tr align="center"> <td colspan="5">抱歉，没有数据！</td></tr>`;
+//     fruit.forEach(function(item,index){
+//          temp  += `<tr>
+//              <td>${item.id}</td>
+//              <td>${item.name}</td>
+//              <td>${'￥' + item.price.toFixed(2)}</td>
+//              <td>${item.addtime}</td>
+//              <td><button onclick="delByIndex(${index})">移除</button></td>
+//              </tr>`;
+//      })
+//      list.innerHTML = temp
+// }
+// function delByIndex(index){
+//     if(confirm('确定删除')){
+//         fruit.splice(index,1);
+//         read()
+//     }
+
+// }
+
+// 2.id
+read();
+function read(){
+    var temp = '';
+    if(!fruit.length) temp += `<tr align="center"> <td colspan="999">抱歉，没有数据！</td></tr>`;
+    fruit.forEach(function(item,index){
+         temp  += `<tr>
+            <td><input  name="id" type="checkbox" value="${item.id}"></td>
+             <td>${item.id}</td>
+             <td>${item.name}</td>
+             <td>${'￥' + item.price.toFixed(2)}</td>
+             <td>${item.addtime}</td>
+             <td><button onclick="delById(${item.id})">移除</button></td>
+             </tr>`;
+     })
+     list.innerHTML = temp
+}
+function delById(id){
+    if(confirm('确定删除')){
+        // 通过id找索引值 1 
+        // var index = fruit.findIndex(function(item){
+        //     return item.id == id;
+        // })
+        // fruit.splice(index,1)
+
+
+
+
+
+
+        //同过filter排除法删除（单向批量均支持）  filter产生新数组  需要覆盖
+        fruit=fruit.filter(function(item){
+            return item.id !== id;
+        })
+        read()
+    }
+
+}
+function checkAll(input){
+        // var fruits =    document.getElementsByName('fruit')
+        //     if(input.checked){
+        //  fruits.forEach(function(item){
+        //      item.checked = true
+        //  })
+        //     }else{
+        //         fruits.forEach(function(item){
+        //      item.checked = false
+        //  }) 
+        //     }
+
+
+
+
+
+        document.getElementsByName('id').forEach(function(item){
+            item.checked  =  input.checked;
+        })
+
+        }
+        
+        
+        
+        
+        function batchDel(){
+            var ids = document.getElementsByName('id');
+            var val = [];
+            ids.forEach(function(item){
+                if(item.checked){
+                    val.push(+item.value);
+                    console.log(val)
+                }
+            })
+            if(!val.length){
+                alert('您至少选择一项！');
+                return;
+            }
+            delByBatch(val);
+        }
+        function delByBatch(ids = []){
+            if(confirm('确认删除')){
+                fruit= fruit.filter(function(item){
+                    return ids.indexOf(item.id) === -1;
+                })
+                read()
+            }
+        }
+    </script>
+</body>
+</html>

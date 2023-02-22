@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="www.baidu.com" style="width: 50px;height: 50px;border-radius: 50%;background-color: red;"></a>
+    <script>
+
+
+// var obj = {name:'tony',1:330}
+//  obj.age = 30;//添加属性    赋值
+//  console.log(obj);
+
+//  //
+//  console.log( obj.age  );
+//  console.log( obj['age']  );
+//  console.log( obj[1]  );
+// // console.log( obj.1  );错
+//  console.log( obj[1]  );//对
+// //  console.log(obj.full name);错
+//   console.log(obj.['full name']);//对
+// //  console.log(obj.full-name);错
+//   console.log(obj.['full-name']);//对
+
+
+
+
+
+
+
+
+
+//   //对象链式引用
+//   var a = {name:'tony',1:330};
+//   var b = a;
+ 
+
+
+
+//传址地址
+
+var a = {};
+var b = a;
+a.age = '你好';
+console.log(b);//改
+
+//原始类型 zifuchuan 布尔、数值、null、undefined              传值传递
+
+var a = 1;
+var b = a;
+a = 24;
+console.log(b);//不改
+
+
+
+//测试是否支持触屏
+console.log('ontouchstart' in document)
+
+
+
+
+
+//浅拷贝
+
+
+// var a = {name:'za',age:'20'};
+// var b = {};
+// for(var key in a){
+//     b[key] = a[key]
+// }
+// a.age = 30;
+// console.log(a,b)
+
+console.log('.......................................')
+//
+Object.prototype.ztl = '469';
+Object.prototype.gmz = '469';
+Object.prototype.aaa = '469';
+
+var person = {name:'tony',age:24};
+console.log('ztl' in person);
+for (var key in person){
+    if(person.hasOwnProperty(key)){
+        console.log(key)
+    }
+}
+
+
+
+console.log('.......................................')
+
+var str = 'rtfg';
+var b = {};
+for(var a=0; a<str.length;a++){
+    let key = str[a];
+    if(key in b){
+        b[key] += 1;
+    }else{
+        b[key] = 1;
+    }
+}
+console.log(b)
+
+console.log('.......................................')
+var str='abbac';
+var info = {};
+for(var i=0; i<str.length; i++){
+    let key = str[i];
+    if( key in info){
+        info[key] += 1;
+    }else{
+        info[key] = 1;
+    }
+}
+
+console.log(info)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

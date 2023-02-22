@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        .box {
+            overflow: hidden;
+            background-image: linear-gradient(to right, blue 200px, gray 200px);
+            background-repeat: repeat-y;
+        }
+
+        .box .left {
+            width: 200px;
+            float: left;
+        }
+    </style>
+    <div class="box">
+        <div class="left">
+            <div style="height: 900px;">左侧</div>
+        </div>
+        <div class="main">
+            <div style="height: 800px;">右侧</div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <button id="btn" class="btn">按钮</button>
+    <script>
+// btn.onclick = function(){
+//     this.style.color = 'red';
+//     // this.css('color',blue);
+// }
+
+
+
+$(document).ready(function(){
+    $('#btn').css("color",'red')
+})
+
+
+//相当于原生的DOMContentLoaded
+document.addEventListener( 'DOMContentLoaded' , function(){
+
+
+})
+
+
+//简写
+
+$(function(){
+
+})
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <li id="a"></li>
+        <li id="b"></li>
+        <li id="c"></li>
+        <li id="d"></li>
+    </div>
+    <button id="btn"></button>
+    <!-- <script>
+        console.log(box.children)
+        console.log(box.firstElementChild)
+        console.log(box.lastElementChild)
+        console.log(b.previousElementSibling)
+        console.log(b.nextElementSibling)
+        console.log(box.childElementCount)
+        console.log(box.children.length)
+        
+    </script> -->
+    <!-- <script>
+        var text = document.createTextNode('text');
+        var btn = document.createElement('button')
+        box.prepend('222',text,btn)
+        box.append('222',text,btn)
+    </script> -->
+
+
+    <script>
+        function del(){
+            btn.remove();
+        }
+
+        function before(){
+            var _btn = document.createElement('button');
+            btn.before(_btn)
+        }
+
+        function after(){
+            var _btn = document.createElement('button');
+            btn.after(_btn)
+        }
+
+        function replace(){
+            var _btn = document.createElement('button');
+            btn.replaceWith('333')
+        }
+
+        
+    </script>
+</body>
+</html>

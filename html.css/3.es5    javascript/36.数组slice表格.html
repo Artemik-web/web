@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        table{
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        th,td{
+            border: 1px solid #ccc;
+            padding: 6px;
+            text-align: center;
+        }
+        button{
+            font-family: inherit;
+            padding: 4px 8px;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<table>
+    <thead>
+        <tr>
+            <th>编号</th>
+            <th>水果名称</th>
+            <th>水果单价</th>
+            <th>添加日期</th>
+        </tr>
+    </thead>
+    <tbody id="list"></tbody>
+</table>
+<div id="pager">
+    <!-- <button onclick="viewFruit(1)">1</button>
+    <button onclick="viewFruit(2)">2</button>
+    <button onclick="viewFruit(3)">3</button>
+    <button onclick="viewFruit(4)">4</button> -->
+</div>
+<script>
+  var fruit = [
+  {id:1, name:'苹果', price: 5, addtime:'2021-08-30'},
+  {id:2, name:'桔子', price: 2, addtime:'2021-08-27'},
+  {id:3, name:'香蕉', price: 3, addtime:'2021-08-26'},
+  {id:4, name:'菠萝', price: 6, addtime:'2021-08-29'},
+  {id:5, name:'葡萄', price: 12, addtime:'2021-08-24'},
+];
+
+    viewFruit();
+
+
+    function viewFruit( page = 1 ){
+        var perpage = 3;
+        var total = fruit.length;
+        pagecount = Math.ceil(total/perpage);
+
+
+        //分页算法
+        var start = (page-1) * perpage;
+        var end =  start + perpage;
+        
+
+
+        //slice产生新数组，不用担心破坏了数组
+        var  pageData = fruit.slice(start,end)
+        
+        var temp = '';
+        if(!pageData.length) temp += `<tr><td colspan = "4">抱歉！暂无数据！</td></tr>`;
+        //循环分页后的数组
+        pageData.forEach(function(item,index){
+            temp  += `<tr>
+                <td>${item.id}</td>
+                <td>${item.name}</td>
+                <td>${'￥' + item.price.toFixed(2)}</td>
+                <td>${item.addtime}</td>
+                
+                </tr>`;
+        })
+        list.innerHTML = temp
+    
+    
+               //页码累加
+        var pageTemp = '';
+        if(pagecount>1){
+        pageTemp += `<button
+         onclick = viewFruit(${page-1})
+          ${page === 1&& 'disabled'}>上页</button>`;
+    for(var p = 1;p<=pagecount;p++){
+        pageTemp += `<button 
+        style = "color:${p === page ? 'red': ''} " 
+        onclick =" viewFruit(${page})">${p}</button>`;
+    
+    }
+    pageTemp += `<button
+         onclick = viewFruit(${page+1})
+          ${page === pagecount&& 'disabled'}>下页</button>`;
+          pager.innerHTML = pageTemp;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+    
+</body>
+</html>

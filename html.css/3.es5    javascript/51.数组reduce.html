@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <table width="800" class="fruit">
+        <thead>
+            <tr>
+                <th class="center"><input id="all" type="checkbox" onchange="checkAll()"></th>
+                <th>序号</th>
+                <th>名称</th>
+                <th>产地</th>
+                <th class="sort" onclick="sortBy(this,'price','number')">单价</th>
+                <th class="sort" onclick="sortBy(this,'addtime','date')">日期</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="list">
+
+        </tbody>
+    </table> -->
+ <ul id="aa"></ul>
+    <script>
+        // var arr = [1,2,3,4,5];
+        // // var temp = 0;
+        // // for(var i=0 ; i<arr.length;i++){
+        // //     temp += arr[i];
+        // // }
+        // // console.log(temp)
+        // var sum = arr.reduce(function(a,b){
+        //     return a+b;
+        // })
+        // console.log(sum)
+
+
+
+
+
+// var fruit = [
+//     {name:'苹果',price:'5'},
+//     {name:'桔子',price:"2"},
+//     {name:'香蕉',price:"3"},
+// ];
+// var total = []
+//  fruit.forEach(function(item){
+//     return item.price;
+// })
+// console.log(total)
+// total.reduce(function(a,b){
+//     return a+ b;
+// })
+
+
+
+// var amount = fruit.reduce(function(a,b){
+//     return a + +b.price
+// },0)
+// console.log(amount)
+
+
+// 字符串累加
+// var str = '<p>🍎</><p>🍉</p><p>🍍</p>'
+
+
+// var sum = fruit.reduce(function(temp,item){
+//     return temp +=`<p> ${item.name} </p> `
+// },'')
+// console.log(sum)
+
+
+var fruit = [
+    {id:1, name:'苹果1', price: 5, addtime:'2021-08-30'},
+    {id:2, name:'桔子', price: 2, addtime:'2021-08-27'},
+    {id:3, name:'香蕉', price: 3, addtime:'2021-08-26'},
+    {id:4, name:'菠萝', price: 6, addtime:'2021-08-29'},
+    {id:5, name:'葡萄', price: 12, addtime:'2021-08-24'},
+    {id:6, name:'苹果2', price: 5, addtime:'2021-08-26'},
+    {id:7, name:'苹果3', price: 5, addtime:'2021-08-31'},
+    {id:8, name:'苹果4', price: 5, addtime:'2021-09-1'},
+  ];
+
+aa.innerHTML = fruit.reduce(function(temp,item){
+    return temp + ` <li>${item.name}.................￥${item.price.toFixed(2)}</li>`
+
+},'')
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{ 
+            
+            font-family: inherit;
+        }
+        input,button{
+            box-sizing: border-box;
+            border: none;
+            border: 1px solid #ccc;
+        }
+        input:focus{
+            outline: 1px solid orangered;
+        }
+        #tel{
+            margin: 0 auto;
+            width: 150px;
+        }
+        div{
+            margin: 0 auto;
+            width: 150px;
+        }
+        #mess{
+            width: 70px;
+
+        }
+        button{
+            width: 80px;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div><input id="tel" type="text" placeholder="手机号码"></div>
+    <br>
+    <div><input id="mess" type="text" placeholder="验证码"><button onclick="message(this)">发送验证码</button></div>
+    <script>
+
+function message(btn){
+    if( /^1\d{10}$/.test(document.getElementById('tel').value)){
+    btn.disabled = true;
+    function mes(){
+        var temp = ''
+        for(var a = 0;a<6;a++){
+            temp += Math.floor( Math.random()*10)
+        }
+        return temp
+    }
+    document.getElementById('mess').placeholder =  mes()
+    
+    var i = 59;
+    
+function loop(){
+    btn.innerText = i;
+    i -= 1;
+    console.log( i);
+    if( i>0){
+        setTimeout(loop,1000)
+    }
+    else{
+        btn.disabled = false;
+        btn.innerText = '发送验证码';
+    }
+}
+
+loop()
+
+
+
+}else{
+    alert('请输入正确的手机号')
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

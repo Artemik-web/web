@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+    <style>
+        body{
+          margin: 0;
+        }
+        #aside{
+          position: fixed;
+          width: 200px;
+          height: 300px;
+          background-color: red;
+          transform: translateX(-100%);
+          transition: transform .3s ease;
+        }
+        #aside.opened{
+          transform: translateX(0);
+        }
+        </style>
+</head>
+<body>
+    <div id="aside"></div>
+    <button style="position: fixed;right: 0;">按钮</button>
+    <ul>
+        <li>文本1</li>
+        <li>文本2</li>
+        <li>文本3</li>
+    </ul>
+    <script>
+        $('button').click(function(){
+            $('#aside').toggleClass('opened')
+        })
+    </script>
+</body>
+</html>

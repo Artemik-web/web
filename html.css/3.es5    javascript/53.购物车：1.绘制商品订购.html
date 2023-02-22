@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 40px;
+        }
+
+        table,
+        th,
+        td {
+            text-align: center;
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+        }
+
+        th,
+        td {
+            padding: 10px 12px;
+        }
+
+        tbody tr:nth-child(odd) {
+            background: #eee;
+        }
+
+        .price {
+            color: red;
+        }
+
+        .number input,
+        .btn {
+            text-align: center;
+            font-family: inherit;
+            width: 80px;
+            height: 25px;
+            border: 1px solid #b0b0b0;
+            background-color: white;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        div {
+            width: 1000px;
+            text-align: right;
+        }
+
+        .btn {
+            width: 120px;
+            margin: 10px 20px;
+        }
+
+        .btn em {
+            font-family: inherit;
+            font-style: normal;
+            color: red;
+        }
+
+        .btn:hover {
+            cursor: pointer;
+            border: 1px solid black;
+        }
+
+        .footer {
+            border: 1px solid #b0b0b0;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 align="center">超市</h1>
+    <table width="1000" align="center">
+        <thead>
+
+            <th>编号</th>
+            <th>图片</th>
+            <th>标题</th>
+            <th>单价</th>
+            <th>数量</th>
+            <th>操作</th>
+        </thead>
+        <tbody id="productsHTML">
+
+            <tr>
+                <td colspan="6">暂无任何商品！</td>
+            </tr>
+
+
+        </tbody>
+    </table>
+    <div class="footer" id="foot"><button class="btn" onclick="location.href='54. 绘制购物车页面.html'">我的购物车<em id="total"></em> 件</button></div>
+    <script>
+        Number.prototype.toCNY = function () {
+            return '￥' + Number(this).toFixed(2);
+        }
+
+
+
+        var data = localStorage.getItem('message');
+        data = data ? JSON.parse(data) : [];
+
+
+
+
+
+
+
+
+
+
+        
+        var products = [
+            { id: 1, picurl: 'img/1.png', title: '罗技鼠标', price: 56, num: 1, max: 10 },
+            { id: 2, picurl: 'img/2.png', title: '平底锅', price: 120, num: 1, max: 5 },
+            { id: 3, picurl: 'img/3.png', title: '洗衣机', price: 1999, num: 1, max: 8 },
+            { id: 4, picurl: 'img/4.png', title: '手机', price: 1600, num: 1, max: 8 },
+        ];
+        read(products);
+        countnum()
+        function read(list){
+        productsHTML.innerHTML = list.reduce(function (temp, item) {
+
+            return temp + `<tr>
+                <td class="id" width="15%">${item.id}</td>
+                <td class="picture" width="25%"><img src="${item.picurl}" alt="" width="80"></td>
+                <td class="" width="20%">${item.title}</td>
+                <td class="price" width="10%">${item.price.toCNY()}</td>
+                <td class="number" width="15%"><input type="number" placeholder="${item.num}"></td>
+                <td width="15%"><button class="btn" onclick="add(${item.id})">加入购物车</button></td>
+            </tr>`
+        }, '') || ` <tr> <td colspan="6">暂无任何商品！</td></tr>`}
+        function add(id) {
+            var shopcar = products.find(function(item){
+                return item.id === id
+            });
+            var isHear = data.some(function(item){
+                return item.id === id
+
+
+            })
+            if(isHear){
+                data = data.map(function(item){
+        if(item.id === id){
+          item.num += 1;
+        }
+        return item;
+      })
+    } else{
+                data.push(shopcar)
+            }
+            countnum();
+    localStorage.setItem('message', JSON.stringify(data) );
+            
+        }
+
+
+
+        function countnum(){
+    total.innerText = data.reduce(function( sum, item){
+      return sum + item.num;
+    }, 0);
+  }
+
+    
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <ol>
+        <li>ol下的li</li>
+        <li class="item">ol下的li</li>
+        <li>ol下的li</li>
+        <li>ol下的li</li>
+        <li>ol下的li</li>
+        <li>ol下的li</li>
+    </ol>
+    <ul>
+        <li>ul下的li</li>
+        <li>ul下的li</li>
+        <li>ul下的li</li>
+        <li>ul下的li</li>
+        <li>ul下的li</li>
+        <li>ul下的li</li>
+    </ul>
+    <script>
+        $(function(){
+            // siblings 找出除了自己之外的兄弟元素
+            $('ol .item').siblings('li').css("color",'red')
+
+            //第n个元素  同$('ul>li：eq（1）')
+            var index = 1
+            $('ul>li').eq(index).css("color",'red')
+
+            //hasClass(class) 判断有没有这个类名
+            //nextAll([expr]) .nextAll()查找当前元素后所有同辈元素
+            //prevtAll([expr]) .prevtAll()查找当前元素之前所有同辈元素
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .a{
+            width: 100px;
+            height: 100px;
+            /* background: red; */
+           background-image: url(hand.png);
+            /* 图片路径不推荐加引号 */
+            background-repeat: round;
+            /* 不裁剪平铺 */
+        }
+    </style>
+    <div class="a">11</div>
+    <style>
+        .b{
+            width: 300px;
+            height: 300px;
+            background: #888;
+           background-image: url(hand.png);
+            /* 图片路径不推荐加引号 */
+            background-repeat: no-repeat;
+            /* background-position: x y; */
+            background-position: 80% 100%; 
+        }
+    </style>
+    <div class="b">11</div>
+    <style>
+        .c{
+            width: 300px;
+            height: 300px;
+            background: #888;
+        }
+        .icon{
+            display: inline-block;
+            background-image: url(icons.png);
+            background-repeat: no-repeat;
+            vertical-align: middle;
+        }
+        .icon-crown{
+            width: 70px;
+            height: 100px;
+            background-position: -16 -104;
+        }
+        .butterfly{
+            width: 60px;
+            height: 53px;
+            background-position: -89 -15;
+        }
+    </style>
+    <div class="c">
+        <span>
+    <i class="icon icon-crown"></i>会员
+        </span>
+        <span>
+            <i class="icon icon-butterfly"></i>蝴蝶
+                </span>
+                <div>
+<!-- <style>
+    .q{
+        height: 300px;
+        background: url(hand.png);
+        background-repeat: no-repeat;
+        background-color: turquoise;
+        background-attachment: fixed;
+        background-position: 100px 100px;
+    }
+</style>
+<div class="q"></div> -->
+<!-- <style>
+    .bg{
+        height: 600px;
+        background-position: 50% 50%;
+        background-color: blue;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    .img1{
+        background-image: url(1.jpg);
+    }
+    .img2{
+        background-image: url(2.jpg);
+    }
+    .img3{
+        background-image: url(3.jpg);
+    }
+</style>
+<div class="bg img1"></div>
+<div class="bg img2"></div>
+<div class="bg img3"></div> -->
+<!-- <style>
+    .text1{
+        width: 100px;
+        height: 100px;
+        background-color: #ccc;
+        background-image: url(1.jpg);
+        background-repeat: no-repeat;
+        /* background-size: cover; */
+        /* background-size: center; */
+        background-size: contain;
+    }
+</style>
+<div class="text1"></div> -->
+<!-- <style>
+    .text2{
+ width: 200px;
+ height: 200px;
+ padding: 20px;
+ border: 20px solid black;
+ background-image: url(hand.png);
+ background-origin:border-box;
+    }
+</style>
+<div class="text2">文本文本文本文本文本文本文本文本文本文本文本文本文本</div> -->
+<!-- <style>
+    .text3{
+        width: 200px;
+         height: 200px;
+         background-color: cornsilk;
+         background-image: url(hand.png),url(icons.png);
+         background-repeat: no-repeat,repeat;
+         background-position: 50% 50%,60% 10% ;
+    }
+</style>
+<div class="text3"></div> -->
+<!-- <style>
+    .text4{
+        width: 200px;
+         height: 200px;
+         padding: 30px;
+         border: 30px solid green;
+         background-color: red;
+         background-image: url(1.jpg);
+         color: honeydew;
+         background-clip: padding-box;
+    }
+</style>
+<div class="text4">文本文本文本文本文本文本文本文本文本文本文本文本</div> -->
+<style>
+.text4{
+    width: 200px;
+     height: 200px;
+     padding: 30px;
+     background-image: url(1.jpg),url(hand.png);
+     background-repeat: no-repeat;
+     background-blend-mode:multiply
+}
+</style>
+<div class="text4">文本文本文本文本文本文本文本文本文本文本文本文本</div>
+</body>
+</html>

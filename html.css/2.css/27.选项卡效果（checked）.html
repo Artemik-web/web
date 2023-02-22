@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <style>
+  label:focus{
+    color: red;
+  }
+  [type="radio"],p{
+    display: none;
+  }
+  :checked + p{
+    display: block;
+  }
+  </style>
+
+  <label for="home" tabindex="1">首页</label> | 
+  <label for="about" tabindex="2">关于</label>
+  <label for="actent" tabindex="3">联系</label>
+  
+
+
+  <hr>
+
+  <input id="home" type="radio" name="tab" checked>
+  <p>首页内容</p>
+
+  <input id="about" type="radio" name="tab">
+  <p>关于内容</p>
+
+  <input id="actent" type="radio" name="tab">
+  <p>关于内容</p>
+
+</body>
+</html>

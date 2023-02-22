@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+          display: block;
+          width: 300px;
+          height: 300px;
+          object-fit: contain;
+          background-color: #eee;
+          margin: 20px 0;
+          border: 2px solid #ccc;
+        }
+      </style>
+</head>
+<body>
+    <input type="text" id="msg">
+    <script>
+        msg.onpaste = function(event){
+            var files = event.clipboardData.files;
+            if(!files.length) return;
+            var img = document.createElement('img');
+            img.src = URL.createObjectURL(files[0]);
+            document.body.append(img)
+        }
+    </script>
+    <!-- <script>
+        msg.onpaste = function(event){
+            var cpdata = event.clipboardData;
+            var text = cpdata.getData('text').trim();
+            if(text){
+                var p = document.createElement('p');
+                p.innerText = text;
+                document.body.append(p)
+            }else if(cpdata.files.length&&/\.(jpg|png|gif|svg)$/i.test(cpdata.files)){
+                var img = document.createElement('img');
+                img.src = URL.createObjectURL(cpdata.files[0]);
+                document.body.append(img)
+            }
+        }
+    </script> -->
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{reverseMsg}}
+        <h2>{{now}}</h2>
+    </div>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                msg:'asdfghjkl'
+            },
+            computed:{
+                reverseMsg(){
+                    return this.msg.split('').reverse()
+                },
+                now:{
+                    get(){return new Date().toLocaleString()},
+                    set(val){return val}
+                    
+                }
+            },
+            methods:{
+                
+            }
+        })
+    </script>
+</body>
+</html>

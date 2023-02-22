@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li id="first">文本1</li>
+        <li class="second">文本2</li>
+        <li>文本3</li>
+        <li>
+            <ol>
+                <li>文本1</li>
+                <li class="a">文本2</li>
+                <li>文本3</li>
+            </ol>
+            <div>文本</div>
+        </li>
+    </ul>
+    <div>
+        <li>wenben1</li>
+        <li>wenben2</li>
+        <li></li>
+        <li>wenben4</li>
+        <li>wenben5</li>
+        <li tabindex="0">wenben6</li>
+        <input type="text" name="" id="" autofocus>
+        <p>111</p>
+    </div>
+    <button>按钮</button>
+    <button  style="display: none;"></button>
+
+    <ul class="box">
+        <p>段落</p>
+        <li>首页</li>
+        <li>关于</li>
+        <li>联系</li>
+        <li><span>产品</span></li>
+    </ul>
+    <script>
+        
+        // $(function(){
+        //     $('li').css("color",'blue');
+        //     $('#first').css("color",'red')
+        //     $('.second').css("color",'green')
+        //     $('*').css("border",'1px solid yellow')
+        //     $('ul>li>ol>li').css("color",'red')
+        //     $('ul>li>ol~div').css("color",'red')
+        //     $('ul>li>ol+div').css("color",'blue')
+        // })
+
+
+
+
+
+        $(function () {
+            // //只有第一个，从头到尾只有一个
+            // $('li:first').css("color", 'red')
+            // //只有第一个，从头到尾只有一个
+            // $('li:last').css("color", 'red')
+            // $('ol>li:not(.a)').css("color", 'red')
+            // $('div>li:odd').css("color", 'red')
+            // $('div>li:even').css("color", 'yellow')
+            // $('div>li:eq(0)').css("color", 'black')
+
+            // $(':focus').css("color", 'blue')
+            // $(':focus').val('111')
+            // //模糊搜索contains
+            // $('li:contains(文本)').css('color', 'blue')
+            // //匹配没有内容给的子元素
+            // $('li:empty').css("border", '1px solid red')
+
+            // //包含一个东西的 has
+            // $('div:has(p)').css("border", '1px solid red')
+
+            // // l / : parent匹配含有子元素或者文本的元素
+            // $('li:parent').css("color",'red')
+
+
+
+
+
+            // // 只有display none 和 单独的hidden 算隐藏
+            // $('button:hidden').css('color','red')
+
+
+
+
+
+
+
+            // $('.box li:first-child').css("color",'red')//没有匹配
+            // $('.box li:first').css("color",'red')//首页
+            // $('.box li:first-of-type').css("color",'red')//类型里第一个
+
+
+
+
+            // $('span:only-child').css("color",'red')
+
+
+            $('.box>li:nth(1)').css("color",'red')
+
+
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

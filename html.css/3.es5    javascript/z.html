@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <h1>评论列表</h1>
+    <ul id="list"></ul>
+    <textarea  id="content" cols="30" rows="10"></textarea>
+    <button onclick="submit(this)">发送</button>
+        function submit(){
+            var text = document.getElementById('content').value.trim().split('\n')
+            console.log(text);
+            var bad = '123'
+            var reg = new RegExp(bad)
+            for(var a=0;a<text.length;a++){
+                console.log(text[a])
+               if(reg.test(text[a])){
+                console.log(bad.replace(reg,'*'))
+               }
+            }
+        } -->
+
+<script>
+// 深拷贝
+// function deep(arr,result=[]){
+//     for(var key in arr){
+//         if(Array.isArray(arr[key])){
+//             result[key] = [];
+//             deep(arr[key],result[key]);
+//         }else if(arr[key] instanceof Object){
+//             result[key] = {};
+//             deep(arr[key],result[key]);
+//         }
+//      else{
+//         Array.isArray(result[key]) ? result.arr[key]:result.push(arr[key])
+         
+//      }
+//     }
+//     return(result)
+// }
+// console.log(deep(fruit))
+
+// console.log(deep(a))
+
+
+// 数组去重
+// var arr = [1,NaN,false,NaN,2,'a',null,2];
+//     function Only(arr){
+//         for(var a=0;a<arr.length;a++){
+//             for(var b=a+1;b<arr.length;b++){
+//                 if(arr[a] == arr[b]){
+//                    arr.splice(b,1);
+//                    b--;
+               
+//                 }
+//             }
+//         }
+//         return arr
+//     }
+//     console.log(Only(arr))
+//打散数组
+// var arr = [1,2,3,4,5,6,7,8,9];
+//     function shuffle(arr) {
+//         var len = arr.length;
+//         for (var i = 0; i < len - 1; i++) {
+//             var index = parseInt(Math.random() * (len - i));
+//             var temp = arr[index];
+//             arr[index] = arr[len - i - 1];
+//             arr[len - i - 1] = temp;
+//         }
+//         return arr;
+//     }
+//     console.log(shuffle(arr));
+console.log(['1','2','3'].map(parseInt))
+    </script>
+</body>
+</html>

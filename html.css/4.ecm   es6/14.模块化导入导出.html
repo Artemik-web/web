@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script type="module">
+
+//导入直接执行不加from
+
+// import './js/a.js'
+//导出来再用
+// import {add} from './js/a.js';
+// console.log(add(3,4))
+
+
+
+
+
+
+        //as 设置别名  
+        //第一个位置是默认导入 后面是非默认
+        // import{ age as maage,name,hobby,run} from './js/info.js';
+        import {age, name, hobby, run} from './js/info.js';
+
+
+
+        console.log(age);
+        console.log(name);
+        console.log(hobby);
+        run();
+    </script>
+</body>
+</html>

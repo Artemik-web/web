@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <style>
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 5px;
+            background-color: aqua;
+
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 3px;
+            background-color: rgba(0, 0, 0, .3);
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            margin-top: 0;
+            padding-left: 0;
+            list-style: none;
+            overflow: auto;
+            background-color: #eee;
+        }
+
+        #box li {
+            padding: 20px;
+            border-bottom: 1px dotted#ccc;
+        }
+    </style>
+    <ul id="box">
+
+    </ul>
+    <script>
+        var news = [
+            '新闻标题1',
+            '新闻标题2',
+            '新闻标题3',
+            '新闻标题4',
+            '新闻标题5',
+            '新闻标题6',
+            '新闻标题7',
+            '新闻标题8',
+        ];
+        function list(){
+            var temp = '';
+            for(var i=0;i<news.length;i++){
+                temp += `<li>${news[i]}</li>`;
+            }
+            box.innerHTML = temp;
+        }
+        list();
+
+        box.onscroll = function(){
+            var bottom = 0;
+            var top = Math.round(this.scrollTop);
+            var maxTop = box.scrollHeight -  box.offsetHeight;
+            if(top >= maxTop - bottom) {
+            var moreNews = [
+            '更多新闻标题1',
+            '更多新闻标题2',
+            '更多新闻标题3',
+            '更多新闻标题4',
+            '更多新闻标题5',
+            '更多新闻标题6',
+            '更多新闻标题7',
+            '更多新闻标题8',
+            ];
+            news = news.concat(moreNews);
+            list();
+
+        }
+
+}
+
+
+
+
+
+// var arr1 = [1,2,3]
+
+// function  jc(arr){
+
+// var num = 1;
+
+// for(var a = 0;arr.length;a++){
+
+// if (arr[a] instanceof Array){
+
+// jc(arr[a]);
+
+// }else{
+
+// num *= arr[a]
+
+// }
+
+
+
+// }
+
+// return num;
+
+
+
+// }
+
+// jc(arr1);
+
+
+
+
+
+// function jc(num){
+//     if(num == 1){
+//         return 1;
+//     }else{
+//         return num*jc(num-1)
+// }
+// }
+// jc(5);
+// console.log(jc(5))
+
+
+
+// MATH.sort(function(){
+
+// return MATH.radom()-0.5
+
+// })
+
+
+
+
+var url = 'index.html?age=24&name=tony'
+
+x = url.indexOf('?');
+newurl = url.slice(x+1);
+newurl = newurl.split('&');
+console.log(newurl)
+var a = {}
+aconcat(newurl[0])
+
+console.log(a)
+
+    </script>
+</body>
+
+</html>

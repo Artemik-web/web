@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+// var arr = [4,1,2,7,3,8,5]
+// for(var a = 0;a<arr.length-1;a++){
+//     for(var b=0;b<arr.length-a-1;b++){
+//     if(arr[b]>arr[b+1]){
+//         var temp = arr[b];
+//         arr[b] = arr[b+1];
+//         arr[b+1] = temp;
+//     }
+// }
+// }
+// console.log(arr)
+
+// 求和
+var arr = [4,1,2,7,3,8,5];
+var sum = 0;
+for(var a=0; a<arr.length;a++){
+    sum = sum + arr[a]
+}
+console.log(sum)
+// 阶乘
+var arr = [4,1,2,7,3,8,5];
+var sum = 1;
+for(var a=0; a<arr.length;a++){
+    sum = sum * arr[a]
+}
+console.log(sum)
+// 最大值
+var arr = [4,1,2,7,3,8,5];
+var max = arr[0];
+for(var a = 0;a<arr.length;a++){
+    if(max<arr[a]){
+        max=arr[a]
+    }
+}
+console.log(max)
+
+// 最小值
+var arr = [4,1,2,7,3,8,5];
+var min = arr[0];
+for(var a = 0;a<arr.length;a++){
+    if(min>arr[a]){
+        min=arr[a]
+    }
+}
+console.log(min)
+
+// 平均值
+var arr = [4,1,2,7,3,8,5];
+var sum = 0;
+for(var a=0; a<arr.length;a++){
+    sum = sum + arr[a]
+}
+console.log(sum/a)
+
+// 总数
+var arr = [4,1,2,7,3,8,5];
+for(var a=0; a<arr.length;a++){
+}
+console.log(arr.length)
+
+
+
+
+
+
+
+var str = ""
+for(var a=1; a<=9;a++){
+    for(var b=1; b<=a;b++){
+        document.write(a + "*" + b + "=" + a*b + '&nbsp')
+    }
+    str+="<br>"
+}
+document.write(str)
+
+
+
+
+    </script>
+</body>
+</html>

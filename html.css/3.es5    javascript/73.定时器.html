@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="pay(this)">支付</button>
+    <button onclick="pay1(this)">支付</button>
+    <button onclick="pay(this)">支付</button>
+    <script>
+        function pay(btn){
+            btn.disabled = true;
+                btn.innerText = '支付中...';
+            setTimeout(function(){
+                btn.disabled = false;
+                btn.innerText = '支付';
+
+            },3000)
+        }
+
+// ///////////////////////1.缓存方案
+//         function pay1(btn){
+//             btn.disabled = true;
+//                 btn.innerText = '支付中...';
+//             setTimeout(function(){
+//                 btn.disabled = false;
+//                 btn.innerText = '支付';
+
+//             },3000)
+           
+//         }
+
+
+
+//         function pay2(btn){
+//             btn.disabled = true;
+//                 btn.innerText = '支付中...';
+//             setTimeout(function(){
+//                 btn.disabled = false;
+//                 btn.innerText = '支付';
+
+//             },3000)
+           
+//         }
+
+
+var i=0;
+function loop(){
+    i += 1;
+    console.log( i);
+    if( i<1000){
+        requestAnimationFrame(loop)
+    }
+}
+
+loop()
+
+
+
+
+
+
+
+
+
+
+
+
+        // function fn(name){
+        //     console.log(name,',hello')
+        // }
+        // setTimeout(function(){
+        //     fn('张三')
+        // },1000)
+
+        // setTimeout(fn('李四'),2000);
+
+        // setTimeout('fn("王五")',3000)
+
+
+        // setTimeout('fn({})',4000)
+
+        // setTimeout(fn.bind(null,{},2,3),5000)
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

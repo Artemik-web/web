@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+    <button id="jsonpbtn">jsonp</button>
+    <script>
+        $(function(){
+            $('#jsonpbtn').on('click', function(){
+                $.ajax({
+                    method: 'GET',
+                    url: 'http://127.0.0.1/api/jsonp',
+                    dataType: 'jsonp',     //表示要发起jsonp请求
+                    success: function(res) {
+                        console.log(res)
+                    }
+                })
+            })
+        })
+        //jsonp概念：浏览器通过<script>标签的src属性，请求服务器上的数据，同时，服务器返回一个函数的调用，这种请求数据的方式叫做jsonp
+        //特点：1.jsonp不属于真正的ajax请求，因为它没有使用XMLHttpRequest这个对象
+        //     2.jsonp仅支持get请求，不支持post，put，delete等请求
+        //注意事项：如果项目中已经配置cors跨域资源请求，为了防止冲突，必须在配制cors中间件之前声名有jsonp接口，否则jsonp接口会被处理成开启了cors的接口
+    </script>
+</body>
+</html>

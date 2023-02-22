@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="jQuery.min.js"></script>
+  <style>
+    .leftnav{
+        width: 200px;
+    }
+    .leftnav h2{
+        margin: 0;
+        margin-bottom: 5px;
+        background-color: #ccc;
+        font-size: 16px;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    .leftnav h2.active{
+        background-color: black;
+        color: white;
+    }
+    .leftnav ul{
+        display: none;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        background-color: #f0f0f0;
+        margin-bottom: 5px;
+    }
+    .leftnav ul li{
+        padding: 5px 10px;
+    }
+    </style>
+
+</head>
+<body>
+  
+  <div class="leftnav">
+
+    <h2>导航一</h2>
+    <ul>
+        <li>子导航1</li>
+        <li>子导航2</li>
+        <li>子导航3</li>
+        <li>子导航4</li>
+    </ul>
+    <h2>导航二</h2>
+    <ul>
+        <li>子导航1</li>
+        <li>子导航2</li>
+        <li>子导航3</li>
+        <li>子导航4</li>
+    </ul>   
+    <h2>导航三</h2>
+    <ul>
+        <li>子导航1</li>
+        <li>子导航2</li>
+        <li>子导航3</li>
+        <li>子导航4</li>
+    </ul> 
+</div>
+
+
+<script>
+  $('.leftnav h2').eq(0).addClass('active');
+  $('.leftnav ul').eq(0).show();
+
+  $('.leftnav > h2').click(function(){
+    $(this).toggleClass('active').siblings('h2').removeClass('active');
+
+    $(this).next().toggle(300).siblings('ul').hide(300);
+
+    // $(this).next().slideToggle(300).siblings('ul').slideUp(300);
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="jQuery.min.js"></script>
+</head>
+<body>
+
+<div id="box">
+  <ul>
+    <li>首页</li>
+    <li>关于</li>
+    <li>产品</li>
+    <li>新闻</li>
+    <li>案例</li>
+    <li>联系</li>
+    <li>会员</li>
+    <li>下载</li>
+    <li>视频</li>
+    <li>留言</li>
+    <li>图片</li>
+  </ul>
+</div>
+
+<script>
+// 要求一行代码实现查找
+
+//1. 找到第1个li着 红色
+$('#box ul li:first-child').css("color",'red')
+//2. 找到第1个以外的li着 蓝色
+$('#box ul li').first().siblings().css("color",'blue')
+//3. 在第2的结果中找到包含 新闻的li，设置背景颜色为 orange
+$('#box ul li').first().siblings().filter(':contains("新闻")').css("background",'orange')
+//4. 向上找到父div，设置一个背景颜色 #eee
+$('#box ul li').parent().parent().css("background",'#eee')
+//5. 查找倒数第2个li，设置字体大小60px
+$('#box ul li').eq(-2).css("fontSize",60)
+//6. 在上面的结果中查找 上一个，设置背景颜色 yellow
+$('#box ul li').eq(-2).prev().css("background",'yellow')
+//7. 查找父级ul，设置下边框 2px solid blue
+$('#box ul li').parents('ul').css("border",'2px solid blue')
+//8. 找到所有的偶数行 在开头追加 ❤
+$('#box ul li').filter(':even').prepend('❤')
+
+</script>
+
+</body>
+</html>

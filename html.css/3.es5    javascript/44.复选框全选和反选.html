@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p><label ><input  type="checkbox" onchange="checkAll(this)">全选</label></p>
+    <hr>
+    <p><label ><input name="fruit" type="checkbox" value="🍎">🍎</label></p>
+    <p><label ><input name="fruit" type="checkbox" value="🍉">🍉</label></p>
+    <p><label ><input name="fruit" type="checkbox" value="🍈">🍈</label></p>
+    <button onclick="getValue()">取值</button>
+    <script>
+        function checkAll(input){
+        // var fruits =    document.getElementsByName('fruit')
+        //     if(input.checked){
+        //  fruits.forEach(function(item){
+        //      item.checked = true
+        //  })
+        //     }else{
+        //         fruits.forEach(function(item){
+        //      item.checked = false
+        //  }) 
+        //     }
+
+
+
+
+
+        document.getElementsByName('fruit').forEach(function(item){
+            item.checked  =  input.checked;
+        })
+
+        }
+
+        function getValue(){
+            var result = [];
+            document.getElementsByName('fruit').forEach(function(item){
+            if(item.checked){
+                result.push(item.value)
+                
+            }
+        })
+        alert(result.toString())
+        }
+
+
+
+
+    </script>
+</body>
+</html>

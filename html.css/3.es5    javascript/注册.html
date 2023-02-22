@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            background-image: url(img/5.gif);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        table,th,td{
+            
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+        }
+        th{
+            text-align: right;
+            width: 20%;
+            line-height: 30px;
+            padding: 20px 10px 20px 0;
+        }
+        td{
+            line-height: 30px;
+            padding-left:10px ;
+            text-align: left;
+        }
+        textarea{
+            margin: 10px 0 10px  ;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">注册会员</h1>
+    <table width="800"> 
+        <tr>
+            <th>用户名</th>
+            <td><input type="text" required minlength="3"></td>
+        </tr>
+        <tr>
+            <th>密码</th>
+            <td><input type="password" required minlength="6"></td>
+        </tr>
+        <tr>
+            <th>确认密码</th>
+            <td><input type="password" required minlength="6"></td>
+        </tr>
+        <tr>
+            <th>性别</th>
+            <td>
+                <input name="gender" type="radio">男
+                <input name="gender" type="radio">女
+            </td>
+        </tr>
+        <tr>
+            <th>爱好</th>
+            <td>
+                <input type="checkbox">音乐
+                <input type="checkbox">旅游
+                <input type="checkbox">美食
+            </td>
+        </tr>
+        <tr>
+            <th>生日</th>
+            <td>
+                <input type="date">
+            </td>
+        </tr>
+        <tr>
+            <th>所在城市</th>
+            <td>
+                <select value="选择省" id="provices" onchange="nextOnchange(provices)">
+                    
+              
+                </select>
+                <select name="" id="city">
+                    <option value="未选择">选择市</option>
+                  
+                </select>
+                <select name="" id="area">
+                    <option value="未选择">选择区</option>
+                 
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th>备注</th>
+            <td>
+                <textarea name="" id="" cols="30" rows="5"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td>
+                <button type="submit">提交</button>
+                <button type="reset">重置</button>
+            </td>
+        </tr>
+    </table>
+    <script>
+       var data = [
+    { 
+      name:'江西省', 
+      children: [
+        { name: '南昌市',children:[{name:'高新区'},{name:'东湖区'},{name:'西湖区'}] },
+        { name: '赣州市',children:[{name:'高新区'},{name:'东湖区'},{name:'西湖区'}] },
+        { name: '九江市' },
+      ]
+    },
+    { 
+      name:'浙江省', 
+      children: [
+        { name: '温州市' },
+        { name: '杭州市' },
+        { name: '宁波市' },
+      ]
+    },
+    { 
+      name:'湖南省', 
+      children: [
+        { name: '长沙市' },
+        { name: '衡阳市' },
+      ]
+    },
+  ];
+  var one = 0;
+  var two = 0;
+  selectprovice(data,provices,'选择省');
+
+
+  function selectprovice(arr,id,text){
+    id.innerHTML = arr.reduce(function(temp,item){
+        return temp + ` <option value="">${item.name}</option>`
+    },`<option value="0">${text}</option>`)
+  }
+function nextOnchange(id){
+    console.log(id);
+   var index = id.selectedIndex - 1;
+   console.log(index)
+   var children = [];
+   if(index !== -1) children = data[index].children;
+   console.log(children)
+    selectprovice(children,city,'选择市');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

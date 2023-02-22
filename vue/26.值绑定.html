@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>
+            <input type="text" v-model="username">
+        </p>
+        <p>
+            <input type="radio" v-model="gender" :vaule="boy">男
+            <input type="radio" v-model="gender" :vaule="girl">女
+        </p>
+        <p>
+            <input type="checkbox" v-model="status" true-value="已审核" false-value="未审核">{{status}}
+        </p>
+        <p>
+            <select v-model="skill">
+                <option value="">请选择</option>
+                <option v-for="val in skillList" :value="val.name">{{val.name}}</option>
+            </select>{{skill}}
+        </p>
+    </div>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                username: '',
+                gender: '',
+                boy: '男',
+                girl: '女',
+                status: '',
+                skill: '',
+                skillList:[
+                    {id:1,name:'足球'},
+                    {id:2,name:'篮球'},
+                    {id:3,name:'乒乓球'},
+                ]
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

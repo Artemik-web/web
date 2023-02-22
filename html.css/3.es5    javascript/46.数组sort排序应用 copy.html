@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .sort{
+            position: relative;
+            padding-right: 15px;
+        }
+        .sort::before{
+            content: "▲";
+            top: -1px;;
+        }
+        .sort::after{
+            content: "▼";
+            bottom:-1px;
+        }
+        .sort::before,.sort::after{
+            position: absolute;
+            right: 0;
+            font-size: 12px;
+            transform: scale(.7);
+        }
+        .sort.asc::before,.sort.desc::after{
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <button onclick="sortBy(0)">默认</button>
+    <button onclick="sortBy(1)">升序</button>
+    <button onclick="sortBy(-1)">降序</button>
+
+    
+
+    <button class="sort" onclick="toggle(this)">排序</button>
+    <ul id="list"></ul>
+    <script>
+        var arr = [6,1,4,3,12,7];
+        view(arr);
+        function view(data){
+            var temp = '';
+            for(var i=0;i<data.length;i++){
+                temp += '<li>'+ data[i] + '</li>';
+            }
+            list.innerHTML = temp
+        }
+
+
+
+
+
+
+
+function sortBy(type=1){
+    var newarr = [].concat(arr);
+    newarr.sort(function(a,b){
+        return (a-b)*type
+    });
+    view(newarr);
+}
+
+var state = 0;
+function toggle(btn){
+    state = state === 0 ? 1 : (state === 1 ? -1:0);
+    var cls = {
+        0:'sort',
+        1:'sort asc',
+        '-1':'sort desc'
+    }
+    btn.className = cls[state];
+    sortBy(state);
+}
+
+
+
+    </script>
+</body>
+</html>

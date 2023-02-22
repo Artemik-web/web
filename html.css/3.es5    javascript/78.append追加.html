@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="add(this)">添加</button>
+    <ul id="box"></ul>
+    <script>
+        function add(){
+            var name = prompt('请输入水果名');
+            var li = document.createElement('li');
+            li.innerText = name;
+            box.insertBefore(li,box.firstChild)
+
+        }
+    </script>
+</body>
+</html>

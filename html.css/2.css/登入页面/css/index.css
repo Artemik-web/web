@@ -1,0 +1,22 @@
+/* reset css */
+body{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+/* layout css */
+body{
+    height: 100vh;
+    text-align: center;
+    background: url(../img/loginbg.jpg) no-repeat 50% 50%;
+}
+.login{
+    width: 320px;
+    height: 230px;
+    vertical-align: middle;
+    display: inline-block;
+    background-color: ivory;
+}

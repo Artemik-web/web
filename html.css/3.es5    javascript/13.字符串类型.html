@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+// 不允许强制换行
+// var str = '<div>
+//     <span><span/>
+//     <span><span/>
+//         </div>';
+
+
+
+// 如何强制换行
+
+
+// 办法1.'' + ''
+
+var str = '<div>' +
+    '<span><span/>' +
+    '<span><span/>' +
+        '</div>';
+// 办法2.转义符      \    反斜杠
+
+var str = '<div>\
+    <span><span/>\
+    <span><span/>\
+        </div>';
+// 办法3.es6 模板字符串   瓢号   `
+var str =` <div>
+    <span><span/>
+    <span><span/>
+        </div>`;
+
+
+
+
+
+        var str = '今天天气好晴朗！';//类数组   但字符串只读 
+
+
+
+
+
+// 字符串累加
+
+var str = 'sadsad';
+
+var temp = '';
+for(var a=0;a<str.length;a++){
+    // if(str[a]==='a'){
+    //     temp +='*';
+    // }else{
+    //     temp += str[a]
+    // }
+    temp += str[a]==='a'?'*':str[a];
+}
+// 三元
+
+
+console.log(temp);
+
+
+
+var temp = '<div>';
+ for(var a=1;a<=6;a++){
+temp += '<h' + a + '>' + '标题' + a + '</h' + a + '>';
+ }
+ temp += '</div>';
+ document.write(temp);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

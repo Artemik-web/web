@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script> -->
+</head>
+<body>
+    <div id="app">
+       <p>
+           <router-link to="/home">首页</router-link>
+           <router-link to="/about">关于</router-link>
+       </p>
+       <router-view></router-view>
+    </div>
+    <script type="module"> 
+    // //导入vue ，vue-router库
+    //  import Vue from './js/vue_esm.js';
+    //  import VueRouter from './js/vue-router_esm.js';
+
+    //     //导入页面组件
+    //  import Home from './views/Home.js'
+    //  import About from './views/About.js'
+    //     //初始化实例
+    //  const router = new VueRouter({
+    //      routes: [
+    //         {path:'/',redirect: '/home'},
+    //          {path:'/home',component: Home},
+    //          {path:'/home',component: Home}
+    //      ]
+    //  })
+    //     const app = new Vue({
+    //         el: '#app',
+    //         components: {Home,About},
+    //        router
+    //     })
+
+        //
+         // //导入vue ，vue-router库
+     import Vue from './js/vue_esm.js';
+     import router from './router/index.js'
+            const app = new Vue({
+            el: '#app',
+            router
+        })
+    </script>
+</body>
+</html>

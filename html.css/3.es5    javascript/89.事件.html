@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="btn1">按钮</button>
+    <button id="btn2">按钮</button>
+    <script>
+        var event = document.createEvent('event');
+
+        event.initEvent('aa', true, true);
+
+        setTimeout(function () {
+            document.dispatchEvent(event);
+        }, 1000)
+        document.addEventListener('aa', function (e) {
+            console.log(e.type)
+        }, false)
+        function fn() {
+            alert('hello')
+        }
+        btn1.addEventListener('click', fn)
+        btn2.addEventListener('click',function(){
+            btn1.removeEventListener('click', fn);
+            alert('移除成功')
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+
+// var arr = [12,5,18,24,30];
+// var result = arr.filter(function(val){
+//     return val >= 18;
+// })
+// console.log(result);
+
+
+// // 查找大于5元的商品
+// var products = [
+//     {name:'钢笔',price:20},
+//     {'橡皮擦':1},
+//     {'文具盒':5},
+//     {'铅笔':2},
+
+// ]
+// var result = proudcts.filter(function(a){
+//     reyurn a.>=5;
+// })
+
+//总金额
+var products = [
+{name:'钢笔',price:20,num:2},
+{name:'橡皮擦',price:1,num:3},
+{name:'文具盒',price:5,num:1},
+
+];
+function sum(arr){
+    var result = 0;
+    arr.forEach(function(item){
+        result +=item.price * item.num
+    });
+    return result;
+};
+console.log(sum(products))
+
+
+function afilter(arr,callback){
+    var result = [];
+    for(var i=0; i<arr.length;i++){
+        if(callback(arr[i],i,arr)) result.push( arr[i]);
+    }
+   return result;
+}
+
+var ages = [12,5,18,24,30];
+var result = afilter(ages,function(item,index){
+    return item>=18;
+});
+console.log(result)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

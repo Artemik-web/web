@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+// 1.默认参数
+//es5
+// function add(a,b){
+//     b = b || 0;
+//     return a+b;
+// }
+//es6
+// function add(a=0,b=0){
+//     return a+b;
+// }
+// console.log(add(1));//NaN
+
+
+
+
+// function err(n){
+//     throw new Error(n+'必填！')
+// }
+// function add(a=err(),b=err()){
+//     return a+b
+// }
+// console.log(add(1,2))
+
+
+// rest 参数
+// es5
+// function add(){
+//     var sum = 0;
+//     for(var i = 0;i<arguments.length;i++){
+//         sum+ arguments[i]
+//     }
+//     return sum
+// }
+
+// // es6
+// function add(...args){
+//     return args.reduce((sum,val) => sum+val,0)
+// }
+
+// console.log(add(1,2,3,4,5,6,7))
+
+
+
+
+
+// 箭头函数
+var add = () =>{
+    console.log('hello');
+}
+
+
+
+
+var add = _ =>{
+    console.log('hello');
+}
+// 单行可以不用大括号
+
+var add = () => console.log('hello');
+// 不用大括号多次        可以用， 合并成一行
+var add = () => (console.log('hello'),console.log('world'))
+
+
+
+// 1个参数可以加括号也可以不加
+var add = a =>{
+    console.log(a)
+}
+var add = (a) =>{
+    console.log(a)
+}
+// 2个以上参数就必须用括号
+
+var add = (a,b) =>{
+    console.log(a+b)
+}
+
+
+// 表达式只有一行就可以省略大括号
+var add = (a,b) =>{
+    console.log(a+b)
+}
+
+var add = (a,b) =>  console.log(a+b)
+
+
+
+// 箭头函数会 改变内部本来的this指向
+var age = 10;
+var person = {
+    age:20,
+    getAge:()=>{
+        console.log(this.age)
+    }
+}
+person.getAge();//10
+
+
+// 包含省略大括号 ，，就隐式包含return
+
+
+</script>
+    
+</body>
+</html>

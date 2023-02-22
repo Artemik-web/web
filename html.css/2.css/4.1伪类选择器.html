@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 没有空格 紧贴  a:link */
+        a:link{
+            color: red;
+        }
+        a:visited{
+            color: black;
+        }
+        a:hover{
+            color: blue;
+        }
+        a:active{
+            color: chartreuse;
+        }
+        a:focus{
+            background:  coral;
+        }
+        :disabled{
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <a href="#">链接</a>
+    <a href="#">链接</a>
+    <a href="#">链接</a>
+    <a href="#">链接</a>
+    <a href="#">链接</a>
+    <a href="#">链接</a>
+    <input type="text" disabled>
+
+    <style>
+        /* 注意空格.c :first-child */
+    .c :first-child{
+        color: crimson;
+    }
+    .c :last-child{
+        color: crimson;
+    }
+    .b li:first-of-type{
+        color: crimson ;
+    }
+    </style>
+    <ul class="c">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <ul class="b">
+        <span>0</span>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <style>
+        /* box1里面的 */
+        .box1 :not(:first-child){
+            color: crimson;
+        }
+    </style>
+    <ul class="box1">
+        <span>1</span>
+        <span name="one">2</span>
+        <span>1</span>
+    </ul>
+</body>
+</html>

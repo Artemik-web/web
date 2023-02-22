@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="info"></div>
+    <script>
+
+// var person = {
+//     _age:24,
+//     _name:'tony',
+//     _gender:'男',
+// }
+// view(person);
+// for(let key in person){
+//     Object.defineProperty(person,key.slice(1),{
+//         set:function(val){
+// person[key] = val;
+// view(person);
+//         }
+//     });
+// }
+
+// function view(obj){
+//     info.innerHTML = `<p>我叫${obj._name},今年${obj._age},性别${obj._gender}</p>`
+// }
+
+
+
+
+
+
+var person = {
+   _time:'Date.now()'
+}
+view(person);
+for(let key in person){
+    Object.defineProperty(person,key.slice(1),{
+        set:function(val){
+person[key] = val;
+view(person);
+        }
+    });
+}
+
+function view(obj){
+    info.innerHTML = `<p>今天是${person._time}</p>`
+}
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

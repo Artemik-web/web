@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+<style>
+  #box{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+  }
+</style>
+
+<div id="box"></div>
+
+<script>
+//定义全局变量，记录box实际偏移了多少值
+var offsetX = 0;
+var offsetY = 0;
+
+//手指按下
+box.ontouchstart = function( event ){
+
+  //按下时记录 单个手指的坐标
+  var startX = event.touches[0].clientX;
+  var startY = event.touches[0].clientY;
+
+  //按下时记录box 上一次偏移的值
+  var left = offsetX;
+  var top = offsetY;
+
+  //手指移动触发
+  document.ontouchmove = function( event ){
+    
+    //手指移动时记录 单个手指的坐标
+    var endX = event.touches[0].clientX;
+    var endY = event.touches[0].clientY;
+
+    //实际偏移的值等于 移动的值减去按下时值 得到一个差值
+    //这个差值表示实际手指移动了多少距离
+    //拿实际移动的距离 加上一次的偏移值，最终得到真实的偏移大小
+    offsetX =  endX - startX + left;
+    offsetY =  endY - startY + top;
+
+    box.style.transform=`translate3d(${offsetX}px,${offsetY}px,0)`;
+
+  }
+
+  document.ontouchend = function(){
+    document.ontouchmove = null;
+    document.ontouchend = null;
+  }
+
+}
+
+
+</script>
+
+
+  
+</body>
+</html>

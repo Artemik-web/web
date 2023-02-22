@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+      *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .banner{
+      position: relative;
+      width: 590px;
+      height: 470px;
+      margin: auto;
+    }
+    .banner input{
+      display: none;
+    }
+    .banner a{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+    .banner :checked + a{
+      opacity: 1;
+    }
+    [id="page1"]:checked ~ p :nth-child(1),
+    [id="page2"]:checked ~ p :nth-child(2),
+    [id="page3"]:checked ~ p :nth-child(3){
+      background-color: crimson;
+    }
+    .banner p{
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+    }
+    .banner p label{
+      float: left;
+      width: 12px;
+      height: 12px;
+      background-color: white;
+      border-radius: 50%;
+      margin-right: 15px;
+      cursor: pointer;
+    }
+    .banner p label:hover{
+      background-color: rgba(255, 255, 255, .7);
+    }
+  </style>
+</head>
+<body>
+  <h1 style="padding: 1em;text-align: center;">纯css实现淡入淡出图像切换</h1>
+  <div class="banner">
+
+    <input type="radio" name="banner" id="page1" checked>
+    <a href="#"><img src="../7.jquery课程/img/1.gif"></a>
+
+    <input type="radio" name="banner" id="page2" >
+    <a href="#"><img src="../7.jquery课程/img/2.gif"></a>
+
+    <input type="radio" name="banner" id="page3" >
+    <a href="#"><img src="../7.jquery课程/img/3.gif"></a>
+
+
+    <p>
+      <label for="page1"></label>
+      <label for="page2"></label>
+      <label for="page3"></label>
+
+    </p>
+  </div>
+</body>
+</html>

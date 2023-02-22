@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .upload{
+          display: inline-block;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 6px 8px;
+        }
+      
+        .upload input{
+          display: none;
+        }
+        </style>
+        <p>
+          <label class="upload">
+            <input type="file" onchange="upload(this)">
+            上传图片 <b id="pct">0%</b>
+          </label>
+        </p>
+    <ul id="list"></ul>
+
+
+    <h2>填写</h2>
+    <p>
+        <input type="text" id="title" placeholder="title">
+    </p>
+    <p>
+        <span id="content" contenteditable="true" style="display: inline-block; width: 400px; height: 100px; border: 1px solid #ccc;"></span>
+    </p>
+    <button onclick="add()">提交</button>
+    <script>
+read();
+function read() {
+            //1.创建xhr对象
+            var xhr = new XMLHttpRequest();
+
+            //2. 监听readstate状态的改变
+            xhr.onreadystatechange = function () {
+                // console.log(xhr.readyState) //相当于前端
+                // console.log(xhr.status) //相当于后端
+
+                if(xhr.readyState === 4 && xhr.status === 200){
+                    var res = JSON.parse(xhr.responseText);
+                    list.innerHTML = res.result.reduce(function(temp,item){
+                        return temp + `<li>${item.content}----------<button>删除</button></li>`
+                    },'')
+                }
+            }
+            xhr.open('GET', 'http://cloud.scnew.com.cn/api/feedback/user?tid=0', true)
+            xhr.setRequestHeader('SC-Token','eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIyOSIsImF1ZCI6InRlc3QiLCJpYXQiOjE2MzI0NjkwMjcsInJvbGVzIjoiNCIsImV4cCI6MTk5MjQ2OTAyN30.rDivSchCdNCkRM98tUcvQWLnXLv_TlnArjk5OY5GqM8')
+            xhr.send();
+        }
+
+
+function add(){
+    var titleVal = title.value.trim();
+    var contentVal = content.innerHTML;
+if(!titleVal || !contentVal){
+    alert('请输入内容');
+    return false;
+}
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function(){
+
+
+
+    if(xhr.readyState === 4 && xhr.status === 200){
+              console.log(xhr.responseText);
+              title.value = '';
+              content.value = '';
+              read();
+                }
+
+
+
+}
+            xhr.open('POST','http://cloud.scnew.com.cn/api/course/book')
+
+            xhr.setRequestHeader('SC-Token','eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIyOSIsImF1ZCI6InRlc3QiLCJpYXQiOjE2MzI0NjkwMjcsInJvbGVzIjoiNCIsImV4cCI6MTk5MjQ2OTAyN30.rDivSchCdNCkRM98tUcvQWLnXLv_TlnArjk5OY5GqM8')
+            xhr.setRequestHeader('Content-Type','application/json');
+       
+            
+
+            var params = {
+                asker: 1,
+                tid: 0,
+                title: title,
+                content:content,
+            }
+            xhr.send( JSON.stringify(params) )
+
+
+}
+
+
+
+
+
+
+
+
+
+function upload(file){
+    var files = file.files;
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4 && xhr.status === 200){
+            var res = JSON.parse(xhr.responseText);
+            var img = document.createElement('img');
+            img.src = res.result;
+            img.style.cssText = 'object-fit:contain;width:60px;height:60px'
+             content.append(img)
+        }
+    }
+    xhr.open('POST','http://cloud.scnew.com.cn/api/user/upload');
+    xhr.setRequestHeader('SC-Token','eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIyOSIsImF1ZCI6InRlc3QiLCJpYXQiOjE2MzI0NjkwMjcsInJvbGVzIjoiNCIsImV4cCI6MTk5MjQ2OTAyN30.rDivSchCdNCkRM98tUcvQWLnXLv_TlnArjk5OY5GqM8')
+    
+
+    var form = new FormData();
+     form.append('file',files[0])
+    xhr.upload.onprogress = function(event){
+    pct.hidden = false;
+    var bfb = Math.floor(event.loaded/event.total*100);
+    if(bfb >= 100){
+        pct.hidden = true;
+    }else{
+        pct.hidden = false;
+        pct.innerText = bfb+'%'
+    }
+}
+
+}
+
+
+
+
+
+
+
+        // addbtn.onclick = function(){
+        //     var title = prompt('请输入标题')
+        //     var content = prompt('请输入内容');
+        //     var xhr = new XMLHttpRequest();
+        //     xhr.onreadystatechange = function(){
+        //         if(xhr.readyState === 4 && xhr.status === 200){
+        //             console.log(xhr.responseText)
+        //         }
+        //     }
+        //     xhr.open('POST','http://cloud.scnew.com.cn/api/course/book')
+
+        //     xhr.setRequestHeader('SC-Token','eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIyOSIsImF1ZCI6InRlc3QiLCJpYXQiOjE2MzI0NjkwMjcsInJvbGVzIjoiNCIsImV4cCI6MTk5MjQ2OTAyN30.rDivSchCdNCkRM98tUcvQWLnXLv_TlnArjk5OY5GqM8')
+        //     xhr.setRequestHeader('Content-Type','application/json');
+        
+        //     var params = {
+        //         asker: 1,
+        //         tid: 0,
+        //         title: title,
+        //         content:content,
+        //     }
+        //     xhr.send( JSON.stringify(params) )
+        
+        
+        // }
+    </script>
+</body>
+</html>

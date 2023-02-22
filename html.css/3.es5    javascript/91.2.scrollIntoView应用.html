@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  ul{
+    list-style: none;
+  }
+
+  .aside{
+    position: fixed;
+    width: 80px;
+    background-color: #ccc;
+    left: 20px;
+  }
+  .aside li{
+    line-height: 40px;
+    padding: 0 20px;
+  }
+  .aside li:focus{
+    background-color: red;
+    color: white;
+  }
+  .main{
+    padding-left: 200px;
+  }
+  .main > div{
+    height: 1000px;
+    background-color: #ccc;
+    margin-bottom: 30px;
+  }
+  </style>
+</head>
+<body>
+  
+  <ul class="aside">
+    <li tabindex="1" data-focu="home">首页</li>
+    <li tabindex="2" data-focu="about">关于</li>
+    <li tabindex="3" data-focu="contact">联系</li>
+  </ul>
+
+  <div class="main">
+
+    <div id="home">
+      <h2>首页部分</h2>
+    </div>
+
+    <div id="about">
+      <h2>关于部分</h2>
+    </div>
+
+    <div id="contact">
+      <h2>联系部分</h2>
+    </div>
+
+  </div>
+<script>
+var lis = document.querySelectorAll('.aside>li')
+lis.forEach(function(li){
+  li.onclick = function(){
+    var targetEl = document.getElementById(this.dataset.focu);
+    targetEl.scrollIntoView({behavior:'smooth'})
+  }
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+</head>
+
+<body>
+    <ul id="list">
+
+    </ul>
+    <script>
+        function get() {
+            //  $.ajax({
+            //      type: 'GET',
+            //      url: 'http://cloud.scnew.com.cn/api/course/book/tree',
+            //      success: function(res){
+            //          let temp = res.result.reduce(function(str,item){
+            //              str += `<li>${item.label}</li>`;
+
+            //          },'');
+            //          $(temp).appendTo('#list');
+            //      }
+            //  })
+
+
+
+            $.get('http://cloud.scnew.com.cn/api/course/book/tree',function(res){
+                let temp = res.result.reduce(function (str, item) {
+                    return str + `<li>${item.label}</li>`;
+
+                }, '');
+                $(temp).appendTo('#list');
+
+            })
+
+
+
+        //     var xhr = new XMLHttpRequest();
+        //     xhr.onreadystatechange = function () {
+        //         if(xhr.readyState===4 && xhr.status===200){
+        //         var res = JSON.parse(xhr.responseText);
+        //         list.innerHTML = res.result.reduce(function (str, item) {
+        //             return str + `<li>${item.label}</li>`;
+        //         } ,'');
+        //     }
+        // }
+        // xhr.open( 'GET' , ' http://cloud.scnew.com.cn/api/course/book/tree ' );
+        // xhr.send();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     }
+    </script>
+</body>
+
+</html>

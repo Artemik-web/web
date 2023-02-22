@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+    <button id="getbtn">get</button>
+    <button id="postbtn">post</button>
+    <script>
+        $(function(){
+            //1.测试GET接口
+            $('#getbtn').on('click', function(){
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://127.0.0.1/api/get',
+                    data: {
+                        name: 'artemik',
+                        age: 23
+                    },
+                    success: function (res){
+                        console.log(res)
+                    }
+                })
+            })
+           
+            //2.测试POST接口
+            $('#postbtn').on('click', function(){
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://127.0.0.1/api/post',
+                    data: {
+                        name: 'artemik',
+                        age: 23
+                    },
+                    success: function (res){
+                        console.log(res)
+                    }
+                })
+            })
+            
+        })
+    </script>
+</body>
+</html>

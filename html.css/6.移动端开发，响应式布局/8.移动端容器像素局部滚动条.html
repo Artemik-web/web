@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            margin: auto;
+            max-width: 430px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .header,
+        .footer{
+            padding: 8px 20px;
+            background-color: bisque;
+        }
+        .main{
+            flex-grow: 1;
+            padding: 20px;
+            overflow: auto;
+            background-color: darkgrey;
+        }
+        .content{
+            height: 1500px;
+        }
+        /* ::-webkit-scrollbar{
+            background-color: darkred;
+        } */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            头部
+        </div>
+        <div class="main">
+            <div class="content">
+                主体
+            </div>
+        </div>
+        <div class="footer">
+            脚部
+        </div>
+    </div>
+</body>
+</html>

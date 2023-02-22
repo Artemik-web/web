@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            margin: 50px auto;
+            width: 260px;
+            height: 260px;
+            border: 1px solid #aaa;
+        }
+        .nav{font-size: 0;
+            justify-content: space-around;
+            background-color: #eee;
+        }
+        .nav li{
+            text-align: center;
+            font-size: 16px;
+            padding: 10px 20px;
+            display: inline-block;
+        }
+        .nav li:hover{
+            cursor: pointer;
+        }
+      
+    </style>
+</head>
+<body>
+  
+    <div class="box">
+        <ul class="nav">
+            <li tabindex="0">文本1</li>
+            <li tabindex="0">文本2</li>
+            <li tabindex="0">文本3</li>
+        </ul>
+        <div class="content">
+            <div class="text1"><img src="../7.jquery课程/img/1.gif" alt=""></div>
+            <div class="text2"><img src="../7.jquery课程/img/2.gif" alt=""></div>
+            <div class="text3"><img src="../7.jquery课程/img/3.gif" alt=""></div>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            $('.content div').hide().eq(0).show();
+            $('.box .nav li').click(function(){
+                $(this).css("background",'red').siblings().css("background",'');
+                $('.content div').eq($(this).index()).show().siblings().hide()
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //单例
+        function person(age,gender){
+            this.age = age;
+            this.gender = gender;
+
+        }
+        person.prototype.gender = 'boy';
+        person.getIns = function(){
+            if(!this.ins){
+                let fn = person.bind(null,...arguments)
+                this.ins = new fn();
+            }
+            return this.ins
+        }
+        var a = person.getIns(30,'boy');
+        var b = person.getIns(24);
+        console.log(a.age,b.age)
+        console.log(a.gender,b.gender)
+
+
+
+
+        // 透明版本
+        var person = (function(){
+            var ins;
+            return function(name){
+                if(ins){
+                    return ins;
+                }
+                this.name = name;
+                return ins = this;
+            }
+        })();
+        var p1 = new person();
+        var p2 = new person();
+        console.log(p1 === p2)
+
+
+
+
+
+        //适配器模式
+        var googleMap = {
+            show:function(){
+                console.log('开始渲染谷歌地图')
+            }
+        };
+        var baiduMap = {
+            display:function(){
+                console.log('开始渲染百度地图')
+            }
+        };
+        //适配百度，默认使用谷歌
+        var baiduMapAdapter = {
+            show: function(){
+                return baiduMap.display();
+            }
+        };
+        //渲染地图
+        var renderMap = function(map){
+            if (typeof map.show === 'function') map.show();
+        };
+        renderMap(googleMap)
+        renderMap(baiduMapAdapter)
+
+
+
+        function creatperson(name,age){
+            var obj = {};
+            obj.name = name;
+            obj.age = age;
+            obj.eat = function(){
+                console.log('正在吃饭')
+            }
+            return obj;
+        }
+        var p1 = creatperson('张三',20)
+        var p2 = creatperson('李四',30)
+
+console.log(p1)
+console.log(p2)
+console.log(p1==p2)
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contain{
+            margin: 0 auto;
+            width: 500px;
+            text-align: center;
+        }
+        #box div{
+            display: inline-block;
+        }
+      
+       .active{
+           display: none;
+           list-style: none;
+       }
+    </style>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <div class="contain">
+        <div id="box">
+        <div>首页1</div>
+        <div>关于1</div>
+    </div>
+    <ul id="content">
+        <li>首页1</li>
+        <li>关于1</li>
+    </ul>
+    </div>
+    <div class="contain">
+        <div id="box">
+        <div>首页1</div>
+        <div>关于1</div>
+    </div>
+    <ul id="content">
+        <li>首页1</li>
+        <li>关于1</li>
+    </ul>
+    </div>
+    
+    <script>
+        $('li:first').show();
+        $('#box').on('click','div',function(event){
+            var index = $(this).index();
+            $('#content li').eq(index).removeClass('active').siblings().addClass('active')
+            console.log(index);
+        })
+    </script>
+</body>
+</html>

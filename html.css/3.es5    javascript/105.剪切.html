@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="box">
+    <input type="text" id="url" value="www.163.com">
+    <button id="btn" data-clipboard-target="#url">复制</button>
+    <script src="../插件/clipboard.js"></script>
+    <script>
+        box.oncut = function(){
+            console.log(this.value)
+        }
+
+        var clipboard = new ClipboardJS('#btn');
+        clipboard.on('success',function(e){
+            console.log('复制成功')
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+    </style>
+    <div id="box"></div>
+    <script>
+        var offsetX = 0;
+        var offsetY = 0;
+        box.ontouchstart = function (event) {
+            var startX = event.touches[0].clientX;
+            var startY = event.touches[0].clientY;
+
+            var left = offsetX;
+            var top = offsetY;
+            document.ontouchmove = function (event) {
+                var endX = event.touches[0].clientX;
+                var endY = event.touches[0].clientY;
+
+
+                offsetX = endX - startX + left;
+                offsetY = endY - startY + top;
+                box.style.transform = `translate3d(${offsetX}px,${offsetY}px,0)`;
+            }
+            document.ontouchend = function () {
+                document.ontouchmove = null;
+                document.ontouchend = null;
+            }
+        }
+    </script>
+</body>
+
+</html>

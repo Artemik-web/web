@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <p id="pdd">pdd</p>
+    <p>我是p</p>
+    <ul class="ull">
+        <ol>我是ul下的ol</ol>
+        <ol>我是ul下的ol</ol>
+        <ol>我是ul下的ol</ol>
+        <ol>我是ul下的ol</ol>
+    </ul>
+    <ul>
+        <li>我是ul下的li</li>
+        <li>我是ul下的li</li>
+        <li>我是ul下的li</li>
+        <li>我是ul下的li</li>
+        <li>我是ul下的li</li>
+        <li>我是ul下的li</li>
+    </ul>
+    <div>
+        <li>我是div下li</li>
+        <li>我是div下li</li>
+        <li>我是div下li</li>
+        <li>我是div下li</li>
+        <li>我是div下li</li>
+        <li>我是div下li</li>
+    </div>
+<script>
+    $(function(){
+        console.log($('.ull>ol'))//类名为ull下的子代ol
+        console.log($('.ull'))//类名为ull
+        console.log($('#pdd'))//id为pdd
+        console.log($('p'))//p标签
+        console.log($('*'))//所有
+    })
+</script>
+</body>
+</html>

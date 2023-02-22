@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<ul id="news"></ul>
+
+
+
+
+
+
+    <script>
+
+var arr = [] //字面量
+
+var arr1 =  Array()   //函数定义
+
+var arr2 = new Array() //构造函数定义
+
+var arr3 = Array.of()  //es6 Array.of定义
+
+
+
+
+['🍎','🍌','🍍','🍊','🍇']
+
+// 1.push    在数组末尾追加  会改变数组  可同时添加多个  可追加数组
+
+var fruit =  ['🍎','🍌','🍍','🍊'];
+console.log(fruit.push('🍇'))  //输出的是数组长度
+
+
+var fruit = ['🍇']
+fruit.push('🍎','🍌','🍍','🍊')
+console.log(fruit)
+
+
+var fruit = ['🍎','🍌','🍍','🍊']
+fruit.push(['🍇'])
+console.log(fruit)
+
+//2.  pop 删除数组最后一个成员   返回被删除的成员    破坏原始数组
+
+var arr =[ '🍇','🍎','🍌','🍍','🍊'];
+console.log(arr.pop(arr)) //🍊
+console.log(arr)  //'🍇','🍎','🍌','🍍'
+
+
+
+
+function calc(){
+    var args = Array.from(arguments);
+    if(args.length === 1 ) return args[0];
+    var flag = args.length === 2 ? '+':args.pop();
+
+    var temp = args[0];
+    for(var i = 1;i<args.length;i++){
+        if(flag==='+'){
+            temp += args[i];
+        }else if(flag==='-'){
+            temp -= args[i];
+        }else if(flag==='*'){
+            temp *= args[i];
+        }else if(flag==='/'){
+            temp /= args[i];
+        }
+    }
+    return temp
+}
+
+console.log(calc(1,2,3,4,5,6,7,8,9,'+'))
+
+
+// 3.shift  删除数组开头成员  ， 返回被删除的成员  破坏原始数组类型
+// event,...args
+function emit(){
+// 方法一
+var args = Array.from(arguments);
+var event = args.shift();
+console.log(event);
+console.log(args);
+
+// 方法二  避免将arguments转换成数组，使用call相当于借用数组的shift方法
+var event = [].shift.call( arguments );
+console.log(event)
+console.log(arguments);
+}
+emit('click',1,2,3,5)
+
+
+// 4.reserve 反转数组
+var arr = [1,2,3,4,5];
+arr.reverse();
+console.log(arr)
+  
+// 字符串反转
+var str = '今天的天气很晴朗！';
+console.log(str.split('').reverse().join(''));
+
+
+function reverse(arr){
+    for(var a = 0;a<arr.length/2;a++){
+        var last = arr[arr.length-1-a];
+        arr[arr.length-1-a] = arr[a];
+        arr[a] = last
+    }
+    return arr
+}
+
+console.log(reverse([1,2,3,4]))
+
+
+
+
+
+
+//打散数组
+var arr = [1,2,3,4,5,6,7,8];
+arr.sort(function(){
+    var arr = [0,1,-1];
+    var index = Math.floor( Math.random()*arr.length);
+    return arr[index];
+    return Math.random()-0.5;
+})
+console.log(arr)
+
+
+
+//copwithin   es6 定位置拷贝元素到数组的另一个指定位置
+var fruit =  ['🍎','🍌','🍍','🍊'];
+fruit.copyWithin(2,0,2)
+console.log(fruit)
+
+
+
+
+
+var arr = [11,22,33]
+function reverse(arr){
+    for(var a =0;a<Math.floor(arr.length/2);a++){
+        var last = arr[arr.length-1-a];
+        arr[arr.length-1-a] = arr[a];
+        arr[a] = last;
+    }
+    return arr;
+}
+console.log(reverse(arr))
+
+
+var arr = ['one','two','three'];
+function dc(arr){
+   var arr1 = arr.toString();
+   var arr2 = arr.reverse().toString();
+   
+   return (arr1 + ','  + arr2).split(',')
+}
+console.log(dc(arr))
+
+
+var str = 'aaabbddfe';
+var num = {};
+for(var a = 0;a<str.length;a++){
+    var t = str[a];
+    if(num[t] ){
+        
+        num[t] +=1;
+        // num[a] +=1;
+    }else{
+        num[t] = 1
+    }
+ 
+}
+console.log(num)
+max = 0;
+zifu = '';
+for(var key in num){
+    
+    if(num[key]>max){
+        max = num[key]
+        zifu=key
+    }
+}
+console.log(zifu)
+
+
+
+
+
+var str = 'abcabcabc';
+function count(str,find){
+    var num = 0;
+    for(var a =0;a<str.length;a++){
+        if(str.indexOf(find )=== -1){
+            return 0;
+        }else if(str.indexOf(find)>=0){
+            num+=1;
+            a = a + find.length;
+        }
+    }
+return num
+
+}
+
+
+console.log(count(str,'a'))
+
+
+
+
+// fill es6新增
+var fruit =  ['🍎','🍌','🍍','🍊'];
+console.log(fruit.fill('*',1,3))
+
+var mobile = '17679040974';
+mobile = Array.from(mobile);
+console.log(mobile.fill('*',3,7).join(''))
+
+
+
+
+//sort排序
+//默认按字符排序
+var arr = [2,1,11,3,6,4]
+// var arr = ['b','a','c','e','f','a']
+arr.sort();
+console.log(arr);
+
+
+// 1.数值
+// 升序
+var arr1 = [2,1,11,3,6,4]
+arr1.sort(function(a,b){
+return a-b
+})
+
+console.log('升序',arr1);
+
+// 降序
+var arr2 = [2,1,11,3,6,4]
+arr2.sort(function(a,b){
+return b-a;
+})
+
+console.log('降序',arr2);
+
+//变量调节升降序
+var type = -1;//1升-1降
+var arr = [2,1,11,3,6,4]
+arr1.sort(function(a,b){
+return (a-b)*type
+})
+
+console.log(type==1?'升序':'降序',arr1);
+
+//2.字符串
+var arr6 = ['b','a','c','e','f','a']
+arr6.sort(function(a,b){
+return a.localeCompare(b)})
+console.log(arr6)
+
+// 中文
+var arr7 = ['b','a','c','e','f','a']
+arr6.sort(function(a,b){
+return a.localeCompare(b)})
+console.log(arr7)
+
+//将以下对象照单价从高到低
+var products = [
+    {name:'🍎',price: 5},
+    {name:'🍌',price: 3},
+    {name:'🍉',price: 2},
+    {name:'🍇',price: 8},
+];
+products.sort(function(a,b){
+    return b.price-a.price
+})
+console.log(products)
+
+
+
+var students = [
+    {id:1,name:'朱康兵',score:90},
+    {id:2,name:'吴国龙',score:85},
+    {id:3,name:'于龙',score:88},
+];
+
+students.sort(function(a,b){
+    return a.name - b.name;
+})
+console.log('........................................')
+console.log(students)
+
+
+
+
+
+
+
+
+
+
+var url = 'index.html?age=24&name=tony'
+function parse ( str , obj={}){
+if(url.lasrIndexOf('?') == -1) return null
+var newstr = str.split('?')[1];
+var newstr1  = newstr.split('&');
+for(i=0;i<newstr1.length;i++){
+    var val = newstr1[i];
+    var newkeys = newstr1[i].split('=');
+    var key = newkeys[0];
+    var value = newkeys[1];
+    obj[key]=value;
+}
+return obj;
+}
+console.log(parse(url ));
+
+
+
+
+
+
+
+
+
+
+
+ //封装sort排序函数
+ function sortBy(arr, field = 'id', type = 'string ', order = 'asc') {
+      var orderVal = { 'asc ': 1, 'desc ': -1 };
+      arr.sort(function (a, b) {
+        if (type === ' number ') {
+          return (a[field] - b[field]) * orderVal[order];
+        } else if (type === 'string') {
+          return String(a[field]).localeCompare(String(b[field])) * orderVal[order];
+
+        }
+      })
+
+      return arr;
+    }
+    var products = [
+      { id: 1, name: '', price: 3 },
+      { id: 2, name: '', price: 5 },
+      { id: 3, name: '', price: 2 },
+      { id: 4, name: '', price: 8 },
+    ];
+    sortBy(products, ' price', 'number', 'desc ');
+    console.log(products);
+
+
+console.log('打散数组')
+//打散数组 排序版本
+var arr=[1,2,3,4,5,6,7,8,9]
+arr.sort(function(){
+    return Math.random()-0.5
+})
+console.log(arr)
+//打散数组
+var arr = [1,2,3,4,5,6,7,8,9];
+    function shuffle(arr) {
+        var len = arr.length;
+        for (var i = 0; i < len - 1; i++) {
+            var index = parseInt(Math.random() * (len - i));
+            var temp = arr[index];
+            arr[index] = arr[len - i - 1];
+            arr[len - i - 1] = temp;
+        }
+        return arr;
+    }
+    console.log(shuffle(arr));
+console.log('随机值')
+    //根据下面的字符串，随机生成十位哈希码值
+    var str = '123456789abcdefg'
+    var newstr = ''
+    for(var a = 0;a<6;a++){
+        newstr = newstr + str[Math.round(Math.random()*(str.length-1))]
+    }
+    console.log(newstr)
+
+
+
+
+
+    var fruit =  ['🍎','🍌','🍍','🍊'];
+
+//splice 删除功能
+//语法
+// fruit.splice(起始位置,删除个数,替补1,替补2...)
+
+console.log(fruit.splice(1,2))//删除,'🍌','🍍'
+console.log(fruit)//输出🍎''🍊'
+fruit.splice(1,0,'🍉')
+console.log(fruit) //["🍎", "🍉", "🍊"]
+
+fruit.splice(0,0,'🍈')
+console.log(fruit)
+fruit.splice(fruit.length,0,'🍍')
+console.log(fruit)
+fruit.splice(2,0,'🍌')
+console.log(fruit)
+
+
+
+var fruit =  ['🍎','🍌','🍍','🍊'];
+
+fruit.splice(0,1,'🍈')
+console.log(fruit)
+fruit.splice(1,2,'🍇','🍑')
+console.log(fruit)
+fruit.splice(-1,1,'🥝')
+console.log(fruit)
+
+//数组去重
+var arr = [1,2,4,5,6,7,9,9,5,6,4,6,4,3,3,5,5,]
+
+for(var a=0;a<arr.length;a++){
+    for(var b =a+ 1;b<arr.length;b++){
+        if(arr[a]===arr[b]){
+            arr.splice(b,1);
+            b--;
+        }
+    }
+}
+console.log(arr)
+
+//数组去重
+//对象
+var arr = [1,2,4,{a:1},5,6,7,{b:1},9,9,5,6,4,6,4,3,3,5,5,]
+
+for(var a=0;a<arr.length;a++){
+    for(var b =a+ 1;b<arr.length;b++){
+        if(arr[a]===arr[b] || (JSON.stringify(arr[a]) === JSON.stringify(arr[b])) ){
+            arr.splice(b,1);
+            b--;
+        }
+    }
+}
+console.log(arr)
+//flat 推平二维数组
+//concat
+// 1.复制数组
+var arr = [1]
+console.log(arr.concat([]))
+// 2.数组合并
+var arr1 = [1]
+var arr2 = [2]
+console.log(arr1.concat(arr2))
+
+
+
+
+
+var arr = [1,2,3,4,5,6,7,8,9];
+    function shuffle(arr) {
+        var len = arr.length;
+        for (var i = 0; i < len - 1; i++) {
+            var index = parseInt(Math.random() * (len - i));
+            var temp = arr[index];
+            arr[index] = arr[len - i - 1];
+            arr[len - i - 1] = temp;
+        }
+        return arr.slice(0,6);
+    }
+    console.log(shuffle(arr));
+
+
+
+
+
+    var str = '123456789abcdefg'; 
+    var arr = str.split('');
+    console.log(arr)
+function shuffle(str){
+   
+
+}
+shuffle(str)
+
+
+
+
+
+var arr = [1,2,4,[],5,6,7,{},9,9,5,6,4,6,4,3,3,5,5,]
+
+for(var a=0;a<arr.length;a++){
+    for(var b =a+ 1;b<arr.length;b++){
+        if(arr[a]===arr[b] || (JSON.stringify(arr[a]) === JSON.stringify(arr[b])) ){
+            arr.splice(b,1);
+            b--;
+        }
+    }
+}
+console.log(arr)
+
+
+
+// //下拉追加效果
+
+// var news = [
+//     '新闻1',
+//     '新闻2',
+//     '新闻3',
+//     '新闻4',
+//     '新闻5',
+// ];
+// function list(data){
+//     var temp = '';
+//     for(var i = 0;i<data.length;i++){
+//         temp+=`<li>${data[i]}</li>`
+//     }
+//     document.getElementById('news').innerHTML = temp;
+// }
+// // 调用列表
+// list(news);
+// //定时器，让每个3秒执行一次追加
+// setInterval(function(){
+// var more = [
+//     '新闻1',
+//     '新闻2',
+//     '新闻3',
+//     '新闻4',
+//     '新闻5',
+// ];
+// news = news.concat(more)
+// list(news);
+// // function list(data){
+
+// // }
+// },2000)
+
+
+
+
+ 
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            table{
+         border-collapse: collapse;
+         margin-bottom: 15px;
+     }
+     th,td{
+         border: 1px solid #ccc;
+         padding: 6px;
+         text-align: center;
+     }
+     tbody tr:nth-child(odd){
+         background-color: #eee;
+     }
+    </style>
+</head>
+<body>
+    <table width="500" align="center">
+    <thead>
+        <tr>
+        <th><input type="checkbox" onchange="getAll(this)"></th>
+        <th>编号</th>
+        <th>水果名称</th>
+        <th>水果单价</th>
+        <th>添加日期</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody id="body">
+
+    </tbody>
+</table>
+<button onclick="getValue()">取值</button>
+<script>
+var fruit = [
+{id:1, name:'苹果', price: 5, addtime:'2021-08-30'},
+{id:2, name:'桔子', price: 2, addtime:'2021-08-27'},
+{id:3, name:'香蕉', price: 3, addtime:'2021-08-26'},
+{id:4, name:'菠萝', price: 6, addtime:'2021-08-29'},
+{id:5, name:'葡萄', price: 12, addtime:'2021-08-24'},
+];
+view(fruit);
+function view(arr){
+   var temp = '';
+     if(!arr.length) temp +=`<tr align="center"><td colspan="999">抱歉，暂无数据！</td></tr>`;
+     arr.forEach(function(item){
+        temp += `<tr>
+            <td><input name="fruit" type="checkbox" value="${item.name}"></td>
+            <td>${item.id}</td>
+            <td>${item.name}</td>
+            <td>￥${(item.price).toFixed(2)}</td>
+            <td>${item.addtime}</td>
+            <td><button onclick="Del(${item.id})">移除</button></td>
+            </tr>
+            `
+    })
+    body.innerHTML = temp
+}
+
+// function Del(id){
+//     if(confirm('确认删除')){
+//         var index = fruit.findIndex(function(item){
+//             return item.id == id;
+//         })
+//         fruit.splice(index,1)
+    
+// }
+// view(fruit)
+// }
+
+function Del(id){
+    if(confirm('确认删除')){
+    fruit=fruit.filter(function(item){
+            return item.id !== id;
+        })
+    }
+    view(fruit)
+}
+
+function getAll(fruit){
+ document.getElementsByName('fruit').forEach(function(item){
+     item.checked = fruit.checked
+ })
+ view()
+}
+document.getElementsByName('fruit').forEach(function(item){
+            item.checked  =  input.checked;
+        })
+
+        
+
+        function getValue(){
+            var result = [];
+            document.getElementsByName('fruit').forEach(function(item){
+            if(item.checked){
+                result.push(item.value)
+                
+            }
+        })
+        alert(result.toString())
+        }
+
+
+
+
+        function getKebabCase2(str){
+    return str.replace(/[A-Z]/g, function(item) {
+        return '-'+item.toLowerCase()
+    })
+}
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.扩展运算符
+
+        var arr = ['a','b','c'];
+
+
+
+        // 浅拷贝
+
+var newArr = [...arr];
+console.log(newArr)
+        // rest应用
+
+var [a,...others] = arr;
+console.log(a,others)
+
+        //合并数组
+
+var arr1 = ['a','b'];
+var arr2 = [...arr1,'c','d'];
+var arr2 = ['c',...arr1,'d'];
+var arr2 = ['c','d',...arr1];
+
+        //两个数组放在一个新数组中
+
+
+var arr3 = [...arr1,...arr2];
+
+//代替apply
+Math.max(1,2,3);//3
+console.log(Math.max([1,2,3]));//NaN
+
+console.log(Math.max.apply(null,[1,2,3]));//es5
+console.log(Math.max(...[1,2,3]));//es6
+
+//类数组转为真真的数组
+var str = '今天的天气很晴朗';
+console.log([].slice.call(str));//es5
+console.log([...str]);//es6
+
+
+
+
+
+
+
+
+
+
+
+//filter 哪怕是一个结果  也输出数组
+var arr1 = ['a','b','a','c',];
+var result = arr1.filter(val => val === 'a');
+console.log(result);//['a','a']
+
+
+// find 输出的是数组成员 （非贪婪）
+var arr2 = ['a','b','a','c',];
+var result = arr1.find(val => val==='a')
+console.log(result);//a
+
+
+
+
+//flat 推平数组
+console.log([1,[2,[3,4,[5],6]]].flat(Infinity))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

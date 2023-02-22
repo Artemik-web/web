@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+    <input type="text" name="" id="key">
+    <ul id="list">
+        <li>🍎</li>
+        <li>🍌</li>
+        <li>🍎</li>
+        <li>🍍</li>
+    </ul>
+    <script>
+        var clone_lists = $('#list li').clone();
+        $('#key').on('change',function(){
+            var keyword = this.value.trim();
+            if(keyword){
+              var lists = $('#list li:contains('+keyword+')');
+              $('#list').html(lists)
+            }else{
+                $('#list').html(clone_lists)
+            }
+            
+        })
+    </script>
+</body>
+</html>

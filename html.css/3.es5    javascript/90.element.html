@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="ll" class="green"></div>
+    <div id="box">
+    <h2>标题</h2>
+    </div>
+    <button id="btn" title="气泡提示" class="btn" data-name=""> 按钮</button>
+    <script>
+        var btn = document.getElementById('btn');
+
+
+        console.log(btn.id)
+        console.log(btn.tagName,btn.nodeName)
+        console.log(btn.title)
+        console.log(btn.attributes)
+        console.log(btn.attributes['class'].value)
+        console.log(btn.attributes['class'])
+        console.log(btn.className)
+        btn.className = 'red'
+
+        function set(){
+            console.log(box.innerText)
+        }
+
+
+
+        ll.classList.add('red');
+        ll.classList.add('green');
+
+
+        console.log(ll.classList.toString());
+        console.log(ll.classList.contains('red'));
+        console.log(ll.classList.item(1));
+
+
+        // 写
+        btn.dataset.age = 24;
+        btn.dataset.gender = '男';
+        // 读
+        console.log( btn.dataset)
+        console.log( btn.dataset.name)
+        console.log( btn.dataset.gender)
+        console.log( btn.dataset.age)
+    </script>
+</body>
+</html>

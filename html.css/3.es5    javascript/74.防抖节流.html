@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="" oninput="search(this)">1
+    <input type="text" name="" id="search">2
+    <script>
+        var time = null;
+        function search(btn){
+            clearTimeout(time);
+            time = setTimeout(function(){
+                console.log(btn.value)
+            },1000)
+        }
+
+
+
+
+        search.oninput = debounce(function(ev){
+            console.log(ev);
+            console.log(this.value)
+        },1000);
+
+        function debounce(fn, delay){
+            var time = null;
+            return function(){
+                var ctx = this;
+                var args = arguments;
+                clearTimeout(time);
+                time = setTimeout(function(){
+                    fn.apply(ctx, args);
+                },delay)
+            }
+        }
+    </script>
+</body>
+</html>

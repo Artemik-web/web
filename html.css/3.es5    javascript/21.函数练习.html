@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+// 判断未定义
+//  console.log( typeof a=='undefined');//返回true
+// 判断不存在
+// console.log(  a==null);//返回true
+// 判断是一个空字符串
+// console.log( a == '');//返回true
+// 判断是一个空数组
+// console.log( [].length == 0);//返回true
+// console.log( ![].length);//返回true
+// 判断是一个空对象
+// console.log( JSON.stringify({}) ==='{}');//返回true
+//推荐
+// console.log( Object.key({}).length === 0);//返回true
+
+// for循环对象
+
+// var obj = {name:tony,age:20};
+// var keys = Object.key(obj);
+// for(var a=0;a<keys.length;a++){
+//     var key = keys[a],
+//     val = obj[key];
+//     console.log(key,'=>',val)
+// }
+
+// 如何判断是否是朴素对象
+
+
+
+
+function isplainobject(obj){
+    return Object.prototype.toString.call(obj) === '[object Object]'
+}
+
+console.log(isplainobject({}));
+console.log(isplainobject(window));
+
+
+
+function extend(){
+    var args = arguments;
+    var newobj = {};
+    for(var i = 0; i < args.length;i++){
+        var item = args[i];
+        if(!isplainobject(item)) continue;
+        for(var key in item){
+            newobj[key] = item[key];
+        }
+    }
+    console.log(newobj);
+}
+extend({},{a:5,b:1},{c:4});//{a:5,b:1,c:4}
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

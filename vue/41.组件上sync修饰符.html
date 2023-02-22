@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  
+  <div id="app">
+
+    <!-- sync 同步 async 异步 -->
+    <gx-page :page.sync="page" :totalpage="5" ></gx-page>
+
+    <h2>当前页码是：{{page}}</h2>
+
+  </div>
+
+  <script>
+  Vue.component('GxPage', {
+    props: {
+      page: Number,
+      totalpage: Number
+    },
+    data(){
+      return {
+        page_: this.page
+      }
+    },
+    template: `
+      <p>
+        <button 
+        v-for="p in totalpage"
+        :style="{color: page===p?'red':''}"
+        @click="page=p"
+        >
+          {{p}}
+        </button>
+      </p>
+
+    `
+  })
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      page: 6
+    }
+  })
+
+
+  
+  </script>
+
+</body>
+</html>

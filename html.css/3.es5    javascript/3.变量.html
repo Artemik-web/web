@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//         var a = 1;
+//         b = a;
+//         a = 3;
+//         console.log(b);
+// // 传值   a=3  b=1
+
+
+//         var c = {name:'张三'}
+//         d = c;
+//         c.name = 'lisi';
+//         console.log(d);
+// // 引用   d=lisi
+
+
+
+
+
+// var没有作用域
+// {var a = 1};
+// console.log(a)//可以输出
+
+
+//let     es6语法    有块级作用域
+// {let b = 1};
+// console.log(b)//不可以输出，报错
+
+
+
+
+
+
+// 变量和字符拼接
+// var name = '张三';
+// var age = 30;
+// var str1 = '我叫' + name + ',今年' + age + '。';
+// console.log(str1);
+
+
+
+
+
+// 拼接的三种情况
+
+// 在前
+// var fullname = '张三';
+// var str2 = fullname + ',你好!';
+// console.log(str2);
+
+
+
+// // 在中间
+// var fullname = '张三';
+// var str3 = '您好，' + fullname + '!';
+// console.log(str3);
+
+
+
+
+// // 在后面
+// var fullname = '张三';
+// var str3 = '您好，' + fullname;
+// console.log(str3);
+
+
+
+// 输出html的代码拼接  外面单引号 用 ’+ 变量 +‘ 双引号  ”+ 变量 +“
+// var color = 'red'
+// var align = 'center'
+// document.write('<h1 style="color:'+color+'">23</h1>')
+
+var name = '张三';
+var age = 30;
+var color = 'red';
+var size = 24;
+document.write('<p>我叫<span style="color:' + color + ';font-size: ' + size + 'px;">' + name + '</span>，今年' + age + ' 岁了！</p>')
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html> 

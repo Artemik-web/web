@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a li{
+            border-bottom: blue;
+        }
+        .b > li{
+            border-bottom: crimson;
+        }
+        .c + p{
+            border-bottom: crimson;
+        }
+    </style>
+</head>
+<body>
+    <h2></h2>父标签 所有后代标签</h2>
+    <ul class="a">
+        <li>
+          列表1
+          <ol>
+            <li>列表1_1</li>
+            <li>列表1_2</li>
+          </ol>
+          <br>
+        </li>
+        <li>列表2</li>
+      </ul>
+      <h2>父标签 > 所有子元素</h2>
+      <ul class="b">
+        <li>
+          列表1
+          <ol>
+            <li>列表1_1</li>
+            <li>列表1_2</li>
+          </ol>
+          <br>
+        </li>
+        <li>列表2</li>
+      </ul>
+      <h2>同辈标签 + 紧紧相邻的下一个标签</h2>
+      <style>
+          .d ~p{
+            border-bottom: crimson;
+          }
+      </style>
+      <div class="c">文本</div>
+      <p>22222</p>
+      <p>22222</p>
+      <h2>同辈标签 + 紧紧相邻下的所有标签</h2>
+      <div class="d"></div>
+      <p>段落</p>
+      <p>段落</p>
+      <ul>列表</ul>
+      <p>段落</p>
+</body>
+</html>

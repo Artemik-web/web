@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <script src="js/mock.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in list">
+                <img :src="item.avatar" align="absmiddle"> ------ {{item.id}}------{{item.name}}------{{item.star}}------{{item.mobile}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        const data = Mock.mock({
+            'list|1-100': [
+                {
+                    'id|+1': 1,
+                    'name|+1':['苹果','桔子'],
+                    'name|+1':()=> Mock.Random.cname(),
+
+                    'star|1-5': '⭐',
+                    'mobile':/1\d{10}/,
+                    'avatar':()=> Mock.Random.dataImage('60x60','#ff0000'),
+                    // 'avatar':()=> Mock.Random.image('60x60','#ff0000')
+                }
+            ]
+        })
+        const app = new Vue({
+            el:'#app',
+            data: {
+                list: data.list
+            }
+        })
+    </script>
+</body>
+</html>

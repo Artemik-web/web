@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+//普通函数
+function person(){
+
+}
+var p1 = person();
+var p2 = person();
+console.log(p1==p2)//true
+
+//构造函数
+function person(){
+
+}
+var p1 =new person();
+var p2 =new person();
+console.log(p1==p2)//false
+
+
+
+//1.通过函数prototype对象创建
+function person(){
+
+}
+person.prototype.age = 24;
+person.prototype.song = function(){
+    console.log('在唱歌')
+};
+var p1 = new person();
+console.log(p1.age)
+    </script>
+</body>
+</html>

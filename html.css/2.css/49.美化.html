@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .checkbox{
+            display: inline-block;
+        }
+        .checkbox input{
+            display: none;
+        }
+        .checkbox span::before{
+            display: inline-block;
+            content: "";
+            color: white;
+            width: 16px;
+            height: 16px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+        .checkbox input:checked+span::before{
+            background: red;
+            content: "√";
+        }
+        .checkbox input:checked+span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <label class="checkbox">
+        <input type="checkbox" name="a"><span>1</span>
+    </label>
+    <label class="checkbox">
+        <input type="checkbox" name="a"><span>2</span>
+    </label>
+    <label class="checkbox">
+        <input type="checkbox" name="a"><span>3</span>
+    </label>
+</body>
+</html>

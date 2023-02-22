@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 移动优先0-768 */
+        .box::after{
+            content: "手机";
+        }
+        .contain{
+            display: flex;
+            flex-wrap: wrap ;
+            width: 200px;
+            padding-left: 10px;
+        }
+        /* 平板范围768-992 */
+        @media screen and (min-width:768px) {
+            .box::after{
+            content: "平板";
+        }
+        .contain{
+            width: 400px;
+        }
+        }
+        /* 显示器范围992-1200 */
+        @media screen and (min-width:992px) {
+            .box::after{
+            content: "显示器";
+        }
+        .contain{
+            width: 600px;
+        }
+        }
+        /* 大显示器范围1200+ */
+        @media screen and (min-width:1200px) {
+            .box::after{
+            content: "大显示器";
+        }
+        .contain{
+            width: 1000px;
+        }
+        }
+
+
+
+        .contain div{
+            width: 200px;
+            height: 100px;
+        }
+        .a1{
+            background-color: blue;
+        }
+        .a2{
+            background-color: red;
+        }
+        .a3{
+            background-color: gray;
+        }
+        .a4{
+            background-color: aqua;
+        }
+        .a5{
+            background-color: wheat;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="box"></h1>
+    <!-- 移动优先  渐进增强 平板 显示器 大显示器 -->
+    <div class="contain"> 
+        
+        <div class="a1"></div>
+        <div class="a2"></div>
+        <div class="a3"></div>
+        <div class="a4"></div>
+        <div class="a5"></div>
+   
+</div>
+</body>
+</html>

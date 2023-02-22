@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+// 函数声明三种方式
+
+
+// 方法1 语句式声明
+// function add(a,b){
+//     console.log(a+b)
+// }
+
+
+// // 方法2表达式声明
+
+// var add = function(a,b){
+//     console.log(a+b)
+
+// }
+
+
+
+
+
+
+// // 方法3   构造函数声明(最后一个位置是函数体，如果只有一个就是函数体，前面的位置都是参数位置)
+
+// var add = new Function('a','b','console.log(a+b)');
+
+
+// add(1,2);
+
+
+
+// //构造函数可以将字符串解释为表达式
+// console.log('1+2',1+2);
+// // 很容易导致xss攻击
+
+
+// console.log(eval(1+2*4));
+
+
+// var a = new Function('return 1+2*4')
+// console.log(a());
+
+// function fn(){
+//     for(var a=0;a<=10;a++){
+//         // if(a==5) return;
+//         if(a==5) break;
+//         console.log(a);
+//     }console.log('!')
+// }
+
+// fn();
+
+// 递归循环数组
+// var arr = ['a','b','c'];
+// function loop(i){
+//     if(i===arr.length) retuen;
+//     console.log(arr[i]);
+//     i++;
+//     loop(i);
+// }
+// loop(0)
+
+// var list = ['q','d','r',[1,['a','s','f'],10],'o',0,];
+// function flat(arr){
+//     for(var a=0; a<arr.length;a++){
+//         if(Array.isArray(arr[a])){
+//             flat(arr[a]);
+//         }else{
+//             console.log(arr[a]);
+//         }
+//     }
+// }
+// flat(list);
+
+
+
+
+
+
+
+
+
+
+
+
+// //没有块级作用域
+// if(true){
+//     var a = 10;
+// }
+// console.log(a);//10
+// // 具有块级作用域
+// if(true){
+//     let b = 10;
+// }
+// console.log(b);//报错 b  undefined
+
+// // 全局变量可以在函数内部直接访问输出
+// var a = 10;
+// function add(){
+//     console.log(a);
+// }
+// add();//10
+
+// var a = 10;
+// function add(){
+//     //a 是使用var关键词在函数内部声明说明a是局部变量
+//     var a = 20;
+//     console.log(a);//20
+// }
+// add();
+// console.log(a);//10
+
+
+// var a = 10;
+// function add(a){
+//     //a 是一个形参，形参也是局部变量
+//     console.log(a);//2
+// }
+// add(2);
+// console.log(a);//10
+
+
+// var a = 10;
+// function add(a){
+//     //先输出形参的值
+//     console.log(a);//2
+//     var a = 10;
+//     //输出自定义的局部变量
+//     console.log(a);//10
+// }
+// add(2);
+// console.log(a);//10
+
+
+//函数定义的作用域
+// var a = 2;
+// function fn(){
+//     console.log(a)
+// }
+
+
+// function foo(){
+//     var a = 10;
+
+
+
+//     // 函数调用作用域
+//     fn();
+// }
+
+// foo();
+
+// var fruit = ['10','20',30]
+
+// function aeach(arr, callback){
+//     for(var i =0;i<arr.length;i++){
+//         callback( arr[i],i)
+//     }
+// }
+
+
+// aeach(fruit,function(a,b){
+//     console.log(a,b);
+// });
+
+
+
+
+
+
+// function add(a){
+//     // var b = a;
+//     var b = {...a};
+//     b.name='kenve'
+//     console.log(b);
+//     console.log(a);
+// }
+// var a = {name:'tony'};
+
+// add(a);
+
+
+function max(){
+    var args = arguments;
+    var max = args[0];
+    for(var i = 0;i<args.length;i++){
+        if(max<args[i]) max = args[i];
+    }
+    return max;
+}
+console.log( max(1,2,3,7,6,6,78,1,1,9))
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

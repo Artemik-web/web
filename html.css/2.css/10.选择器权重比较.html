@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /*权重叠加 1+10 */
+        div.home{
+            font-size: large;
+            color: green;
+        }
+        /* 10 */
+        [name="home"]{
+            font: large;
+            color: red;
+        }
+    </style>
+    <div name="home" class="home">❀</div>
+    <div name="home" class="home">❀</div>
+    <style>
+        .nav a:hover{
+            color: yellow;
+        }
+        .nav a{
+            color: red;
+        }
+        .nav .active{
+            color: green;
+        }
+    </style>
+    <p class="nav">
+    <a href="#" class="active">❀</a>
+    <a href="#">❀</a>
+</p>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//         var age = 30;
+//         function foo(gender,education){
+//             console.log(this.age);
+//             console.log(gender,education);
+//         }
+
+//         var person = {
+//             age:24,
+//             name:'tony'
+//         }
+//         foo();//30
+//         //让foo内部this（默认执行window）执行person对象
+//         foo.call(person,'男','大专')//24
+
+//         var info = {
+//             age:24
+//         }
+//         var person = {
+//             age:20,
+//             getAge:function(){
+//                 console.log(this.age)
+//             }
+//         }
+//         person.getAge();//20
+//         person.getAge.call(info);//24
+
+// //APPLY
+
+//         var info = {
+//             age:24,
+//             gender:'boy'
+//         }
+//         function person(a,b,c){
+//             console.log(this.age);
+//             console.log(this.gender);
+//             console.log(a,b,c);
+//         }
+//         // person.apply(info,['aa','bb','cc'])
+
+
+//         console.log(Math.max(2,5,7));//7
+//         //拿apply 让不支持数组的参数序列支持数组传入
+//         console.log(Math.max.apply(null,[5,2,7]));//7
+
+// // bind
+
+
+//         // var info = {
+//         //     age:20,
+//         // }
+//         // setTimeout(function(){
+//         //     console.log(this.age)
+//         // }.bind(info),1000 )
+
+//         function add(a,b,c,d){
+//             console.log(a);
+//             console.log(b);
+//             console.log(c);
+//             console.log(d);
+//         }
+//         var foo = add.bind(null,1,2);
+//         foo(3,4);
+
+
+var obj1 = {
+    a:1,
+}
+var obj2 = {
+    a:2,
+    Funct:function(b,c){
+        console.log(this.a + b + c)
+    }
+}
+console.log('........原.........')
+
+obj2.Funct();
+console.log('........call.........')
+
+// 1.call
+obj2.Funct.call(obj1,2,3);//6   1+2+3
+console.log('.........apply........')
+
+// 2.apply
+obj2.Funct.apply(obj1,[2,3]);//6   1+2+3
+console.log('.........bind........')
+
+// 3.bind
+obj2.Funct.bind(obj1,2,3);console.log('未执行')
+console.log('.................')
+obj2.Funct.call(obj1,2,3);//6   1+2+3
+
+
+
+console.log('.................')
+function person(a,b,c,d){
+console.log(a,b,c,d); // 输出什么？
+}
+var fn = person.bind(null,1,2);
+fn(3,4)
+
+
+console.log('.................')
+//createnew
+
+function creat(){
+
+var obj = {};
+var creatNew = [].shift.call(arguments)
+obj._proto_ = creatNew.prototype;
+var result =  creatNew.apply(obj,arguments)
+return typeof creatNew === 'object' ? creatNew:obj
+}
+function person(name){
+    this.name = name;
+}
+var p1 = creat(person,'张三');
+console.log(p1.name)
+
+
+
+function person(){
+    this.age = 20;
+    this.name = '张三';
+    this.song = function(){
+        return '唱歌';
+    }
+}
+var p1 = new person();
+console.log(p1.age)
+console.log(p1.name)
+console.log(p1.song())
+    </script>
+</body>
+</html>

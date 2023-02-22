@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  
+  <div id="app">
+
+    <gx-vote v-model="count1"></gx-vote>
+    <p>你的得票：{{count1}}</p>
+
+    <hr>
+
+    <gx-vote v-model="count2"></gx-vote>
+    <p>你的得票：{{count2}}</p>
+  </div>
+
+  <script>
+  //投票组件
+  Vue.component('GxVote', {
+    props: {
+      value: {
+        type: Number,
+        default: 0
+      }
+    },
+    data(){
+      return {
+        num: this.value
+      }
+    },
+    template: `<button @click="num++,$emit('input',num)">❤ {{num}}</button>`
+
+  })
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      count1: 50,
+      count2: 0
+    }
+  })
+
+  </script>
+
+
+</body>
+</html>

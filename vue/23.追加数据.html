@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="addbefore">前追加</button>
+        <button v-on:click="addbeafter">后追加</button>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>名称</th>
+                <th>单价</th>
+              </tr>
+              <tr v-if="!fruit.length">
+                  <td colspan="3" align="center">暂无数据！</td>
+              </tr>
+              <tr v-for="item in fruit">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{ item.price }}</td>
+              </tr>
+        </table>
+
+    </div>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                fruit:[]
+            },
+            methods:{
+                addbefore(){
+                    this.fruit.unshift({
+                        id: this.fruit.length+1,
+                        name:prompt('请输入水果名称！'),
+                        price:prompt('请输入水果单价！'),
+                    })
+                },
+                addbeafter(){
+                    this.fruit.push({
+                        id: this.fruit.length+1,
+                        name:prompt('请输入水果名称！'),
+                        price:prompt('请输入水果单价！'),
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+</html>

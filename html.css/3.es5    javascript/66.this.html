@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //this指向普通函数   this指向window 
+         //严格模式下this == undefined
+        function person(){
+            //相当于定义了有一个超全局变量
+            this.age = 10;
+            console.log(Object.prototype.toString.call(this));//[object Window]
+        }
+            person();
+
+
+            //立即执行函数
+            +function(){
+                console.log(this);//window
+            }();
+
+
+            var obj1 = {
+                getAge:function(){
+                    console.log(this);
+                }
+            }
+
+            obj1.getAge();//this == obj1
+
+            var obj2 = {
+                getAge:function(){
+                console.log(this);//window
+            }(),
+            }
+            obj2.getAge;//this == window
+
+
+
+            //构造函数中this指向构造函数实例
+            function Cat(){
+                this.age = 'tony';
+                //this指向实例
+            }
+            var c1 = new Cat();
+            c1.age = 'tony';
+            console.dir(c1)
+
+
+
+            function Cat(){
+                this.age = 10;
+                console.log(this.gender)
+                //this指向实例
+            }
+            //原型对象上的树形
+            Cat.prototype.gender = '男'
+            var c1 = new Cat();
+            c1.name = 'tony';
+            console.dir(c1);
+            console.log(c1.gender);//男
+
+            //对象方法
+            var age = 20;
+            var person = {
+                age = 10,
+                getN1:function(){
+                    console.log(this.age);
+                }(),
+                getAge:function(){
+                    console.log(this.age);
+                },
+                info:{
+                    age:15,
+                    getAge:function(){
+                        console.log(this.age)
+                    }
+                }
+            }
+            person.getAge();//10
+            person.getN1;//20
+            person.info.getAge();//15
+            var info = person.info;
+            info.getAge();//15
+            var getAge = person.info.getAge;
+            getAge(); //20
+    </script>
+</body>
+</html>

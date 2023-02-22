@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = '我是{{name}},今年{{age}}岁,性别{{gender}}';
+        var arr = [];
+        var reg = /\w+/g;
+        var result = null;
+        while(result = reg.exec(str)){
+            arr.push(result[0]);
+        }
+        console.log(arr)
+
+        console.log('a1bc2'.replace(/b/,'[$`-$&-$\']'));
+        console.log('abc'.replace(/(a)(b)(c)/,'$3-$2-$1'));
+        var str = '11sa22dsad33';
+        var reg = new RegExp('\\d','g');
+        console.log(str.replace(reg,'*'))
+    </script>
+    <input type="text" oninput="this.value=this.value.replace(/\D+/,'')">
+    <br>
+    <input type="text" onkeyup="this.value=this.value.replace(/\D+/,'')">
+    <br>
+    <br>
+    <textarea rows="10" placeholder="敏感词" oninput="this.value = this.value.replace(/^ +| +$|^\s+/mg,'')"></textarea>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        div{
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .text,
+        .serach{
+            height: 30px;
+            box-sizing: border-box;
+            vertical-align: top;
+            outline: none;
+        }
+        .text:focus{
+            border:1px solid royalblue;
+        }
+        .text:hover{
+            border-color: rgba(65,105,225, 1.1);
+            }
+        .text{
+            padding-left:16px ;
+            border-right: none;
+            border-bottom-left-radius: 8px;
+            border-top-left-radius: 8px;
+        }
+        .serach{
+            cursor: pointer;
+            line-height: 30px;
+            background-color: rgb(124, 154, 245);
+            border-bottom-right-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        
+        
+        .serach:hover{
+            background-color: rgb(53, 95, 221);
+        }
+        .text::placeholder{
+            color: rgba(124, 154, 245, .6);
+        }
+    </style>
+        <div>
+    <input type="text" class="text" placeholder="特朗普出书"><button class="serach">🔍</button>
+        </div>
+</body>
+</html>

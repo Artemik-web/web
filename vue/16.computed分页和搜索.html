@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model='keywords'>
+
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>名称</th>
+                <th>单价</th>
+            </tr>
+            <tr v-for="item in pageData">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{ toCNY(item.price) }}</td>
+            </tr>
+        </table>
+        <button :disabled="page == 1" v-on:click="page--">上页</button>
+        <button 
+        v-for="p in totalpage" 
+        v-on:click='page = p' 
+        :style="{color: page==p ? 'red': ''}"
+        >{{p}}</button>
+        <button :disabled="page == totalpage" v-on:click="page++">下页</button>
+
+    </div>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                fruit: [
+                    { id: 1, name: '陕西苹果', price: 6 },
+                    { id: 1, name: '日本苹果', price: 9 },
+                    { id: 1, name: '越南香蕉', price: 3 },
+                    { id: 1, name: '海南香蕉', price: 4 },
+                ],
+                keywords: '',
+                page: 1,
+                perpage: 1,
+            },
+            computed: {
+                searchData() {
+                    return this.fruit.filter(item => {
+                        return item.name.includes(this.keywords);
+                    })
+                },
+                totalpage() {
+                    return Math.ceil(this.searchData.length / this.perpage)
+                },
+                pageData() {
+                    // let total = this.searchData.length;
+                    // let totalpage = Math.ceil(total/this.perpage);
+                    let start = (this.page - 1) * this.perpage;
+                    let end = start + this.perpage;
+                    return this.searchData.slice(start, end);
+                }
+            },
+            methods: {
+                toCNY(val) {
+                    return '￥' + val.toFixed(2)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

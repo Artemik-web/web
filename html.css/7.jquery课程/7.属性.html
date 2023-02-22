@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+</head>
+<body>
+
+
+    <ul id="list">
+        <li>文本1</li>
+        <li>文本2</li>
+        <li>文本3</li>
+        <li>文本4</li>
+        <li>文本5</li>
+        <li>文本6</li>
+    </ul>
+    <div id="box">文本</div>
+    <button id="btn">设置</button>
+    <script>
+        $(function(){
+            $('#btn').click(function(){
+                $("#box").attr({
+                    title:'气泡',
+                    class:'box'
+                }).css({
+                    fontSize:'18px',
+                    color:'red',
+                    borderBottom:'2px solid blue'
+                })
+            })
+
+            $('li').attr('class',function(a){
+                return 'box' + (a+1)
+            })
+
+        })
+    </script>
+</body>
+</html>

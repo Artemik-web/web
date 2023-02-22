@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+// 字符串静态方法
+//实例的方法，将字符按索引值转换成unicode码点
+console.log('砸'.charCodeAt());
+
+//将指定的unicode码点转换成字面字符串
+console.log(String.fromCharCode(97));
+
+
+
+
+
+// 字符串实例方法
+
+// 1.根据指定索引值取字符
+var str = '今天'
+console.log(str[0]);//中括号
+console.log(str.charAt(0))//函数方法
+
+// 2.返回字符串指定位置的Unicode码点
+console.log('今天'.charCodeAt(0))
+
+
+// 3.concat 连接字符串，返回新字符串
+console.log('今'.concat('天','hao'))  //函数
+console.log('今'+'天'+'hao') //加号
+
+
+//4.trim清除首尾的空格
+console.log('    2    2   2                 ')
+console.log('    2    2   2                 '.trim()) //es6新增trimStart清除前面   trimend清除后面
+
+
+//5.小写大写
+console.log('ABC'.toLowerCase())//小写
+console.log('abc'.toUpperCase())//大写
+
+
+// 6.indexof 查找字符串出现的位置  返回-1不包含    0第一个位置   大于等于0 找到了
+console.log('本地'.toLocaleUpperCase)
+console.log('759331301@qq.com'.indexOf('@'));//9
+console.log('759331301@qq.com'.indexOf('#'));//-1
+console.log('759331301@qq.com'.indexOf('7'));//0
+
+
+//判断是否包含指定字符
+console.log('759331301@qq.com'.indexOf('@') > -1);//true
+console.log('759331301@qq.com'.indexOf('@') !==-1);//true
+console.log('759331301@qq.com'.indexOf('@') >=0);//true
+
+//indexof还有第二参数,默认从0开始找，可以设置从那个位置开始找    从9开始查找
+console.log('759331301@qq@.com'.indexOf('@',10));//12
+//lastIndexOf 从最后一个的位置开始向前查找 （即从右向左查找）
+console.log('759331301@qq@.com'.lastIndexOf('@'));//12
+
+
+// 7.slice（start，end） 按照起始位置和结束位置截取字符串
+//不写数值相当于拷贝了一份，end如果超过总长度则等于总长度
+console.log('今天天气好晴朗'.slice());//今天天气好晴朗
+//大于等于start小于end（即从0位置开始到2位置结束不包括2，输出中间的）
+console.log('今天天气好晴朗'.slice(0,2));//今天
+console.log('今天天气好晴朗'.slice(2,4));//天气
+//第二个参数省略表示截取到末尾
+console.log('今天天气好晴朗'.slice(2));//天气好晴朗
+// 截取除第一和最后一个（第二个参数如果是负数表示倒数的索引值）
+console.log('今天天气好晴朗'.slice(1,-1));//天天气好晴
+//前面的值大于后面的值返回空
+console.log('今天天气好晴朗'.slice(2,1));//''
+
+
+// 练习
+ 1.//截取url协议部分
+
+var  url = 'http://www.baidu.com';
+var  a = url.indexOf('/') + 2
+console.log(url.indexOf('//') )
+console.log(url.slice(0,a))
+2.
+var str = '20211022.jpg,20211023.jpg,'
+var a = str.lastIndexOf(',');
+if(str.slice(-1) === ','){
+console.log(str.slice(0,a))
+}else{
+    console.log(str)
+}
+3.
+var letter = 'hello';
+var a = letter.slice(0,1);
+var b = letter.slice(1);
+letter = a.toUpperCase()+b
+console.log(letter)
+4.
+var  url = 'http://www.baidu.com/product/index.html';
+var  a = url.indexOf('/') + 2
+var b = url.indexOf('/',a)
+console.log(url.slice(a,b))
+5.
+var file = '20211023.jpg';
+var a = file.lastIndexOf('.')+1
+console.log(file.slice(a))
+
+var str = '今天天气好晴朗'
+
+function getStr( str, part = 1){
+    var perchar = 4;
+    // var total = str.length;
+    // var totalpart = Math.ceil(total/perchar);
+    var start = (part - 1) * perchar;
+    var end = start + perchar;
+    return str.slice(start,end)
+}
+
+console.log( getStr(str,1))
+console.log( getStr(str,2))
+console.log( getStr(str,3))
+
+
+
+
+
+console.log('http://www.baidu.com'.substring(0,4))
+console.log('http://www.baidu.com'.slice(0,4))
+//substring  如果start大于end  会自动置换位置  默认大的是start slice不会置换
+console.log('http://www.baidu.com'.substring(4,0))
+console.log('http://www.baidu.com'.slice(4,0))
+//省略都默认截取到末尾
+console.log('http://www.baidu.com'.substring(4))
+console.log('http://www.baidu.com'.slice(4))
+
+// 负数支持清空  start  end都不能为负数
+
+console.log('http://www.baidu.com'.substring(-4,0))
+console.log('http://www.baidu.com'.substring(0,-4))
+
+
+
+
+//不能全局替换  区分大小写
+console.log('TMDabctmd111tmd222'.replace('tmd','*'))
+//正则
+console.log('TMDabctmd111tmd222'.replace(/tmd/ig,'*'))
+
+
+
+//split  添加分隔符 返回数组   可以两个参数 第二个参数返回数组的个数
+var str = '今天的天气';
+var arr = str.split('',2);
+console.log(arr)
+
+
+// 截取文件扩展名
+var filename = 'vue.config.js';
+var arr = filename.split('.');
+console.log(arr)
+console.log(arr[arr.length-1]);
+console.log( arr.pop());
+
+
+
+
+// 得到最后一个字符的方法
+
+
+
+
+
+
+
+
+// localeCompare 比较字符大小
+//三种情况     左大于右  1    左等于右  0   左小于右   -1
+
+console.log('a'>'b');//false   a=97 b=98   ASCII值
+console.log('大'>'小');//false   22823    23567          ASCII值
+
+console.log('小'.charCodeAt(0))
+
+
+
+
+// var arr = ['吃','阿','不','的','饿'];
+// //冒泡排序
+// for(var i = 0;i < arr.length-1;j++){
+//     for(var j=0;j<arr.length-i-1;j++){
+//     if(arr[j].localeCompare(arr[j+1],'zh') ===1){
+//         var temp = arr[j];
+//         arr[j] = arr[j+1];
+//         arr[j+1] = temp;
+//     }
+// }
+// }
+// console.log(arr)
+
+
+// padstart
+console.log('1'.padStart(5,0));//00001   五位   前 补0
+
+// padend
+console.log('1'.padEnd(5,0));//10000   五位   后 补0
+
+
+
+var month = 8;
+month = month.toString()
+console.log(month. padStart(2,0))
+
+
+console.log(('0'+month).slice(-2));
+console.log(month > 9 ?  month:'0'+month)
+
+
+
+
+//判断某字符是否以指定字符开头
+console.log('icon icon-nav'.startsWith('icon'))
+//判断某字符是否以指定字符结尾
+console.log('icon icon-nav'.endsWith('-nav'))
+
+
+
+
+
+
+
+
+// var str = '123456';
+// var arr = [1];
+// for(var a = 0;a<str.length;a++){
+//     arr.arr[a] = str[a]
+// }
+// console.log(arr)
+
+
+
+
+
+
+// 1.
+// var s =  5;
+// console.log(s.toString().padStart(2,0))
+
+// 2.
+// var s =  5;
+// if(s<10){
+//    console.log( s = '0' + s)
+// }else{
+//     console.log(s)
+// }
+
+// 3.
+// var s =  5;
+// console.log(('0' + s).slice(0,2))
+
+// 4.
+// var s =  5;
+// console.log(s<10 ? '0'+s:s)
+
+
+
+// 9.
+// var str = 'abcdefghijkmn';
+// console.log(str.slice(-1))
+// console.log(str.slice(0,1),str.slice(-1))
+// console.log(str.slice(-3))
+// console.log(str.slice(1,3))
+// console.log(str.slice(-3,-1))
+// console.log(str.slice(0,str.length/2),str.slice(str.length/2))
+
+
+// 12.
+// console.log(Math.round(Math.random()*(120-60)+60))
+
+// 13.
+// var x1=150,x2=300,
+// y1=150,y2=300;
+// console.log(Math.sqrt((x2-x1)**2 + (y2-y1)**2))
+
+
+
+
+// 14.
+var a;
+var c = ''
+for(var b = 0;b<6;b++){
+    a = Math.floor(Math.random()*10);
+  
+    a = a.toString();
+      console.log(a);
+      c = c + a;
+}
+console.log(c)
+
+
+
+
+    </script>
+</body>
+</html>

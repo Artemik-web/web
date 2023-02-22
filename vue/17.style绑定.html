@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <span :style="{color,fontSize}">文本</span>
+        <span :style="spanStyle">文本</span>
+        <span :style="divStyle">文本</span>
+    </div>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                color:'red',
+                fontSize:'24px',
+                spanStyle: {
+                    color:'red',
+                fontSize:'24px',
+                }
+            },
+            computed: {
+                divStyle(){
+                    return {
+                        color:this.color,
+                fontSize:this.fontSize, 
+                    }
+                }
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

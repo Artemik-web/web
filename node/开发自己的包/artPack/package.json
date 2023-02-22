@@ -1,0 +1,9 @@
+{
+    "name": "artemik",
+    "version": "1.0.0",
+    "main": "index.js",
+    "description": "artemik开发,www.artemik.top",
+    "keywords": ["art","artemik","周腾龙"],
+    "license": "ISC"
+
+}

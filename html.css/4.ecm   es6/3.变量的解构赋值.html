@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//         //批量解构赋值
+//         var [a,b,c] = [1,2,3];
+//         console.log(a,b,c)
+
+//           //多维数组解构
+//           var [a,b,c,d] = [1,2,3,[4,5]];//        d对应[4,5]
+//         console.log(a,b,c,d)
+
+//         //数组成员结构如何省略？
+//         var [,,c,d] = ['a','b','c','d','e'];
+//         console.log(c,d)
+//         //取第一个，和剩余的数组
+//         var [a,...b] = ['a','b','c','d','e'];
+//         console.log(a,b)
+
+//         //默认值
+//         var [a=5,b=3] = [true];
+//         console.log(a,b); //true,3
+
+//         //交换数组成员
+//         var a = 1;
+//         var b= 2;
+
+
+//         // es5
+//         var temp = a;
+//         a = b;
+//        b = temp;
+//         console.log(a,b)
+
+//         //es6 不借助临时变量交换两个变量的值
+//         var[b,a] = [a,b];
+//         console.log(a,b)//2,1
+
+
+
+
+
+
+
+// // 对象的解构赋值
+// var info = {
+//     age:24,
+//     gender:'boy',
+//     name:'tony'
+// }
+// //es5
+// // var age = info.age;
+// // var gender = info.gender;
+// // var name = info.name;
+
+// // es6
+// var {gender,age,name} = info;
+// console.log(age,gender,name)
+
+
+// //复杂对象解构赋值
+// var person = {
+//     age: 1,
+//     hobby: ['唱歌','钓鱼'],
+//     info: {
+//       name: 'tony',
+//       score: [62,75]
+//     }
+//   }
+// //age fish name math
+// var {age,
+//     hobby:[,fish],
+//     info:{name,score: [,math]}
+// } = person;
+// console.log(age,fish,name,math)
+
+
+
+
+
+// // 解构对象的属性重命名
+// let info = {
+//     age:24,
+//     name:'tony'
+// }
+// let age = 30;
+// //冒号后面的变量就是重命名
+// let {age:nl,name} = info;
+// console.log(nl)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 既有默认值又有别名
+
+
+// //默认值
+// let info = {
+//     age:24,
+    
+// }
+// let {age,name='kevin'} = info;
+
+// console.log(age,name)
+
+
+// //有值的情况下不使用默认值，同时也可可以取别名
+// let Info ={
+//     age:24,
+//     name:'kevin'
+// }
+// let {age,name:xm='tony'} = info;
+// console.log(age,xm)
+
+
+
+
+
+
+
+
+// // rest方案 取剩余的对象
+// let info = {
+//     age:24,
+//     name:'kevin',
+//     gender:'boy'
+// }
+// let {age,name,...others} = info;
+// console.log(age)
+// console.log(name)
+// console.log(others)
+
+
+
+
+
+
+// 函数参数解构
+
+
+
+
+
+// 函数参数是数组解构
+// es5 
+// function add(arr){
+//     return arr[0]+arr[1]
+// }
+// console.log(add([1,2]))
+
+
+// // es6
+// function add([a,b]){
+//     return a+ b
+// }
+
+// console.log(add([1,2]))
+
+
+
+
+// 函数参数是对象解构
+
+
+
+// es5
+
+// function add(obj){
+//     return obj.a + obj.b
+// }
+
+// console.log(add({a:1,b:2}))
+
+
+// // es6
+// function add({a:c,b:d}){
+//     return c+d
+
+// }
+
+// console.log(add({a:1,b:2}))
+
+
+
+
+
+// rest 参数 函数参数是arguments
+function add(a,b,...others){
+    console.log(a);//1
+    console.log(b);//2
+    console.log(others);//[3,4,5]
+}
+
+add(1,2,3,4,5)
+
+    </script>
+</body>
+</html>

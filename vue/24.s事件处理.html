@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <!-- .stop阻止冒泡到父级 -->
+    <!-- .prevent阻止默认 -->
+    <div id="app">
+        <ul @click="hello">
+            <li @click="hello">
+                <button @click.stop="hello">按钮</button>
+            </li>
+        </ul>
+
+        <a href="https:www.163.com" @click.prevent="hello">11111</a>
+
+        <button @click.enter="hello">enter</button>
+        <button @click.right="hello">right</button>
+        <button @click.ctrl="hello">ctrl</button>
+    </div>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+
+            },
+            methods:{
+                hello(event){
+                    console.log(event.target)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

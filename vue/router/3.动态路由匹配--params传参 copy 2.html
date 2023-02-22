@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .router-link-exact-active {
+            color: red;
+        }
+    </style>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <p>
+            <router-link to="/home">首页</router-link>
+            <router-link to="/user">用户</router-link>
+        </p>
+
+        <hr>
+
+        <router-view></router-view>
+
+    </div>
+
+    <script>
+        const Home = {
+            template: `
+    <h2>我是首页页面</h2>
+    `
+        }
+
+        const User = {
+            template: `
+            <div>
+    <h2>我是用户页面</h2>
+     <ul>
+        <li><a href="#/user/Artemik/技术大牛">Artemik</a>【2021.11.06】</li>
+        <li><a href="#/user/长官三/大牛">长官三</a>【2021.11.07】</li>
+     </ul>
+    </div>
+    `
+        }
+        const Resume = {
+            template: `
+            <h2>{{$route.params.name}},{{$route.params.job}}</h2>
+            `,
+            // created(){
+            //     console.log($route.params.name)
+            // },
+         
+            
+        }
+
+        const router = new VueRouter({
+            routes: [
+                { path: '/', redirect: '/home' },
+                { path: '/home', component: Home },
+                { path: '/user', component: User },
+                { path: '/user/:name/:job', component: Resume },
+            ]
+        });
+
+        const app = new Vue({
+            el: '#app',
+            router
+        })
+    </script>
+
+</body>
+
+</html>

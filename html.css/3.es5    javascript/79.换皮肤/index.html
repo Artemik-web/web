@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link id="skin" rel="stylesheet" href="css/red.css">
+</head>
+<body>
+    <h1>动态皮肤</h1>
+    <p>
+        <label> <input onchange="skinchange(this)" type="radio" name="skin" id="" value="red" checked>红色</label>
+        <label > <input onchange="skinchange(this)" type="radio" name="skin" id="" value="green">绿色</label>
+    </p>
+    <script>
+        function skinchange(input){
+            skin.href = `css/${input.value}.css`
+        }
+    </script>
+</body>
+</html>

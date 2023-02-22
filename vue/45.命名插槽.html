@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gx-dialog {
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            width: 400px;
+            min-height: 300px;
+            border-radius: 4px;
+            background-color: white;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+            box-shadow: 0 0 6px rgba(0, 0, 0, .6);
+            overflow: hidden;
+        }
+
+        .gx-dialog-header,
+        .gx-dialog-footer {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background-color: #eee;
+        }
+
+        .gx-dialog-footer {
+            justify-content: flex-end;
+        }
+
+        .gx-dialog-footer button {
+            margin-left: 10px;
+        }
+
+        .gx-dialog-body {
+            padding: 20px;
+            flex-grow: 1;
+        }
+    </style>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <art-dialog width="300px">
+            <template v-slot:header>
+                会员登陆
+            </template>
+            <template >
+                <p>
+                    <label>用户名：</label> <br>
+                    <input type="text">
+                  </p>
+            
+                  <p>
+                    <label>密码：</label> <br>
+                    <input type="password">
+                  </p>
+            </template>
+            <template v-slot:footer></template>
+        </art-dialog>
+    </div>
+    <script>
+        Vue.component('ArtDialog', {
+            props: {
+                width: {
+                    type: String,
+                    default: '400px'
+                }
+            },
+            template: ` <div class="gx-dialog" :style="{width}">
+
+      <div class="gx-dialog-header">
+        <slot name="header">title</slot>
+        <a class="gx-dialog-close">x</a>
+      </div>
+
+      <div class="gx-dialog-body">
+        <slot>your content</slot>
+      </div>
+
+      <div class="gx-dialog-footer">
+        <slot name="footer">
+          <button>取消</button>
+          <button>确认</button>
+        </slot>
+      </div>
+
+    </div>
+            
+            `
+        })
+        const app = new Vue({
+            el: '#app',
+
+        })
+    </script>
+</body>
+
+</html>

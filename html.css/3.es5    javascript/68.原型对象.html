@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var person = {};
+        person._proto_ = null;
+
+        var man = {gender:'boy'};
+        man._proto_ = person;
+
+        var child = {name:'tony'};
+        child._proto_ = man;
+
+        var D = {};
+        D._proto_ = C;
+
+
+
+        var D = {age:10}
+       D. _proto_ 
+        console.log(D)
+        console.log(D.age)//自己的
+        console.log(D.name)//c的
+        console.log(D.gender)//B的
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function person(){
+    this.name = "smiley";
+    this.sayName = function(){
+        console.log(this)
+        console.log(this.name)
+    };
+}
+
+
+let person = new person();
+person.sayName.call({name:"nicolas"})
+// let sayNamecopy = person.sayName;
+// sayNamecopy()
+
+
+// function foo(){
+//     console.log(this.bar)
+// }
+// var bar = 'bar1'
+// var o2 = {bar:"bar2",foo:foo}
+// var o3 = {bar:"bar3",foo:foo}
+
+// foo();
+// o2.foo();
+// foo.call(o3)
+
+
+// var a = {
+//     name:"cherry",
+//     fn:function(a,b){
+//         console.log(a+b)
+//     }
+// }
+// var b = a.fn;
+// b.bind(a,1,2)
+
+
+
+// function foo(){
+//     setTimeout(function(){
+//         console.log('id:',this.id)
+//     })
+// }
+// var id = 21;
+// foo.call({id:42})
+
+// var A = function(name){
+//     this.name = name;
+// }
+// var B = function(name){
+//     B.apply(this,arguments)
+// }
+// B.prototype.getName = function(){
+//     return this.name
+// }
+
+// var b = new B('sven')
+// console.log(b,getName())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//       function foo(el){
+//           console.log(el,this.id)
+//       }
+//       var obj = {
+//           id:"awesome"
+//       }
+// [1,2,3].forEach(foo,obj)
+
+
+    // var name = "windoesname"
+    // var a = {
+    //     name:null,
+    //     fn:function(){
+    //         console.log(this.name)
+    //     }
+    // }
+    // var f = a.fn
+    // f()
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>
+            <a @click="active='com-a'">首页</a>
+            <a @click="active='com-b'">关于</a>
+        </p>
+        <p>
+            <keep-alive :include="['A','B']"> 
+                 <component :is="active"> </component>
+            </keep-alive>
+          
+        </p>
+    </div>
+    <script>
+        Vue.component('ComA', {
+            name:'A',
+            template: `
+    <div>
+      <h2>首页组件</h2>
+      <input type="text">
+    </div>
+    `
+        })
+
+        Vue.component('ComB', {
+            name:'B',
+            template: `
+    <div>
+      <h2>关于组件</h2>
+      <input type="text">
+    </div>
+    `
+        })
+        const app = new Vue({
+            el: '#app',
+            data: {
+                active: 'com-a'
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

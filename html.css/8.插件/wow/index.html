@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/animate.min.css">
+</head>
+<body>
+    <style>
+        .box1,
+        .box2,
+        .box3,
+        .box4,
+        .box5,
+        .box6{
+            width: 400px;
+            height: 220px;
+            margin: 50px auto;
+        }
+        .box1{
+            background-color: red;
+        }
+        .box2{
+            background-color: green;
+        }
+        .box3{
+            background-color: blue;
+        }
+        .box4{
+            background-color: pink;
+        }
+        .box5{
+            background-color: orange;
+        }
+        .box6{
+            background-color: gray;
+        }
+    </style>
+    <div style="height:600px;"></div>
+    <div class="wow slideInright box1" data-wow-duration="2s"></div>
+    <div class="wow slideInleft box2" data-wow-duration="3s"></div>
+    <div class="wow tada box3" data-wow-duration="3s"></div>
+    <div class="wow shakeX box4" data-wow-duration="3s"></div>
+    <div class="wow flipInX box5" data-wow-duration="3s"></div>
+    <div class="wow flipInY box6" data-wow-duration="3s" data-wow-iteration="3"></div>
+    <script src="js/wow.js"></script>
+    <script>
+        new WOW().init()
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+<com-a
+class="box"
+style="color:red"
+id="box"
+disabled
+title="气泡"
+></com-a>
+</div>
+
+<script>
+Vue.component('ComA', {
+    // inheritAttrs: false,
+    // props:['title','id'],
+  template: `
+  <div>
+    <input type="text" v-bind="$attrs">
+  </div>
+  `
+});
+
+const app = new Vue({
+  el: '#app'
+})
+</script>
+
+  
+</body>
+</html>

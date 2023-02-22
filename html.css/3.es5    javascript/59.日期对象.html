@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var d1 = new Date(1235469528412952);
+        var d2 = new Date();
+        console.log(d1.toString());//GMT格式时间
+        console.log(d1.toDateString());//Wed Sep 08 2021
+        console.log(d1.toLocaleString());//2021/9/8 下午4：53：50
+        console.log(d1.toLocaleDateString());// 2021/9/8
+
+
+//距离中秋节
+var zqj = Date.parse('2021-9-21');
+var time = zqj  - Date.now();
+var day = Math.floor(time/1000/60/60/24)
+console.log(day)
+
+
+
+
+var person = {};
+Object.create({})
+console.log(person,Object.create({}))
+// Object.defineProperty(person,'age',{
+//     configurable:true,
+//     writable:true,
+//     value:20})
+//     console.log(person)
+
+
+
+console.log(Date.now())
+
+
+var d1 = new Date(2021,9,8)
+console.log(d1.getTime());
+var d2 = new Date('2021-9-8')
+console.log(d2.getTime());
+
+var num = '2021-9-8 23:16'
+date(num);
+// var now = 
+
+function date(num){
+    num = Date.parse(num);
+    var now = Date.now();
+    console.log(now)
+    var result = now - num
+    console.log(result)
+    // num.toLocaleDateString;
+    var min = result/1000/60
+    console.log(min)
+
+    if(min<1){
+        console.log('刚刚')
+    }else if(1<min<2){
+        console.log('一分钟前')
+    }else if(10<min<11){
+        console.log('十分钟前')
+    }else if(60<min<120){
+        console.log('一小时前')
+    }else if(60*24<min<120*24){
+        console.log('一天前')
+    }else{
+        console.log('母鸡呀')
+    }
+}
+    </script>
+</body>
+</html>

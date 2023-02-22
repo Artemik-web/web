@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = ['张三','李四'];
+        var temp =`<ul>${ arr.reduce(function(temp,item){
+            return temp + `<li>${item}</li>`
+        },'')}</ul>`
+        console.log(temp)
+
+
+//repeat
+console.log('*'.repeat(5));//*****
+//padstart
+console.log('123'.padStart(5,'*'));//**123
+//trimStart
+console.log('       123 '.trimStart());
+//includes
+console.log('759331301@qq.com'.includes('@'));//true
+//startswith
+console.log('http://1'.startsWith('http://'));//true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

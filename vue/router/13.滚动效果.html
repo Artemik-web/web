@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .router-link-exact-active{
+    color: red;
+  }
+  </style>
+  <script src="js/vue.js"></script>
+  <script src="js/vue-router.js"></script>
+</head>
+<body>
+
+  <div id="app">
+    <p>
+      <router-link to="/">首页</router-link>
+      <router-link to="/about">关于</router-link>
+    </p>
+
+    <router-view></router-view>
+
+  </div>
+
+  <script>
+  const Home = {
+    template: `
+    <h2>我是首页页面</h2>
+    `
+  }
+
+  const About = {
+    template: `
+    <h2>我是关于页面</h2>
+    `
+  }
+
+  const router = new VueRouter({
+    routes: [
+      {path:'/', component: Home ,meta: {title:'网站首页'}},
+      {path:'/about', component: About ,meta: {title:'网站关于'}},
+    ],
+    scrollBehavior (to,from,savedPosition) {
+      console.log(savedPosition);
+      if(to.path==='/about'){
+          return {y: 1000, behavior:'smooth'}
+      }
+  }
+  });
+  
+ router.beforeEach((to,from,next)=>{
+     document.title = to.meta.title;
+     next()
+ })
+  const app = new Vue({
+    el: '#app',
+    router
+  })
+  </script>
+
+  </body>
+</html>

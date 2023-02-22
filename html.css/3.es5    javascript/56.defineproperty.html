@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+
+
+
+//定义对象  相当于 var person = {age：20，name=‘tony’}
+
+1.
+var person  = {};
+Object.defineProperty(person,'age',{
+    value:20,
+});
+Object.defineProperty(person,'name',{
+    value:'tony',
+});
+
+
+
+console.log(person)
+
+
+2.
+//默认不可写入
+var person1  = {};
+Object.defineProperty(person1,'age',{
+    writable:true,//true表示可以写入，默认不写表示不可写入
+    value:20,
+});
+Object.defineProperty(person1,'name',{
+    value:'tony',
+});
+
+
+//默认不可写入
+console.log(person1)
+
+person1.age = 24;
+console.log(person1.age)
+
+
+3.
+//默认不可删除
+var person2  = {};
+Object.defineProperty(person2,'age',{
+    configurable:true,//true表示可以删除，默认不写表示不可删除
+    value:20,
+});
+
+
+
+//默认不可删除
+console.log(person2)
+
+delete person2.age ;
+console.log(person2)
+
+
+4.
+//默认不可枚举
+var person3  = {};
+Object.defineProperty(person3,'age',{
+    enumerable:true,//true表示可以枚举，默认不写表示不可枚举
+    value:20,
+});
+
+
+
+//默认不可枚举
+for(var key in person3){
+    console.log(key)
+}
+console.log('age' in person3)
+
+
+5.//多个输入
+var person  = {};
+Object.defineProperties(person,{
+    age:{value:20,writable:true,enumerable:true},
+    name:{value:'tony',configurable:true},
+    agendere:{value:'男',enumerable:true},
+});
+
+console.log(person)
+
+
+
+
+
+//get 读取监听属性   拦截器
+
+var data  =  {};
+Object.defineProperty(data,'age',{
+    get:function(){
+console.log('读取')
+    },
+    set:function(){
+console.log('设置')
+    }
+});
+
+console.log(data)
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

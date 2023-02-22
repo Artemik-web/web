@@ -1,0 +1,85 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .router-link-exact-active{
+    color: red;
+  }
+  </style>
+  <script src="js/vue.js"></script>
+  <script src="js/vue-router.js"></script>
+</head>
+<body>
+
+  <div id="app">
+              <!-- 声明式导航
+        <a href="#"></a>
+
+        编程式导航
+        <a href="localation:................"></a> -->
+
+<!-- <router-link to="#" push></router-link>
+<router-link to="#" replace></router-link> -->
+<!-- this.$router.push()
+this.$router.replace() -->
+    <p>
+      <router-link to="/">首页</router-link>
+      <router-link to="/about">关于</router-link>
+      <router-link to="/sadsadsa">产品</router-link>
+    </p>
+
+    <router-view></router-view>
+
+  </div>
+
+  <script>
+  const Home = {
+    template: `
+    <div>
+      <h2>我是首页页面</h2>
+      <button @click="goAbout">转到关于页面</button>
+    </div>
+    `,
+    methods: {
+      goAbout(){
+        // this.$router.push({
+        //   name:'about',
+        //   params:{a:1,b:2} 
+        // })
+        // this.$router.replace({path:'/about/1/2'});
+      }
+    }
+  }
+
+  const About = {
+    template: `
+    <h2>我是关于页面 {{$route.params}}</h2>
+    `
+  }
+
+  const NotPage = {
+    template: `
+    <h1>404 找不到页面</h1>
+    `
+  }
+
+  const router = new VueRouter({
+    routes: [
+      {path:'/', component: Home },
+      {name:'about', path:'/about', component: About },
+      {path:'*', component: NotPage}
+    ]
+  });
+
+  const app = new Vue({
+    el: '#app',
+    router
+  })
+  </script>

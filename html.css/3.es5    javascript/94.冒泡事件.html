@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div">
+        <p id="p">
+          <span id="span">
+            <button id="btn">按钮</button>
+          </span>
+        </p>
+      </div>
+      <script>
+
+// div.onclick = function(){
+//   console.log('div 触发')
+// }
+
+
+// p.onclick = function(event){
+//   console.log('p 触发')
+// }
+
+
+
+
+// span.onclick = function(event){
+//   console.log('span 触发')
+// }
+
+
+
+
+// btn.onclick = function(event){
+//     event.stopPropagation()
+//   console.log('btn 触发')
+// }
+
+
+
+// div.addEventListener('click',function(){
+//   console.log('div 触发')
+// },false)
+
+
+
+
+// p.addEventListener('click',function(){
+//   console.log('p 触发')
+// },false)
+
+
+
+
+// span.addEventListener('click',function(){
+//   console.log('span 触发')
+// },false)
+
+
+
+// btn.addEventListener('click',function(){
+//   console.log('btn 触发')
+// },false)
+
+
+
+btn.addEventListener('contextmenu',function(){
+    event.preventDefault();
+},{passive: true})
+//鼠标右键
+
+      </script>
+</body>
+</html>

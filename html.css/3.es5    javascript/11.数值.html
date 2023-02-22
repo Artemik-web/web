@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log((-2)**1023);
+        console.log( NaN == NaN)
+
+
+
+// parseInt的使用
+
+
+
+// 遇到非数字nan立即退出
+var str = '100px34'
+console.log(parseInt(str))
+
+
+
+
+
+// 开头非数值nan直接输出nan
+var str = 'NaN'
+console.log(parseInt(str))
+
+
+
+// 空字符串     直接输出nan
+var str = ''
+console.log(parseInt(str))
+
+
+// null 或者 undefined      直接输出nan
+
+console.log(parseInt(null));
+console.log(parseInt(undefined));
+
+
+console.log('.................number.......................')
+
+
+console.log(Number('$123'))
+console.log(Number('300'))
+console.log(Number(''))
+console.log(Number('   '))
+console.log(Number('100px'))
+console.log(Number('10.23'))
+console.log(Number('1 23'))
+console.log(Number('1,23'))
+
+
+
+
+
+
+console.log('.................parsefloat.......................')
+
+console.log('....................区别..........................')
+
+console.log(parseInt(true));
+console.log(Number(true));
+
+
+console.log('.............isNaN 判断是不是非数字................')
+
+console.log(isNaN('a'))
+console.log(isNaN('1'))
+console.log(isNaN(1))
+
+
+
+
+
+
+    </script>
+</body>
+</html>

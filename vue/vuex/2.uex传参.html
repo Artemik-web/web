@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <script src="js/vuex.js"></script>
+    <script src="js/vue-router.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>
+            <router-link to="/home">首页</router-link>
+            <router-link to="/about">关于</router-link>
+            <router-link to="/product">产品</router-link>
+        </p>
+
+        <router-view></router-view>
+    </div>
+
+    <script>
+        const Home = {
+            template: `
+            <div>
+            <h2>首页{{$store.state.count}}</h2>
+            <button @click="$store.commit('add',[10,20])">加</button>
+            <button @click="$store.dispatch('edit',10)">异步</button>
+            </div>
+            `
+        }
+        const About = {
+            template: `
+            <div>
+            <h2>关于{{$store.state.count}}</h2>
+            <button @click="$store.commit('add',[10,20])">加</button>
+            <button @click="$store.dispatch('edit',10)">异步</button>
+            
+            </div>
+            `
+        }
+        const Product = {
+            template: `
+            <div>
+            <h2>产品{{$store.state.count}}</h2>
+            <button @click="$store.commit('add',[10,20])">加</button>
+            <button @click="$store.dispatch('edit',10)">异步</button>
+            
+            </div>
+            `
+        }
+        const router = new VueRouter({
+            routes: [
+                { path: '/', redirect: '/home' },
+                { path: '/home', component: Home },
+                { path: '/about', component: About },
+                { path: '/product', component: Product },
+            ]
+        })
+        const store = new Vuex.Store({
+            state: {
+                count: 99,
+                
+                },
+                mutations: {
+                    //同步操作都在这
+                    add(state,arr){
+                        state.count += arr[1];
+                    }
+                    },
+                actions: {
+                    //异步操作在actions里
+                    edit({commit},n){
+                        setTimeout(()=>{
+                            commit('add',[,n]);//异步传参
+                        },3000)
+                    }
+                }
+            
+        })
+        const app = new Vue({
+            el: '#app',
+            router,
+            store
+        })
+    </script>
+</body>
+
+</html>

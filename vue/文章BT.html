@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="bigger">+</button>
+        <button v-on:click="smaller">-</button>
+        <h1 :style="{fontSize}">文章标题</h1>
+        <p  :style="{fontSize}">
+            文章内容
+            文章内容
+            文章内容
+            文章内容
+            文章内容
+            文章内容
+            文章内容
+        </p>
+    </div>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                fontSize : '16px'
+            },
+            methods:{
+                bigger(){
+                   return this.fontSize = ( parseFloat(this.fontSize ) + 1) +'px'
+            //    console.log((parseFloat(this.fontSize)))
+            },
+                smaller(){
+                   return this.fontSize = ( parseFloat(this.fontSize ) - 1) +'px'
+
+                }
+            }
+        })
+    </script>
+</body>
+</html>

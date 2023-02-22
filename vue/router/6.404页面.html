@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+    <script src="js/vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>
+            <!-- <a href="#">首页</a>
+            <a href="#">关于</a> -->
+            <router-link to="/">首页</router-link>
+            <router-link to="/about">关于</router-link>
+            <router-link to="/aaa">点我</router-link>
+        </p>
+        <router-view></router-view>
+    </div>
+    <script> 
+      const Home = {
+            template: `
+            <h2>我是首页</h2>
+            `
+        }
+      const About = {
+            template: `
+            <h2>我是关于</h2>
+            `
+        }
+     const NotFound ={
+         template: `
+         <h2> 404 五页面 </h2>
+         `
+     }
+        //给根实例挂载路由实例方法
+        //router 是路由实例
+        const router = new VueRouter({
+            //routes 表示路由规则
+            routes: [
+                {path: '/',component: Home} ,   //路径
+                {path: '/about',component: About},    //路径
+                {path: '*',component: NotFound}    //路径
+            ]
+
+        })
+      
+        //vue根实例
+        const app = new Vue({
+            el: '#app',
+            // components: {
+            //     Home,
+            //     About,
+            // },
+            //路由实例挂载，根实例上指定路由实例
+            router
+        })
+    </script>
+</body>
+</html>

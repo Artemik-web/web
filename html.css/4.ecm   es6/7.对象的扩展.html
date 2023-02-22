@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //扩展运算符
+        //浅拷贝
+        var info = {age:20,name:'tony'};
+        var _info = {...info};
+        console.log(_info);
+
+
+
+
+        // rest应用
+        var info = {age:20,name:'tony',gender:'boy'};
+        var {age,...others} = info;
+        console.log(age,others);
+
+
+
+
+        //合并
+
+
+        var obj1 = {age:20};
+        var obj2 = {name:'tony'};
+
+
+        varobj2 = {...obj1,name:'tony'};
+        var obj2 = {name:'tony',bmoney:300,...obj1}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //es6
+        var info = {
+            age,
+            getAge(){
+                console.log(this.age)
+            }
+        }
+        console.log(info)
+
+
+//es6
+
+var info = {
+    _age:10,
+    get age(){
+        console.log('获取到年龄' + this._age)
+        return this._age;
+    },
+    set age(val){
+        if(val<18){
+            throw new Error('你还没成年！')
+        }
+        this._age = val;
+        console.log('设置年龄' + val)
+    }
+}
+
+
+var info = {
+    _age:10,
+    get age(){
+        return '您的年龄是' + this._age;
+
+    },
+    set age(val){
+        if(val<18) throw new Error('你还没成年！')
+        this._age = val;
+
+    }
+}
+
+
+
+//原型对象
+const proto = {
+    foo:'hello'
+};
+//对象
+const obj = {
+    foo:'world',
+    find(){
+        console.log(super.foo);//hello
+        console.log(this.foo);//world
+    }
+};
+Object.setPrototypeOf(obj,proto);
+obj.find();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

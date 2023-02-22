@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var a = [];
+        // for(var i=0;i<10;i++){
+        //     a[i] = function(){
+        //         console.log(i);
+        //     };
+        // }
+        // a[6]();
+
+        // var tam = 123;
+        // if(true){
+        //     tmp = 'abc';
+        //     let tmp
+        // }
+        // console.log(tmp)
+
+
+// var fruit = ['苹果','桔子','香蕉','菠萝','橙子'];
+// var [a,...b] = fruit;
+// console.log(a,b)
+
+
+// var person = {
+//     age:1,
+//     gender:'boy',
+//     name:'tony',
+//     score:85,
+//     money,
+// }
+
+// var {age,gender,others,a,money=0} = person;
+// console.log(money)
+
+
+
+
+// var message = {
+//     body:{
+//         user:{
+//             firstName:'张三'
+//         }
+//     }
+// };
+
+// const firstName = message?.body?.user?.firstName || 'defallt'
+
+
+
+// var age = Symbol();
+// var info2 = {
+//     [age]:20,
+//     name:'tony'
+// }
+// console.log(info2,info2[age])
+
+
+var info = {
+    name:'tony',
+    age:30
+}
+
+var result1 = Reflect.get(info,'name');
+var result2 = Reflect.set(info,'name');
+var result3 = Reflect.deleteProperty(info,'name')
+console.log(result1);
+console.log(result2);
+console.log(result3);
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

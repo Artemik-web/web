@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  ul{
+    list-style: none;
+  }
+  body{
+    padding: 50px;
+  }
+
+  .tab{
+    margin-bottom: 20px;
+  }
+  .tab-nav{
+    display: flex;
+  }
+  .tab-nav li{
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    
+  }
+  .tab-nav li.active{
+    border-color: black;
+    border-bottom-color: white;
+  }
+  .tab-panel{
+    display: none;
+    border: 1px solid black;
+    min-height: 150px;
+    margin-top: -1px;
+    padding: 20px;
+  }
+  .tab-panel.active{
+    display: block;
+  }
+  </style>
+  <script src="jQuery.min.js"></script>
+</head>
+<body>
+  
+<div class="tab">
+  <ul class="tab-nav">
+    <li class="active"><b>首页1</b></li>
+    <li>关于1</li>
+  </ul>
+  <div class="tab-panel active">
+    首页内容
+  </div>
+  <div class="tab-panel">
+    关于内容
+  </div>
+</div>
+
+<div class="tab">
+  <ul class="tab-nav">
+    <li class="active">首页2</li>
+    <li>关于2</li>
+  </ul>
+  <div class="tab-panel active">
+    首页内容
+  </div>
+  <div class="tab-panel">
+    关于内容
+  </div>
+</div>
+
+<script>
+$('.tab-nav').on('click','li',function(){
+  $(this).addClass('active').siblings('li').removeClass('active');
+
+  let index = $(this).index();
+  $(this).closest('.tab').find('.tab-panel').
+  removeClass('active').eq(index).addClass('active');
+})
+</script>
+
+</body>
+</html>

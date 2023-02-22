@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../vivo商城/fonts/fonts/iconfont.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+        }
+        html{
+            font-size: calc(100vw/3.6);
+        }
+        body{
+            font-size: 16px;
+            background-color: cornflowerblue;
+        }
+        @media screen and (min-width:360px){
+            html{
+                font-size: 100px;
+            }
+            
+        }
+        .product-details{
+            margin: 0 auto;
+            max-width: 3.6rem;
+            height: 100vh;
+            background-color: white;
+        }
+        ::-webkit-scrollbar{
+            display: none;
+        }
+        .header,
+        .footer{
+            
+
+            max-width: 100%;
+            width: 3.6rem;
+            background-color: darkgray;
+            position: fixed;
+        }
+        .header{
+            z-index: 999;
+            line-height: .6rem;
+        }
+        .footer{
+            bottom: 0;
+            line-height: .6rem;
+
+        }
+        .header a{
+            text-decoration: none;
+            color: black;
+        }
+        .main{
+            overflow: hidden;
+        }
+        .main .goods-photoes{
+            margin-bottom: .1rem;
+        }
+        .main .goods-photoes img{
+            max-width: 3.6rem;
+            object-fit: cover;
+        }
+        .goods-details .title{
+            display: block;
+            font-weight: bold;
+            padding-left: .2rem;
+            padding-bottom: .2rem;
+        }
+        .goods-details p{
+            padding-left: .2rem;
+            font-size: .135rem;
+            padding-bottom: .2rem;
+        }
+        .price{
+            display: block;
+            color: red;
+            margin-bottom: .2rem;
+            padding-left: .2rem;
+        }
+        .number{
+            padding-left: .2rem;
+            padding-right: .2rem;
+            font-weight: bold;
+        }
+        .number .line button{
+            margin-left: 3px;
+            border: none;
+            display: inline-block;
+            width: .25rem;
+            height: .25rem;
+            font-size: .14rem;
+        }
+        .number .line{
+            padding-bottom: .1rem;
+            border-bottom: 1px solid #e7e6e6;
+        }
+        .apply{
+            padding: .1rem .2rem;
+
+        }
+        .apply span{
+            font-size: .12rem;
+            margin-right: .2rem;
+        }
+        .apply .line{
+            border-bottom: 1px solid #f5f1f1;
+            position: relative;
+            padding-bottom: .1rem;
+        }
+        .apply .line i{
+            display: inline-block;
+            font-style: normal;
+            position: absolute;
+            right: .2rem;
+        }
+        .picture-goodsnumber{
+            border-bottom: 1px solid black;
+
+            width: 3.6rem;
+            padding-bottom: .18rem;
+
+        }
+        .picture,
+        .goodsnumber{
+            text-align: center;
+            display: inline-block;
+            width: 1.7rem;
+
+        }
+     
+        .picture div,
+        .goodsnumber div{
+            padding-bottom: .19rem;
+
+        }
+        .picture div:focus,
+        .goodsnumber div:focus{
+            display: inline-block;
+            border-bottom: 1px solid red;
+        }
+        .buy i{
+            display: inline-block
+        }
+        .buy{
+            text-align: center;
+            margin-left: 50px;
+            display: inline-block;
+            width: 2rem;
+            background-color: red;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-details">
+        <div class="header"><a href="vivoshop-1.html"><i class="iconfont icons">&#xe61a;</i><span>商品详情</span></a></div>
+        <div class="main">
+            <div class="goods-photoes">
+                <img src="../vivo商城/image/img/7.png" alt="">
+            </div>
+            <div class="goods-details">
+                <span class="title">X9Plus 全网通</span>
+                <p>【花呗免息,0首付0利率轻松购机】X9s Plus A 5.85英寸大屏，双引擎闪充，4015mAh大电池,持久续航(注:面部识别需升级到最新系统使用)</p>
+                <span class="price">￥2798</span>
+                <div class="number"><div class="line"><span>购买数量:</span><button disabled>-</button><button>1</button><button>+</button></div></div>
+                <div class="apply">
+                    <div class="line">
+                    <span>支持花呗分期</span><span>支持以旧换新</span><i class="iconfont icons">&#xe62f;</i>
+                    </div>
+                </div>
+                <div class="pictures-googsnumber">
+                    <div class="picture">
+                       <div tabindex="0">图文详情</div> 
+                       </div>
+                    <div class="goodsnumber">
+                       <div tabindex="0">商品参数</div> 
+                    </div>
+                </div>
+                <div class="pictures-img">
+                    <img src="../vivo商城/image/img/x70.jpg" alt="">
+                    <img src="../vivo商城/image/img/x70.jpg" alt="">
+                    <img src="../vivo商城/image/img/x70.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="footer"><i>aaa</i><div class="buy"><a href="vivoshop-4下单.html"> 立即购买</a></div></div>
+    </div>
+</body>
+</html>

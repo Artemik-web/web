@@ -1,0 +1,268 @@
+/* rest css */
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-style: normal;
+  }
+
+  html {
+      font-size: calc(100vw/3.6);
+  }
+
+  body {
+      font-size: .16rem;
+      background-color: royalblue;
+  }
+
+  @media screen and (min-width:360px) {
+      html {
+          font-size: 100px;
+      }
+  }
+
+  /* 效果 */
+
+  .my div a{
+   color: red;
+  
+  }
+
+a{
+  text-decoration: none;
+  color:inherit;
+}
+.app{
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #F7F7F7;
+  max-width: 3.6rem;
+  height: 100vh;
+}
+
+.header,
+.footernav{
+  z-index: 999;
+  max-width: 100%;
+  width: 3.6rem;
+  position: fixed;
+  padding: 0 .2rem;
+  background-color: #fff;
+}
+.header{
+  line-height: .6rem;
+  font-size: .24rem;
+}
+
+.main{
+  padding-top: .6rem;
+  padding-bottom: .6rem;
+  overflow: auto;
+  background-color: #F7F7F7;
+
+}
+.footernav{
+        padding: 0 .2rem;
+        bottom: 0;
+  font-size: 0; line-height: .3rem;
+}
+.home-page,
+      .all,
+      .my {
+       
+        font-size: .16rem;
+        display: inline-block;
+        width: 33.33333%;
+        text-align: center;
+      }
+
+      .home-page a,
+      .all a,
+      .my a {
+        display: block;
+        color: black;
+        text-decoration: none;
+      }
+
+      .home-page span,
+      .all span,
+      .my span {
+        display: block;
+      }
+
+
+
+/* dind start */
+.main .dind{
+  background-image: linear-gradient(to bottom, #FFEFEF,#FFFDFD);
+}
+.main .personal{
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+
+  padding: 0 .1rem;
+}
+.main .personal .left{
+  display: inline-block;
+}
+.main .personal .left a.tou {
+  display: inline-block;
+  width: .6rem; 
+  height:  1rem; 
+  margin-top: .4rem;
+  margin-right: .2rem;
+}
+
+.main .personal .left a img{
+  width: .65rem;  
+  border-radius: 50%;
+
+}
+
+.main .personal .left .names .mess{
+  display: inline-block;
+  vertical-align: .16rem;
+}
+.main .personal .left .names .mess span{
+  display: block;
+color: #777;
+font-size: .16rem;
+}
+.main .personal .left .names .mess .name{
+  font-size: .18rem;
+  color: #111;
+}
+
+
+.main .personal .right{
+  line-height: 1.4rem;
+  font-size: .14rem;
+  color: #777;
+}
+
+.main .dind .lists {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 0.5rem;
+  margin-top: -.18rem;
+  padding: 0 .15rem;
+  
+}
+.main .dind .lists .din{
+  font-size: 0.2rem;
+  color: #111;
+  
+}
+.main .dind .lists .gend{
+  color: #777;
+  font-size: 0.17rem;
+}
+
+
+
+
+/* dind end */
+
+
+
+
+/* operation start */
+.operation{
+display: flex;
+margin-bottom: .1rem;
+justify-content: center;
+text-align: center;
+align-items: center;
+height: 1.2rem;
+background-color: #fff;
+}
+.operation div{
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+}
+.operation div i{
+  color: red;
+  font-size: .25rem;
+  margin-bottom: 10px;
+}
+
+.operation div p{
+  font-size: .16rem;
+}
+
+/* operation end */
+
+
+/* handle start */
+.handle{
+  padding: 0 20px;
+  background-color: #fff;
+}
+.handles{
+  height: .6rem;
+}
+.handle div.handles{
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+}
+.handle div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: .05rem;
+ 
+}
+.handle div .left{
+  display: inline-block;
+  display: flex;
+  align-items: center;  
+}
+.handle div .left a{
+  font-size: .12rem;
+}
+.handle div .left .bigi{
+  font-size: .2rem;
+  margin-top: .07rem;
+  color: #555;
+  margin-right: .30rem;
+}
+
+
+
+
+/* handle end */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

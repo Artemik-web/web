@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button v-show="visible">按钮1</button>
+        <button v-if="visible">按钮2</button>
+
+        <template v-if="visible">
+            <!--template 不支持display形式的显示隐藏 -->
+            <p>段落</p>
+            <span>文本</span>
+            <b>文本</b>
+        </template>
+    </div>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                visible: true
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" onchange="change1(this)" multiple>
+    <img src="" id="avatar" width="300">
+    <input type="file" onchange="change2(this)">上传头像
+    <script>
+        //字面量创建
+        var reg = / /;
+        //构造函数新建正则对象
+        var reg2 = new RegExp('','') 
+        console.log(Object.prototype.toString.call(reg2));
+        console.log(typeof(reg2))
+
+        //igm 正则修饰符
+        //g全局匹配
+        console.log('asdhAhsda'.replace(/a/g,'*'))//*sdhAhsd*
+        console.log('asdhAhsda'.replace(/a/,'*'))//*sdhAhsda
+        //i不区分大小写
+        console.log('asdhAhsda'.replace(/a/gi,'*'))
+        console.log('................')
+        //m多行匹配
+        console.log('asdh\Ahsda'.replace(/a$/gm,'*'))
+        console.log('................')
+
+        //元字符
+        //. 近似理解成任意字符   除了....
+        console.log('asdfg'.replace(/./g,'*'))//*****
+        console.log('hello'.replace(/he..o/,'*'))//*   hello == *    ..任意   所以匹配了整个hello
+        console.log('123 hello 456 hello'.replace(/hello/g,'*'))//123 * 456 *
+
+        //位置字符（^$）  ^开头  $结尾
+        console.log('hello123'.replace(/^hello/,'*'))
+        console.log('hello123hello'.replace(/hello$/,'*'))
+
+        //即有开头又有结尾
+        console.log('hello123hello'.replace(/^hello$/,'*'))   //不行
+        console.log('hello 123 hello'.replace(/^hello|hello$/g,'*'))   //* 123 *
+
+
+        console.log(/(^1|2)/.test('023'))
+        console.log(/^(1|2)/.test('023'))
+        console.log(/(1|^2)/.test('023'))
+
+        //如何判断一个文件名是否是图片格式  png svg gif jpg webp
+
+        var filename = 'uploads/123.jpg'
+
+        var result = /\.(png|svg|gif|jpg|webp)$/igm.test(filename)
+
+        console.log(result)
+
+//验证上传文件名  格式
+//         function change1(file){
+//             var files = file.files;
+//             for(var a=0;a<files.length;a++){
+//             console.log(/\.(png|svg|gif|jpg|webp)$/igm.test(files[a].name))
+//         }
+// }
+
+//  上传图片并显示
+function change2(input){
+            var img = input.files[0];
+            if(!/\.(png|svg|gif|jpg|webp)$/.test(img.name)){
+            alert('上传图片');
+            input.value = '';
+            return
+        }
+
+var reader = new FileReader();
+reader.onload = function(){
+    console.log(reader.result);
+    avatar.src = reader.result;
+}
+reader.readAsDataURL(img);
+console.log('hello')
+
+}
+
+
+// //构造函数优势   正则里面写变量方便
+// console.log(new RegExp('\.('+allowExt+')$','i').test(filename))
+
+
+
+
+
+// [^]  表示除了里面字符都能匹配
+
+// console.log(/[^0-9]/.test('1'))//false
+// console.log(/[^0-9A-z]/.test('[A'))//false
+// console.log(/[^0-9A-z]/.test('='))//true
+
+
+// //匹配边界 \B非边界  \b边界   中文边界和英文不同
+
+// console.log('abc'.replace(/\b/g,'*'))//*abc*
+// console.log('abc'.replace(/\B/g,'*'))//a*b*c
+
+
+
+
+// console.log(`123
+// 456
+// 78`.replace(/\n/g,''))
+
+// //去除首尾空格  \s表示空格 (包含\s\b\n\f\r)
+// //+表示一个或者多个
+// //
+// console.log('    1   1  '.replace(/^\s+|\s+$/g,''))
+
+// //匹配邮政6位数
+// var tel = '0973-8558'
+// console.log(/\d{1,}-?\d{1,}/.test(tel))
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

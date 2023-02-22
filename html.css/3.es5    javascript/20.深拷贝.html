@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+浅拷贝
+ var b = [];
+var fruit = ['apple','o','b'];
+for(var key in fruit){
+   
+   b[key] = fruit[key]
+
+}
+b[0] = 2;
+console.log(b)
+console.log(fruit)
+
+
+
+
+
+
+
+
+
+// 深拷贝  数组
+var fruit = ['苹果',['桔子','香蕉'],'草莓','葡萄',{name:'tony'}];
+function deepcopy(arr,result = []){
+    for(var i = 0;i<arr.length;i++){
+        if(Array.isArray(arr[i])){
+            result[i] = [];
+            deepcopy(arr[i],result[i]);
+        }else{
+            result.push(arr[i]);
+        }
+    }
+    return result;
+}
+console.log(fruit);
+console.log(deepcopy(fruit));
+
+
+
+// 深拷贝  对象
+var obj = {name:'tony',age:20,info:{a:2,b:'gh'}};
+function deepcopy(obj,result = {}){
+    for(var key in obj){
+        if(obj[key] instanceof Object){
+            result[key] = {};
+            deepcopy(obj[key],result[key]);
+        }else{
+            result[key] = obj[key];
+        }
+    }
+    return result;
+}
+console.log(obj);
+
+console.log(deepcopy(obj));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

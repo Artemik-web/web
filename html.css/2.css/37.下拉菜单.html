@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .box{
+            position: relative;
+            display: inline-block;
+        }
+        .box span{
+            width: 200px;
+            padding: 6px 6px;
+            background-color: #ccc;
+        }
+        .box span::after{
+            content: " ";
+        }
+        .box ul{
+            width: 100%;
+            background-color: #ccc;
+            display: none;
+            list-style: none;
+            margin-top: 0;
+            padding-left: 0;
+            position: absolute;
+        }
+        .box:hover span + ul{
+            display: block;
+        }
+        span:hover{
+            background-color: #aaa;
+        }
+    </style>
+    <div class="box">
+        <span>选择地区</span>
+        <ul>
+            <li class="place">北京</li>
+            <li class="place">上海</li>
+            <li class="place">南昌</li>
+        </ul>
+    </div>
+    <div class="box">
+        <span>选择地区</span>
+        <ul>
+            <li class="place">北京</li>
+            <li class="place">上海</li>
+            <li class="place">南昌</li>
+        </ul>
+    </div>
+</body>
+</html>

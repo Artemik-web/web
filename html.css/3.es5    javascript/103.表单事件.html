@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onselectstart="return false" oncontextmenu="return false"> 
+    <input type="text" name="" id="title">
+    <input type="file" onchange="preview()" accept="image/jpeg">
+    <img src="" alt="" width="100px" id="view">
+11111111111111111111111111111
+
+    <script>
+        // title.onselect = function(){
+        //     console.log(this.value.trim())
+        // }
+ 
+
+
+        // 复制f12
+            // window.onkeydown = function(event){
+            //     if(event.keyCode === 123){
+            //         event.preventDefault();
+            //         return false;
+            //     }
+            // }
+
+
+
+            function preview(file){
+
+
+                var files = file.files;
+
+                // 方法一  FileReader
+                // var reader = new FileReader();
+                // reader.onload = function(){
+                //     view.src = this.result;
+                // }
+                // reader.readAsArrayBuffer(files[0]);
+                    // 方法二 使用creatobjecturl 创见blob协议图片 同步读取
+                view.src = URL.createObjectURL(files[0]);
+            }
+    </script>
+</body>
+</html>

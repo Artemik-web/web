@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="treemenu"></div>
+    <script>
+        var data = [
+  { 
+    name: '一级菜单1',
+    children: [
+      {
+        name: '二级菜单1',
+        children: [
+          { name: '三级菜单1' },
+          { name: '三级菜单2' },
+          { name: '三级菜单3' },
+        ]
+      },
+      { name: '二级菜单2' },
+      { name: '二级菜单3' },
+    ]
+  },
+
+
+
+
+  { name: '一级菜单2' },
+  { name: '一级菜单3' },
+]
+
+function renderTree( arr, temp = ''){
+    temp += '<ol>';
+        for(var i=0; i<arr.length;i++){
+            var item = arr[i];
+            temp += '<li>' + item.name;
+                if(item.children && item.children.length){
+                    temp = renderTree(item.children, temp)
+                }
+                temp += '</li>';
+        }
+        temp += '</ol>';
+        return temp;
+    }
+    document.getElementById('treemenu').innerHTML = renderTree(data)
+
+
+
+    </script>
+</body>
+</html>

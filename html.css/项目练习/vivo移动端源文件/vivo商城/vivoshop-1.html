@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../vivo商城/fonts/fonts/iconfont.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: calc(100vw/3.6);
+        }
+
+        body {
+            font-size: .16rem;
+            background-color: royalblue;
+        }
+
+        @media screen and (min-width:360px) {
+            html {
+                font-size: 100px;
+            }
+        }
+
+        .container {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 3.6rem;
+            height: 100vh;
+        }
+        ::-webkit-scrollbar{
+        display: none;
+    }
+        .header,
+        .footernav {
+            padding: 0 20px;
+            position: fixed;
+            max-width: 3.6rem;
+            width: 100%;
+            z-index: 999;
+            background-color: #FFFFFF;
+        }
+
+        .header {
+            line-height: .6rem;
+            font-size: .24rem;
+        }
+
+        .footernav {
+            bottom: 0;
+        }
+
+        .main {
+            overflow: hidden;
+            padding-top: .6rem;
+            background-color: #F7F7F7;
+        }
+       
+        .roulous-plate {
+            margin-bottom: 10px;
+            background-color: #FFFFFF;
+        }
+
+        .roulous1 img {
+            max-width: 100%;
+            height: 2.45rem;
+            object-fit: cover;
+        }
+
+        .roulous-bottom {
+            display: flex;
+            color: #929292;
+            list-style: none;
+            font-size: .14rem;
+            line-height: .14rem;
+            padding: .13rem .2rem;
+            justify-content: space-around;
+        }
+
+        .group-plate,
+        .phones-plate,
+        .fittings-plate {
+            background-color: #FFFFFF;
+        }
+
+        .group-header,
+        .phones-header,
+        .fittings-header {
+            text-align: center;
+            padding: .14rem 0;
+            font-size: .16rem;
+        }
+
+        .group-text,
+        .phones-text,
+        .fittings-text {
+            position: relative;
+            display: inline-block;
+
+        }
+
+        .group-line-1,
+        .phones-line-1,
+        .fittings-line-1 {
+            position: absolute;
+            top: 50%;
+            bottom: 50%;
+            left: -25px;
+            display: block;
+            width: 18px;
+            background-color: royalblue;
+            border-bottom: 1px solid #CECECE;
+        }
+
+        .group-line-2,
+        .phones-line-2,
+        .fittings-line-2 {
+            position: absolute;
+            top: 50%;
+            bottom: 50%;
+            right: -25px;
+            display: block;
+            width: 18px;
+            background-color: royalblue;
+            border-bottom: 1px solid #CECECE;
+        }
+
+        .group-goods {
+            font-size: 0;
+            width: 9.6rem;
+            margin-bottom: 10px;    
+            border-bottom: 1px solid #E6E6E6;
+            padding: .1rem .1rem;
+        }
+
+        .group-goods a {
+            width: 1.6rem;
+            padding: .05rem;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+
+
+
+
+
+
+
+
+        /* 效果 */
+        .group-goods a:hover,
+        .phones-goods a:hover,
+        .fittings-goods a:hover{
+            background: rgba(0, 0, 0, .1);
+        }
+        .home-page div a{
+         color: red;
+        
+        }
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .group-goods a img {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: 1.39rem;
+            object-fit: cover;
+        }
+
+        .group-goods li {
+            margin-bottom: 5px;
+            text-align: center;
+            font-size: .09rem;
+            color: black;
+            list-style: none;
+            padding-right: 4px;
+        }
+
+        .goods-name {
+            transform: scale(.9);
+        }
+
+        .group-goods .goods-introduce {
+            color: #7C7C7C;
+            transform: scale(.75);
+        }
+
+        .group-goods .goods-price {
+            transform: scale(.8);
+        }
+
+        .group-goods .goods-price P {
+            display: inline-block;
+            transform: scale(.7);
+            color: red;
+        }
+
+        .group-goods .goods-price i {
+            color: red;
+            display: inline-block;
+            transform: scale(1.2);
+
+            font-style: normal;
+        }
+
+        .group-goods .goods-beforeprice {
+            transform: scale(.9);
+            color: #CECECE;
+            text-decoration: line-through;
+        }
+
+        .goods-more a,
+        .phones-more a,
+        .fittings-more a {
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            font-size: .14rem;
+            line-height: .5rem;
+            color: #CECECE;
+            background-color: white;
+        }
+
+        .phones-goods,
+        .fittings-goods {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #E6E6E6;
+        }
+
+        .phones-goods a img .fittings-goods a img {
+            max-height: 100%;
+            width: 1.39rem;
+            object-fit: cover;
+        }
+
+        .phones-goods a,
+        .fittings-goods a {
+            width: 1.76rem;
+            padding: .1rem;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+            color: black;
+        }
+
+        .phones-goods a ul li,
+        .fittings-goods a ul li {
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        .phones-name,
+        .fittings-name {
+            font-weight: bold;
+            font-size: .12rem;
+        }
+
+        .phones-introduce,
+        .fittings-introduce {
+            color: #7C7C7C;
+            font-size: .12rem;
+        }
+
+        .phones-price p,
+        .fittings-price p {
+            display: inline-block;
+            color: red;
+            transform: scale(.7);
+        }
+
+        .phones-price i,
+        .fittings-price i {
+            display: inline-block;
+            color: red;
+            font-style: normal;
+            transform: scale(.9);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">vivo官方商城</div>
+        <div class="main">
+            <div class="content">
+
+                <div class="roulous-plate">
+                    <div class="roulous">
+                        <p class="roulous1"><img src="../vivo商城/image/1.png" alt=""></p>
+                    </div>
+                    <ul class="roulous-bottom">
+                        <li><i></i>官方正品</li>
+                        <li><i></i>顺丰极速达</li>
+                        <li><i></i>全国联保</li>
+                        <li><i></i>镭雕指定</li>
+                    </ul>
+                </div>
+
+
+                <div class="group-plate">
+                    <div class="group-header">
+                        <div class="group-text"><i class="group-line-1"></i>超值拼团<i class="group-line-2"></i></div>
+                    </div>
+                    <div class="group-goods">
+                        <a href="#">
+                            <img src="../vivo商城/image/2.png" alt="">
+                            <ul>
+                                <li class="goods-name">vivo 2A USB数据线</li>
+                                <li class="goods-introduce">官方原装正品,变持18W...</li>
+                                <li class="goods-price">拼团价: <p>￥</p><i>9.9</i></li>
+                                <li class="goods-beforeprice">￥19</li>
+                            </ul>
+                        </a>
+                        <a href="#">
+                            <img src="../vivo商城/image/3.png" alt="">
+                            <ul>
+                                <li class="goods-name">vivo 2A USB数据线</li>
+                                <li class="goods-introduce">官方原装正品,变持18W...</li>
+                                <li class="goods-price">拼团价: <p>￥</p><i>9.9</i></li>
+                                <li class="goods-beforeprice">￥19</li>
+                            </ul>
+                        </a>
+                        <a href="#">
+                            <img src="../vivo商城/image/2.png" alt="">
+                            <ul>
+                                <li class="goods-name">vivo 2A USB数据线</li>
+                                <li class="goods-introduce">官方原装正品,变持18W...</li>
+                                <li class="goods-price">拼团价: <p>￥</p><i>9.9</i></li>
+                                <li class="goods-beforeprice">￥19</li>
+                            </ul>
+                        </a>
+                        <a href="#">
+                            <img src="../vivo商城/image/3.png" alt="">
+                            <ul>
+                                <li class="goods-name">vivo 2A USB数据线</li>
+                                <li class="goods-introduce">官方原装正品,变持18W...</li>
+                                <li class="goods-price">拼团价: <p>￥</p><i>9.9</i></li>
+                                <li class="goods-beforeprice">￥19</li>
+                            </ul>
+                        </a>
+
+                    </div>
+                    <div class="goods-more">
+                        <a href="#">查看更多</a>
+                    </div>
+                </div>
+
+                <div class="phones-plate">
+                    <div class="phones-header">
+                        <div class="phones-text"><i class="phones-line-1"></i>热销机型<i class="phones-line-2"></i></div>
+                    </div>
+                    <div class="phones-goods">
+                        <a href="vivoshop-3详情.html">
+                            <img src="../vivo商城/image/4.png" alt="">
+                            <ul>
+                                <li class="phones-name">vivo Y3</li>
+                                <li class="phones-introduce">5000Ah大电池</li>
+                                <li class="phones-price">
+                                    <p>￥</p><i>1198</i>
+                                </li>
+                            </ul>
+                        </a>
+                        <a href="#">
+                            <img src="../vivo商城/image/5.png" alt="">
+                            <ul>
+                                <li class="phones-name">vivo Y3</li>
+                                <li class="phones-introduce">5000Ah大电池</li>
+                                <li class="phones-price">
+                                    <p>￥</p><i>1198</i>
+                                </li>
+                            </ul>
+                        </a>
+                        <a href="#">
+                            <img src="../vivo商城/image/4.png" alt="">
+                            <ul>
+                                <li class="phones-name">vivo Y3</li>
+                                <li class="phones-introduce">5000Ah大电池</li>
+                                <li class="phones-price">
+                                    <p>￥</p><i>1198</i>
+                                </li>
+                            </ul>
+                        </a>
+                        <a href="#">
+                            <img src="../vivo商城/image/5.png" alt="">
+                            <ul>
+                                <li class="phones-name">vivo Y3</li>
+                                <li class="phones-introduce">5000Ah大电池</li>
+                                <li class="phones-price">
+                                    <p>￥</p><i>1198</i>
+                                </li>
+                            </ul>
+                        </a>
+                        <a href="#">
+                            <img src="../vivo商城/image/5.png" alt="">
+                            <ul>
+                                <li class="phones-name">vivo Y3</li>
+                                <li class="phones-introduce">5000Ah大电池</li>
+                                <li class="phones-price">
+                                    <p>￥</p><i>1198</i>
+                                </li>
+                            </ul>
+                        </a>
+                        <a href="#">
+                            <img src="../vivo商城/image/4.png" alt="">
+                            <ul>
+                                <li class="phones-name">vivo Y3</li>
+                                <li class="phones-introduce">5000Ah大电池</li>
+                                <li class="phones-price">
+                                    <p>￥</p><i>1198</i>
+                                </li>
+                            </ul>
+                        </a><a href="#">
+                            <img src="../vivo商城/image/5.png" alt="">
+                            <ul>
+                                <li class="phones-name">vivo Y3</li>
+                                <li class="phones-introduce">5000Ah大电池</li>
+                                <li class="phones-price">
+                                    <p>￥</p><i>1198</i>
+                                </li>
+                            </ul>
+                        </a>
+                        <a href="#">
+                            <img src="../vivo商城/image/4.png" alt="">
+                            <ul>
+                                <li class="phones-name">vivo Y3</li>
+                                <li class="phones-introduce">5000Ah大电池</li>
+                                <li class="phones-price">
+                                    <p>￥</p><i>1198</i>
+                                </li>
+                            </ul>
+                        </a>
+                        <a href="#">
+                            <img src="../vivo商城/image/5.png" alt="">
+                            <ul>
+                                <li class="phones-name">vivo Y3</li>
+                                <li class="phones-introduce">5000Ah大电池</li>
+                                <li class="phones-price">
+                                    <p>￥</p><i>1198</i>
+                                </li>
+                            </ul>
+                        </a>
+                        <a href="#">
+                            <img src="../vivo商城/image/4.png" alt="">
+                            <ul>
+                                <li class="phones-name">vivo Y3</li>
+                                <li class="phones-introduce">5000Ah大电池</li>
+                                <li class="phones-price">
+                                    <p>￥</p><i>1198</i>
+                                </li>
+                            </ul>
+                        </a>
+                    </div>
+                    <div class="phones-more">
+                        <a href="#">查看更多</a>
+                    </div>
+                </div>
+
+                <div class="fittings-plate">
+                    <div class="fittings-header">
+                        <div class="fittings-text"><i class="fittings-line-1"></i>精品配件<i class="fittings-line-2"></i>
+                        </div>
+                    </div>
+                    <div class="fittings-goods">
+                        <a href="#">
+                            <img src="../vivo商城/image/5.png" alt="">
+                            <ul>
+                                <li class="fittings-name">vivo Y3</li>
+                                <li class="fittings-introduce">5000Ah大电池</li>
+                                <li class="fittings-price">
+                                    <p>￥</p><i>1198</i>
+                                </li>
+                            </ul>
+                        </a>
+                        <a href="#">
+                            <img src="../vivo商城/image/4.png" alt="">
+                            <ul>
+                                <li class="fittings-name">vivo Y3</li>
+                                <li class="fittings-introduce">5000Ah大电池</li>
+                                <li class="fittings-price">
+                                    <p>￥</p><i>1198</i>
+                                </li>
+                            </ul>
+                        </a>
+                        <a href="#">
+                            <img src="../vivo商城/image/5.png" alt="">
+                            <ul>
+                                <li class="fittings-name">vivo Y3</li>
+                                <li class="fittings-introduce">5000Ah大电池</li>
+                                <li class="fittings-price">
+                                    <p>￥</p><i>1198</i>
+                                </li>
+                            </ul>
+                        </a>
+                        <a href="#">
+                            <img src="../vivo商城/image/4.png" alt="">
+                            <ul>
+                                <li class="fittings-name">vivo Y3</li>
+                                <li class="fittings-introduce">5000Ah大电池</li>
+                                <li class="fittings-price">
+                                    <p>￥</p><i>1198</i>
+                                </li>
+                            </ul>
+                        </a>
+                        <a href="#">
+                            <img src="../vivo商城/image/5.png" alt="">
+                            <ul>
+                                <li class="fittings-name">vivo Y3</li>
+                                <li class="fittings-introduce">5000Ah大电池</li>
+                                <li class="fittings-price">
+                                    <p>￥</p><i>1198</i>
+                                </li>
+                            </ul>
+                        </a>
+                        <a href="#">
+                            <img src="../vivo商城/image/4.png" alt="">
+                            <ul>
+                                <li class="fittings-name">vivo Y3</li>
+                                <li class="fittings-introduce">5000Ah大电池</li>
+                                <li class="fittings-price">
+                                    <p>￥</p><i>1198</i>
+                                </li>
+                            </ul>
+                        </a>
+                        <a href="#">
+                            <img src="../vivo商城/image/5.png" alt="">
+                            <ul>
+                                <li class="fittings-name">vivo Y3</li>
+                                <li class="fittings-introduce">5000Ah大电池</li>
+                                <li class="fittings-price">
+                                    <p>￥</p><i>1198</i>
+                                </li>
+                            </ul>
+                        </a>
+                        <a href="#">
+                            <img src="../vivo商城/image/4.png" alt="">
+                            <ul>
+                                <li class="fittings-name">vivo Y3</li>
+                                <li class="fittings-introduce">5000Ah大电池</li>
+                                <li class="fittings-price">
+                                    <p>￥</p><i>1198</i>
+                                </li>
+                            </ul>
+                        </a>
+                    </div>
+                </div>
+                <div class="fittings-more">
+                    <a href="#">查看更多</a>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+        
+<style>
+    .footernav{
+    bottom: 0;
+    font-size: 0; line-height: .3rem;
+  }
+  .home-page,
+        .all,
+        .my {
+         
+          font-size: .16rem;
+          display: inline-block;
+          width: 33.33333%;
+          text-align: center;
+        }
+  
+        .home-page a,
+        .all a,
+        .my a {
+          display: block;
+          color: black;
+          text-decoration: none;
+        }
+  
+        .home-page span,
+        .all span,
+        .my span {
+          display: block;
+        }
+  </style>
+      <div class="footernav">
+        <div class="home-page" tabindex="0">
+          <div ><a href="vivoshop-1.html">
+              <i class="iconfont home">&#xe6f1;</i>
+              <span>首页</span>
+            </a></div>
+        </div>
+        <div class="all" tabindex="1">
+          <div><a href="vivoshop-2分类.html"><i class="iconfont home">&#xe638;</i><span>全部分类</span></a></div>
+        </div>
+        <div class="my" tabindex="2">
+  
+          <div> <a href="vivoshop-5我的.html"> <i class="iconfont home">&#xe828;</i><span>我的</span></a></div>
+  
+        </div>
+      </div>
+  
+    </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var info = {
+            age:24,
+            name:'tony',
+            gender:'男'
+        }
+        console.log(JSON.stringify(info,["age","gender"],4))//4   缩进四格
+
+
+var str = '{"age":24,"name":"tony"}';
+var result = JSON.parse(str,function(key,val){
+    if(key === 'age'){
+        return val-2;
+    }
+    return val;
+})
+console.log(result)
+
+
+
+    </script>
+</body>
+</html>

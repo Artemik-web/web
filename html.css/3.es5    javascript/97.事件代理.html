@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="add()">添加</button>
+    <ul id="list">
+        <li><b>首页</b></li>
+        <li>关于</li>
+        <li>联系</li>
+      </ul>
+
+
+      <script>
+          function add(){
+              var li = document.createElement('li');
+              li.innerText = prompt('请输入名称');
+              list.appendChild(li)
+          }
+
+        //   var lis = document.querySelectorAll('li');
+        //   lis.forEach(function(li){
+        //       li.onclick = function(){
+        //           alert(this.innerText)
+        //       }
+        //   })
+
+
+
+
+
+
+
+
+
+          //事件代理
+
+          list.onclick = function(event){
+              var li = event.target.closest('li');
+              if(li){
+                  alert(li.innerText)
+              }
+          }
+      </script>
+</body>
+</html>

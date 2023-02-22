@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function get(){
+        //     var xhr = new XMLHttpRequest;
+        //     xhr.responseType = 'json';
+        //     xhr.timeout = 1000;
+        //     xhr.ontimeout = function(){
+        //         console.log('超时了')
+        //     }
+        //     xhr.onreadystatechange = function(){
+        //         if(xhr.readyState === 4 && xhr.status === 200){
+        //             console.log(xhr.response);
+        //         }
+        //     }
+        //         xhr.open('GET', 'http://cloud.scnew.com.cn/api/course/book', true)
+
+        //     xhr.send();
+        // }
+
+
+
+                function get(){
+            var xhr = new XMLHttpRequest;
+           
+            xhr.onload = function(){
+                console.log('xhr')
+            }
+          
+           xhr.open('GET', 'http://cloud.scnew.com.cn/api/course/book', false)
+
+            xhr.send();
+        }
+        get();
+        console.log('hello')
+    </script>
+</body>
+</html>

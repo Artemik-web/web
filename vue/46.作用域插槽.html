@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  .gx-nav{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #eee;
+  }
+  .gx-nav li{
+    padding: 20px;
+    cursor: pointer;
+  }
+  .gx-nav li.active{
+    background-color: #999;
+  }
+  </style>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  
+  <div id="app">
+
+    <gx-nav :active="2" :data="meuns">
+        <template v-slot="row">
+            <span>{{row.icon}}</span><span>{{row.name}}</span>
+            </template>
+    </gx-nav>
+    <gx-nav :active="2" :data="meuns">
+        <template v-slot="row">
+            <a :href="row.href">{{row.name}}</a>
+            </template>
+    </gx-nav>
+
+  </div>
+
+  <script>
+  Vue.component('GxNav',{
+    props: {
+      active: {
+        type: Number,
+        default: 0
+      },
+      data: Array,
+    },
+    data(){
+      return {
+        current: this.active
+      }
+    },
+    template: `
+    <ul class="gx-nav">
+      <li 
+      v-for="(item,index) in data" 
+      :class="{active: current===index}"
+      @click="current=index"
+      >
+        <!--作用yu插槽-->
+       <slot v-bind:="item">{{item.name}}</slot>
+      </li>
+    </ul>
+    `
+  })
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+        meuns: [
+        {id:1, name:'首页', icon: '❤', href:"#"},
+        {id:2, name:'关于', icon: '✈', href:"#"},
+        {id:3, name:'产品', icon: '★', href:"#"},
+    ]}
+  })
+  </script>
+
+</body>
+</html>

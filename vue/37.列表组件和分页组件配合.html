@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  
+  <div id="app">
+
+    <gx-list :page="page" :perpage="perpage" :data="fruit"></gx-list>
+
+    <gx-page 
+    v-model="page" 
+    :perpage="perpage"
+    :total="fruit.length" 
+    ></gx-page>
+
+   </div>
+
+  <script>
+  Vue.component('GxList',{
+    props: {
+      page: {
+        type: Number,
+        default: 1
+      },
+      perpage: {
+        type: Number,
+        default: 2
+      },
+      data: {
+        required: true,
+        type: Array
+      }
+    },
+    computed: {
+      pageData(){
+        let start = (this.page-1) * this.perpage;
+        let end = start + this.perpage;
+        return this.data.slice(start, end);
+      }
+    },
+    template: `<ul>
+      <li v-for="item in pageData">{{item}}</li>
+    </ul>`
+  })
+
+
+  Vue.component('GxPage',{
+    props: ['value','perpage','totalpage','total'],
+    data(){
+      return {
+        page: this.value
+      }
+    },
+    computed: {
+      pagecount(){
+        return this.totalpage || Math.ceil( this.total/this.perpage );
+      }
+    },
+    template: `
+    <p>
+      <button 
+      v-for="p in pagecount" 
+      @click="page=p,$emit('input', p)"
+      :style="{color: page===p?'red':''}"
+      >{{p}}</button>
+    </p>
+    `
+  })
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      page: 2,
+      perpage: 4,
+      fruit: ['苹果','桔子','菠萝','香蕉','菠萝蜜','西瓜','葡萄']
+    }
+  })
+
+  </script>
+
+</body>
+</html>

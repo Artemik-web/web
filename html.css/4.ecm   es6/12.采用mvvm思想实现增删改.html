@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <button onclick="add()">添加</button>
+  <ul id="list"></ul>
+
+  <script>
+
+  var fruit = ['苹果','桔子','菠萝'];
+
+  view( fruit );
+
+  function view( data ){
+    list.innerHTML = data.reduce( (temp,val, index) =>{
+      return temp + `<li>${val} <button onclick="edit(${index})">修改</button> <button onclick="del(${index})">删除</button></li>`;
+    },'');
+  }
+
+  var vm = new Proxy(fruit, {
+    set( target, key, val ){
+      target[key] = val;
+      view( target );
+    },
+    deleteProperty(target, index){
+      target.splice(index, 1);
+      view( target );
+    }
+  })
+
+
+
+
+  function add(){
+    var val = prompt('请输入水果名称！');
+    vm[fruit.length] = val;
+  }
+
+  function del( index ){
+    if(confirm('您确定要删除此项吗？')){
+      delete vm[index];
+    }
+  }
+
+  function edit( index ){
+    var val = prompt('请输入水果名称！', vm[index]);
+    vm[index] = val;
+  }
+
+  </script>
+
+
+</body>
+</html>

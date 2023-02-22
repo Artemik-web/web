@@ -1,0 +1,53 @@
+<template>
+    <div>
+        <h1>姓名：{{name}}</h1>
+        <h1>年龄：{{age}}</h1>
+        <h1>公司：{{company}}</h1>
+        <h1>产品：{{obj.taobao}}</h1>
+    </div>
+    <hr>
+    <button @click="btn">点击更新视图层某个数据</button>
+</template>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app">{{ message }}</div>
+
+<script>
+  const { createApp } = Vue
+  
+  createApp({
+    data() {
+      return {
+        message: 'Hello Vue!'
+      }
+    }
+  }).mount('#app')
+</script>
+<script>
+import {ref} from 'vue'
+export default ({
+    setup(){
+        // const name = '马云'
+        //转成ref对象
+        const name = ref('马云')
+        const age = 50
+        const company = '阿里巴巴'
+
+        //对象类型
+        const obj = {
+            taobao: '淘宝',
+            tamll: '天猫'
+        }
+        function btn(){
+            //改变ref对象中name的值
+            name.value = '马化腾'
+        }
+        return {
+            name,
+            age,
+            company,
+            obj
+        }
+    }
+})
+</script>

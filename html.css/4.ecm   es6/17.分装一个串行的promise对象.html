@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+
+
+
+
+<script>
+//     const doIt = (task, time=1000) =>{
+//     return new Promise(function(reslove){
+//         setTimeout(() => {
+//             // console.log(task)
+//             reslove(task)
+            
+//         }, time);
+//     })
+// };
+
+
+// var tasks = [doIt('买菜'),doIt('洗菜'),doIt('做菜'),doIt('吃饭'),doIt('洗碗')];
+
+// function run(arr){
+//     arr.reduce((prev,next)=>{
+//         return prev.then(next)
+//     },Promise.resolve());
+// }
+
+// // reduce相当于promise.reslove().then(doIt('')).then(doIt(''))
+// run(tasks)
+
+
+
+// Promise.all([doIt('买菜',5000),doIt('洗菜'),doIt('做菜'),doIt('吃饭'),doIt('洗碗')])
+// .then(function(res){
+//     console.log(res)
+// })
+
+
+
+// Promise.race([doIt('买菜',5000),doIt('洗菜'),doIt('做菜'),doIt('吃饭'),doIt('洗碗')])
+// .then(function(res){
+//     console.log(res)
+// })
+
+const doIt = (task, time=1000) =>{
+    return new Promise(function(reslove,reject){
+        setTimeout(() => {
+            // console.log(task)
+            if(Math.random()>0.5){
+
+            
+            reslove(task)
+            }else{
+                reject('错误')
+            }
+        }, time);
+    })
+};
+
+Promise.allSettled([doIt('买菜',5000),doIt('洗菜'),doIt('做菜'),doIt('吃饭'),doIt('洗碗')])
+.then(function(res){
+    console.log(res)
+})
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="province" onchange="change(this)">
+  
+    </select>
+    <select id="city" >
+       <option value="" onchange="change(this)">选择市</option>
+    </select>
+    <select id="area">
+    <option value="">选择区</option>    
+    </select>
+    <script>
+  var data = [
+    { 
+      name:'江西省', 
+      children: [
+        { name: '南昌市',children:[{name:'高新区'},{name:'东湖区'},{name:'西湖区'}] },
+        { name: '赣州市',children:[{name:'高新区'},{name:'东湖区'},{name:'西湖区'}] },
+        { name: '九江市' },
+      ]
+    },
+    { 
+      name:'浙江省', 
+      children: [
+        { name: '温州市' },
+        { name: '杭州市' },
+        { name: '宁波市' },
+      ]
+    },
+    { 
+      name:'湖南省', 
+      children: [
+        { name: '长沙市' },
+        { name: '衡阳市' },
+      ]
+    },
+  ];
+  view(data,province,'选择省');
+  function view(arr,id,label){
+  id.innerHTML = arr.reduce(function(temp,item){
+      return temp + `
+        <option value="${item.name}">${item.name}</option>`;
+  },`<option value="${label}">${label}</option>`);
+
+}
+
+function change(item){
+    var index = item.selectedIndex - 1;
+    var children = [];
+     if(index !==-1)  children   = data[index].children
+     console.log( item)
+     view(children,city,'选择市');
+     
+}
+
+
+    </script>
+</body>
+</html>

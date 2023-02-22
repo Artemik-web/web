@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <ztl-page :page="cpage":perpage="2" :total="20" :get-page="getPage"></ztl-page>
+       <h1>{{cpage}}</h1>
+    </div>
+    <script>
+        Vue.component('ZtlPage',{
+            props: ['page','totalpage','perpage','total','get-page'],
+            data(){
+                return {
+                    page_:this.page,
+                }
+            },
+            computed: {
+                pagecount(){
+                    return this.totalpage || Math.ceil(this.total/this.perpage);
+                }
+            },
+            watch: {
+                page_(val){
+                    this.getPage(val)
+                }
+            },
+            template:`
+            <p>
+            <button :disabled='page_ === 1' @click="page_--">上页</button>
+            <button
+            v-for="p in pagecount"
+            @click="page_ = p"
+            :style="{color: page_===p? 'red':''}">{{p}}</button>
+            <button :disabled='page_ === pagecount' @click="page_++">下页</button>
+
+        </p>`
+        })
+        const app = new Vue({
+            el:'#app',
+            data:{
+                cpage: 1,
+                getPage(p){
+                    app.cpage = p;
+                }
+            },
+            // methods:{
+            //     getPage(p){
+            //         app.capage = p;
+            //     }
+            // }
+        })
+    </script>
+</body>
+</html>

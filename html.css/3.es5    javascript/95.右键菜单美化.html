@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        html,body{
+          background-color: #eee;
+        }
+      
+        .contextmenu{
+          display: v;
+          position: fixed;
+          list-style: none;
+          min-width: 120px;
+          padding: 5px 0;
+          margin: 0;
+          background-color: white;
+          border: 1px solid #f0f0f0;
+          box-shadow: 1px 1px 2px rgba(0, 0, 0, .3);
+        }
+        .contextmenu li{
+          padding: 6px 12px;
+          font-size: 14px;
+          color: #333;
+          cursor: default;
+        }
+        .contextmenu li:hover{
+          background-color: rgb(0, 140, 255);
+          color: white;
+        }
+        .contextmenu li.divider{
+          padding: 0;
+          height: 1px;
+          background-color: #f0f0f0;
+          margin: 5px 0;
+        }
+        </style>
+      
+      <ul class="contextmenu">
+        <li>新建</li>
+        <li>修改</li>
+        <li class="divider"></li>
+        <li>删除</li>
+      </ul>
+
+      <script>
+          document.oncontextmenu = function(event){
+              console.log(event);
+
+              event.preventDefault();
+
+              var contextmenu = document.querySelector('.contextmenu');
+              var left = event.clientX;
+              var right = event.clientY;
+
+              var ww = window.innerWidth;
+              var sw = contextmenu.offsetWidth;
+              var mw = ww - sw;
+
+
+
+              var wh = window.innerHeight;
+              var sh = contextmenu.offsetHeight;
+              var mh = wh - sh;
+
+
+            if(left >= mw) left = mw;
+            if(top >= mh) top = mh;
+
+            contextmenu.style.display = 'block';
+            contextmenu.style.left = left + 'px';
+            contextmenu.style.top = top + 'px';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          }
+          document.onclick = function(){
+              var contextmenu = document.querySelector('.contextmenu');
+              contextmenu.style.display = 'none'
+          }
+      </script>
+</body>
+</html>

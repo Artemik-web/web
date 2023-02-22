@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .menu {
+          
+            width: 500px;
+            display: flex;
+        }
+
+        .menu li{
+            list-style: none;
+        }
+        .menu li ul{
+            background-color: blue;
+
+            color: red;
+        }
+        .menu li ul{
+            display: none;
+        }
+        .menu li ul li{
+            margin: 1px 1px;
+            background-color: red;
+
+            color: red;
+        }
+        li a{
+            text-align: center;
+        }
+      
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <ul class="menu">
+
+            <li>
+                <a href="">微博</a>
+                <ul>
+                    <li><a href="">1</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">微博</a>
+                <ul>
+                    <li><a href="">1</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="">微博</a>
+                <ul>
+                    <li><a href="">1</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                </ul>
+            </li>
+            <li> <a href="">微博</a>
+                <ul>
+                    <li><a href="">1</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script>
+        $(function(){
+            $('.menu>li').mouseover(function(){
+                $(this).children('ul').show()
+            })
+            $('.menu>li').mouseout(function(){
+                $(this).children('ul').hide()
+            })
+        })
+    </script>
+</body>
+
+</html>

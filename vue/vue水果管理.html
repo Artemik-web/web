@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    input,
+    select,
+    button {
+      font-family: inherit;
+      box-sizing: border-box;
+      user-select: none;
+    }
+    button.active{
+      color: red;
+    }
+    [v-cloak]{
+      display: none;
+    }
+  </style>
+  <script src="js/vue.js"></script>
+</head>
+
+<body>
+
+  <div id="app" v-cloak>
+
+    <h1>水果列表</h1>
+
+    <p>
+      <button v-on:click="add">添加</button>
+
+      <input type="search" v-model="keyword">
+    </p>
+
+    <table border="1" width="500">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>名称</th>
+          <th>单价</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr v-if="!searchData.length">
+          <td colspan="999" align="center">暂无数据！</td>
+        </tr>
+        <tr v-for="(item,index) in pageData" v-bind:key="item.id">
+          <td>{{index+1}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.price}}</td>
+          <td>
+            <button v-on:click="editById(item.id)">修改</button>
+            <button v-on:click="delById(item.id)">删除</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>
+      <button v-bind:disabled="page==1" v-on:click="page--">上页</button>
+      <button 
+      v-for="p in totalpage" 
+      v-on:click="page=p"
+      v-bind:class="{active: page===p}"
+      >{{p}}</button>
+      <button v-bind:disabled="page==totalpage" v-on:click="page++">下页</button>
+      <input type="number" style="width: 50px;" v-model="page">
+      <select v-model="perpage">
+        <option v-bind:value="2">每页2条</option>
+        <option v-bind:value="3">每页3条</option>
+        <option v-bind:value="4">每页4条</option>
+      </select>
+    </p>
+  </div>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        fruit: [
+          {id: 1, place: '山东', name: '苹果1', price: 5, addtime: '2021-08-30'},
+          {id: 2, place: '江西', name: '桔子', price: 2, addtime: '2021-08-27'},
+          {id: 3, place: '海南岛', name: '香蕉', price: 3, addtime: '2021-08-26'},
+          {id: 4, place: '海南岛', name: '菠萝', price: 6, addtime: '2021-08-29'},
+          {id: 5, place: '新疆', name: '葡萄', price: 12, addtime: '2021-08-24'},
+          {id: 6, place: '山东', name: '苹果2', price: 7, addtime: '2021-08-26'},
+          {id: 7, place: '山东', name: '苹果3', price: 8, addtime: '2021-08-31'},
+          {id: 8, place: '山东', name: '苹果4', price: 4, addtime: '2021-09-1'},
+          {id: 9, place: '泰国', name: '山竹', price: 12, addtime: '2021-09-2'},
+        ],
+        keyword: '',
+        page: 1,
+        perpage: 2
+      },
+      watch: {
+        keyword(){
+          this.page=1;
+        },
+        totalpage(val){
+          if(this.page > val){
+            this.page--;
+          }
+        }
+      },
+      computed: {
+        searchData(){
+          return this.fruit.filter( item => {
+            return item.name.includes(this.keyword);
+          })
+        },
+        totalpage(){
+          return Math.ceil(this.searchData.length/this.perpage);
+        },
+        pageData(){
+          let start = (this.page-1) * this.perpage;
+          let end = start + this.perpage;
+          return this.searchData.slice(start, end);
+        }
+      },
+      methods: {
+        add() {
+          this.fruit.unshift({
+            id: this.fruit.length + 1,
+            name: prompt('请输入水果名称！'),
+            price: +prompt('请输入水果单价！')
+          })
+          this.page=1;
+        },
+        delById(id) {
+          if (confirm('您确定要删除此行吗？')) {
+            this.fruit = this.fruit.filter(item => {
+              return item.id != id;
+            })
+          }
+        },
+        editById(id) {
+          let row = this.fruit.find(item => item.id === id);
+          let name = prompt('请输入名称', row.name);
+          let price = prompt('请输入名称', row.price);
+
+          this.fruit = this.fruit.map(item => {
+            if (item.id === id) {
+              item.name = name;
+              item.price = price;
+            }
+            return item;
+          })
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>

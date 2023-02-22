@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水果管理</title>
+    <style>
+        /* reset css */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        input,
+        button,
+        select {
+            font-family: inherit;
+            color: inherit;
+            font-size: inherit;
+            outline: none;
+            height: auto;
+        }
+
+        select {
+            appearance: none;
+            padding-right: 20px !important;
+            background: url(arrow.png) no-repeat 100% 50%;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        [disabled] {
+            opacity: .5;
+            cursor: not-allowed;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        body {
+            font-size: 14px;
+        }
+
+        /* layout css */
+        .clearfix::after {
+            display: block;
+            content: " ";
+            clear: both;
+            visibility: hidden;
+            font-size: 0;
+            height: 0;
+        }
+
+        .input,
+        .btn {
+            border: 1px solid #b0b0b0;
+            background-color: white;
+            padding: 4px 12px;
+            border-radius: 4px;
+        }
+
+
+        .btn:hover,
+        .input:focus {
+            border-color: #666;
+        }
+
+        .heading {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .fruit {
+            margin: 0 auto 20px;
+        }
+
+        .search {
+            width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        .search * {
+            float: left;
+        }
+
+        .search .input,
+        .search .btn {
+            margin-right: 6px;
+        }
+
+        .search [type="number"] {
+            width: 100px;
+        }
+
+        .fruit th,
+        .fruit td {
+            border: 1px solid #ccc;
+            padding: 10px 12px;
+            text-align: left;
+        }
+
+        .fruit th.center,
+        .fruit td.center {
+            text-align: center;
+        }
+
+        .fruit td.right {
+            text-align: right;
+        }
+
+        .fruit td.right em {
+            font-style: normal;
+            color: red;
+        }
+
+        .fruit tbody tr:nth-child(odd) {
+            background-color: #eee;
+        }
+
+        .sort {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .sort::before,
+        .sort::after {
+            position: absolute;
+            right: 7px;
+            font-size: 12px;
+            transform: scale(.8);
+        }
+
+        .sort::before {
+            content: "▲";
+            top: 7px;
+        }
+
+        .sort::after {
+            content: "▼";
+            bottom: 7px;
+        }
+
+        .sort.asc::before,
+        .sort.desc::after {
+            color: red;
+        }
+
+        .pager {
+            width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .pager button {
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background-color: white;
+            margin: 0 4px;
+        }
+
+        .pager button:not([disabled], .active):hover {
+            border-color: #666;
+        }
+
+        .pager button.active {
+            background-color: red;
+            color: white;
+            border-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 class="heading">水果管理</h1>
+
+    <div class="search clearfix">
+        <button class="btn" onclick="batchDel()">批量删除</button>
+        <select id="origin" class="input">
+            <option value="">选择产地</option>
+            <option value="泰国">泰国</option>
+            <option value="海南岛">海南岛</option>
+            <option value="智利">智利</option>
+            <option value="山东">山东</option>
+            <option value="新疆">新疆</option>
+            <option value="江西">江西</option>
+        </select>
+        <input id="word" type="search" class="input" placeholder="请输入名称">
+        <input id="price1" type="number" class="input" placeholder="起始单价">
+        <input id="price2" type="number" class="input" placeholder="结束单价">
+        <button class="btn" onclick="search(this)">搜索</button>
+        <button class="btn" onclick="add()">添加</button>
+
+    </div>
+
+    <table width="800" class="fruit">
+        <thead>
+            <tr>
+                <th class="center"><input id="all" type="checkbox" onchange="checkAll()"></th>
+                <th>序号</th>
+                <th>名称</th>
+                <th>产地</th>
+                <th class="sort" onclick="sortBy(this,'price','number')">单价</th>
+                <th class="sort" onclick="sortBy(this,'addtime','date')">日期</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="list">
+
+        </tbody>
+    </table>
+
+    <div id="pager" class="pager"></div>
+
+    <script>
+        Number.prototype.toCNY = function () {
+            return '￥' + this.toFixed(2);
+        }
+
+
+
+
+
+
+        var data = localStorage.getItem('message1');
+        data = data ? JSON.parse(data) : [];
+
+
+
+
+        var fruit = [
+            { id: 1, place: '山东', name: '苹果1', price: 5, addtime: '2021-08-30' },
+            { id: 2, place: '江西', name: '桔子', price: 2, addtime: '2021-08-27' },
+            { id: 3, place: '海南岛', name: '香蕉', price: 3, addtime: '2021-08-26' },
+            { id: 4, place: '海南岛', name: '菠萝', price: 6, addtime: '2021-08-29' },
+            { id: 5, place: '新疆', name: '葡萄', price: 12, addtime: '2021-08-24' },
+            { id: 6, place: '山东', name: '苹果2', price: 7, addtime: '2021-08-26' },
+            { id: 7, place: '山东', name: '苹果3', price: 8, addtime: '2021-08-31' },
+            { id: 8, place: '山东', name: '苹果4', price: 4, addtime: '2021-09-1' },
+            { id: 9, place: '泰国', name: '山竹', price: 12, addtime: '2021-09-2' },
+        ];
+
+        var keywords = '';
+        var place = '';
+        var startPrice = '';
+        var endPrice = '';
+        var sortField = 'id';
+        var sortType = 'number';
+        var sortState = 0;
+        var cpage = 1;
+        var perpage = 3;
+        read();
+        function search() {
+            keywords = word.value.trim();
+            startPrice = +price1.value;
+            endPrice = +price2.value;
+            place = document.getElementById('origin').value;
+            read();
+        }
+        function sortBy(th, field, type = 'string') {
+            document.querySelectorAll('.sort').forEach(function (_th) {
+                if (th !== _th) _th.state = 0;
+                _th.className = 'sort';
+            })
+            th.state = !th.state ? 1 : (th.state === 1 ? -1 : 0);
+
+            var clsName = {
+                0: 'sort',
+                1: 'sort asc',
+                '-1': 'sort desc'
+            };
+            th.className = clsName[th.state];
+            sortField = field;
+            sortType = type;
+            sortState = th.state;
+            read();
+            
+
+        }
+
+        function read(page = 1) {
+            var listTemp = '';
+
+
+            var searchData = fruit.filter(function (item) {
+                return (place ? item.place === place : true) &&
+                    (keywords ? item.name.includes(keywords) : true) &&
+                    ((startPrice ? item.price >= startPrice : true) && (endPrice ? item.price <= endPrice : true))
+            })
+
+            if (!searchData.length) listTemp += `<tr align="center"><td colspan="99999">抱歉，暂无数据！</td></tr>`;
+
+            var sortData = [].concat(searchData);
+
+            sortData.sort(function (a, b) {
+                if (sortType === 'number') {
+                    return (a[sortField] - b[sortField]) * sortState;
+                } else if (sortType === 'date') {
+                    return (Date.parse(a[sortField]) - Date.parse(b[sortField])) * sortState;
+                } else {
+                    return String(a[sortField]).localeCompare(String(b[sortField])) * sortState;
+                }
+            });
+            var total = sortData.length;
+            var totalpage = Math.ceil(total / perpage);
+
+            var start = (page - 1) * perpage;
+            var end = start + perpage;
+
+            var pageData = sortData.slice(start, end);
+            pageData.forEach(function (item) {
+                listTemp += `
+          <tr>
+        <td class="center"><input type="checkbox" name="id" value="${item.id}"></td>
+        <td>${item.id}</td>
+        <td>${item.name}</td>
+        <td>${item.place}</td>
+
+        <td class="right"> <em>${item.price.toCNY()}</em></td>
+        <td>${item.addtime}</td>
+        <td>
+          <button class="btn" onclick="edit(${item.id})">修改</button>
+          <button class="btn" onclick="del([${item.id}])">移除</button>
+        </td>
+      </tr>`
+            })
+            list.innerHTML = listTemp;
+
+            var pageTemp = '';
+            pageTemp += `<button onclick="read(${page - 1})" ${page === 1 ? 'disabled' : ''}>上页</button>`;
+            for (var p = 1; p <= totalpage; p++) {
+                pageTemp += `<button onclick="read(${p})" class="${p === page ? 'active' : ''}">${p}</button>`;
+            }
+            pageTemp += `<button onclick="read(${page + 1})" ${page === totalpage ? 'disabled' : ''}>下页</button>`;
+            pager.innerHTML = pageTemp;
+
+        }
+
+
+
+        function add() {
+
+            var id = fruit.length + 1;
+            var name = prompt('请输入水果名称！');
+            var price = +prompt('请输入水果单价（数值）！');
+            var addtime = new Date().toLocaleDateString();
+
+            if (name && price) {
+                fruit.push({ id, name, price, addtime });
+                var totalpage = Math.ceil(fruit.length / perpage);
+                read(totalpage);
+            }
+            localStorage.setItem('message1', JSON.stringify(data) );
+
+        }
+
+        function edit(id) {
+
+            var row = fruit.find(function (item) {
+                return item.id === id;
+            })
+
+            var name = prompt('请输入水果名称！', row.name);
+            var price = +prompt('请输入水果单价（数值）！', row.price);
+
+            if (name && price) {
+
+                fruit = fruit.map(function (item) {
+                    if (item.id === id) {
+                        item.name = name;
+                        item.price = price;
+                    }
+                    return item;
+                })
+
+                read(cpage);
+
+            }
+            localStorage.setItem('message1', JSON.stringify(data) );
+
+        }
+
+        function del(ids) {
+
+            if (confirm('您确定要删除吗？')) {
+                fruit = fruit.filter(function (item) {
+                    return ids.indexOf(item.id) === -1;
+                })
+
+                read(cpage);
+                all.checked = false;
+
+            } else {
+                all.checked = false;
+                checkAll(all);
+            }
+            localStorage.setItem('message1', JSON.stringify(data) );
+
+        }
+        function checkAll() {
+            document.querySelectorAll('[name="id"]').forEach(function (input) {
+                input.checked = all.checked;
+            })
+        }
+
+        function batchDel() {
+
+            var ids = [];
+            document.querySelectorAll('[name="id"]:checked').forEach(function (input) {
+                ids.push(+input.value);
+            });
+
+            if (!ids.length) {
+                alert('请至少选择一项！');
+                return;
+            }
+
+            del(ids);
+
+        }
+
+    </script>
+</body>
+
+</html>

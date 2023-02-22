@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        .header{
+            width: 500px;
+            margin: 50px auto 25px;
+        }
+    </style>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="header">
+        <input type="text" v-model="keyword"><button v-on:click="search">搜索</button>
+         <button v-on:click="add">添加</button>
+        </div>
+       <table id="box" border="1" width=500 >
+           <tr>
+               <td>id</td>
+               <td>名称</td>
+               <td>单价</td>
+               <td>操作</td>
+           </tr>
+           <tr v-if="!mess.length" align="center">
+               <td colspan="4">暂无数据！</td>
+           </tr>
+           <tr v-for="obj in mess">
+                <td>{{obj.id}}</td>
+                <td>{{obj.name}}</td>
+                <td>{{obj.price}}</td>
+                <td>
+                    <button v-on:click="modify(obj)">修改</button>
+                    <button v-on:click="del(obj.id)">删除</button>
+                </td>
+           </tr>
+       </table>
+
+    </div>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                mess: [
+                   {id:1,name:'🍎',price:5}
+                ],
+                keyword: '',
+                searchData: []
+            },
+            computed: {
+
+            },
+            methods:{
+                add(){
+.mess.push({
+                                       return this    id:this.mess.length + 1,
+                        name:prompt('请输入名称！'),
+                        price:prompt('请输入单价！'),
+                    })
+                },
+                del(id){
+                    // return this.
+                    if(confirm('确认删除此行？')){
+                        this.mess = this.mess.filter(item=>{
+                        return item.id != id
+                    })
+                }
+                    
+                },
+                modify(obj){
+                    return obj.name = prompt('输入修改名'), obj.price = prompt('输入修改名')
+                },
+                search(){
+                   console.log (this.searchData.push(this.mess.includes(this.keyword)))
+                }
+            }
+        })
+    </script>
+</body>
+</html>
